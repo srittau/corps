@@ -1,0 +1,35 @@
+                          CORPS "Cyber" System 0.3.0
+                          ==========================
+
+This package contains the "Cyber" roleplaying system for use with CORPS -
+The CORBA Roleplaying System. It is located in the world of the 2060s.
+Technology has made great advances and magic has been returned.
+
+Requirements
+------------
+
+To do anything useful with this, you need at least the package corps-core.
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1998-99 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+More Information
+----------------
+
+CORPS homepage: http://www.in-berlin.de/user/jroger/corps/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/

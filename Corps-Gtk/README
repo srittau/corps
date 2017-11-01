@@ -1,0 +1,46 @@
+                          CORPS gtk+ package 0.3.0
+                          ========================
+
+The CORPS gtk+ package contains some programs for the CORBA Roleplaying
+System that require gtk+, the GIMP Tool Kit.
+
+Currently these are:
+
+o gcorps - A client using gtk+. This will support text/plain, image/* and
+  x-rpg/map. Possibly support for x-rpg/hexmap and x-rpg/dungeon will be
+  added, too.
+o maptool - A tool for creating and editing CORPS maps.
+
+Requirements
+------------
+
+latest version of corps-core (and its dependencies)
+ImLib 1.9.0 or better
+glib 1.2.0 and gtk+ 1.2.0 or better
+gtk-- 1.0.0 or better
+
+For more information about gtk+, see http://www.gtk.org/
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1998-99 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+More Information
+----------------
+
+CORPS homepage: http://www.in-berlin.de/user/jroger/corps/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/

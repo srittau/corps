@@ -1,0 +1,39 @@
+dnl Configuration file for CORPS
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) 1999 Sebastian Rittau
+
+AC_INIT(libcorpsmap/map.cc)
+AM_CONFIG_HEADER(config.h)
+
+AM_INIT_AUTOMAKE(corps-maps, 0.3.0)
+
+dnl Checks for standard programs.
+AC_ISC_POSIX
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_STDC_HEADERS
+
+dnl Check for corps
+AM_CORPS_FILE
+
+dnl Check for ImLib
+AM_PATH_GDK_IMLIB(1.9,,AC_MSG_ERROR(ImLib >= 1.9 not found.))
+AM_PATH_GTK(1.2.0,,AC_MSG_ERROR(gtk+ >= 1.2.0 not found.))
+AM_PATH_GTKMM(1.0.0,,AC_MSG_ERROR(gtk-- >= 1.0.0 not found.))
+AC_LANG_C
+
+dnl Internationalization
+ALL_LINGUAS="de"
+AM_GNU_GETTEXT
+
+AC_OUTPUT([
+	Makefile
+	libcorpsmap/Makefile
+	mapsets/Makefile
+	maps/Makefile
+	test/Makefile
+	idl/Makefile
+	intl/Makefile
+	po/Makefile.in
+])

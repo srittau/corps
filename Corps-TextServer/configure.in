@@ -1,0 +1,29 @@
+dnl Configuration file for corps-textserver
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) 1998-99 Sebastian Rittau
+
+AC_INIT(src/main.cc)
+AM_CONFIG_HEADER(config.h)
+
+AM_INIT_AUTOMAKE(corps-textserver, 0.3.0)
+
+dnl Checks for standard programs.
+AC_ISC_POSIX
+
+AC_PROG_CXX
+AC_LANG_CPLUSPLUS
+
+dnl Check for CORPS stuff
+AM_PATH_CORPS(0.3.0,, AC_MSG_ERROR(CORPS >= 0.3.0 not found.))
+AM_CORPS_CORBA(, AC_MSG_ERROR(CORPS CORBA libraries not found.))
+
+dnl Internationalization
+ALL_LINGUAS="de"
+AM_GNU_GETTEXT
+
+AC_OUTPUT([
+	Makefile
+	intl/Makefile
+	po/Makefile.in
+	src/Makefile
+])

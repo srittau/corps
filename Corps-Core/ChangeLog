@@ -1,0 +1,763 @@
+2000-04-16  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/tools.cc: Removed calls of num2str(). Oops.
+
+	* libcorpstool/tools.cc, libcorpstool/tools.hh:
+	Got rid of num2str(). Use sprintf() instead.
+
+	* libcorpscorba/ch-history-wrapper.hh, libcorpscorba/clienthandler-impl.hh, libcorpscorba/clienthandler-wrapper.cc, libcorpscorba/clienthandler-wrapper.hh, libcorpscorba/client-impl.cc, libcorpscorba/client-impl.hh, libcorpscorba/client-wrapper.cc, libcorpscorba/client-wrapper.hh, libcorpscorba/gamelist-wrapper.cc, libcorpscorba/gamelist-wrapper.hh, libcorpscorba/orb.cc, libcorpscorba/orb.hh, libcorpscorba/system-wrapper.cc, libcorpscorba/system-wrapper.hh:
+	_var -> _ptr anf get_CORBA_object -> operator cleanup.
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	Renamed class CORPS_XML to class XML_FILE.
+
+	* libcorpstool/xml.cc:
+	Include "file_exception.hh" instead of "exception.hh".
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh, libcorpstool/file_exception.cc, libcorpstool/file_exception.hh, libcorpstool/Makefile.am, NEWS:
+	Splitted class Exception in class Exception and class File_Exception.
+
+2000-01-22  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/clienthandler-wrapper.cc, libcorpscorba/clienthandler-wrapper.hh:
+	Consistently use ClientHandler_ptr for passing arguments/returning objects.
+
+	Added get_CORBA_object() methods.
+
+	* libcorpscorba/client-wrapper.cc, libcorpscorba/client-wrapper.hh:
+	Consistently use Client_ptr for passing arguments/returning objects.
+
+	Added get_CORBA_object() methods.
+
+	* libcorpscorba/client-impl.cc, libcorpscorba/client-impl.hh:
+	Consistently use ClientHandler_ptr for passing arguments/returning objects.
+
+	* libcorpscorba/ch-history-wrapper.hh:
+	Added get_CORBA_object() methods.
+
+	* libcorpscorba/gamelist-wrapper.cc, libcorpscorba/gamelist-wrapper.hh:
+	Use GameList_ptr consistently for passing arguments/returning objects.
+
+	* libcorpscorba/system-wrapper.cc, libcorpscorba/system-wrapper.hh:
+	Pass System_ptr to constructor now System_var.
+
+	Added method get_CORBA_object().
+
+1999-12-31  Sebastian Rittau  <srittau@moby>
+
+	* Makefile.am:
+	Refuse to create Debian package if directory debian does not exist.
+
+1999-12-23  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: New translations.
+
+	* libcorpscorba/gamelist-impl.cc, libcorpscorba/gamelist-impl.hh:
+	Use ::GameList instead of vector<Game_Wrapper>.
+
+	* libcorpscorba/game-wrapper.cc, libcorpscorba/game-wrapper.hh:
+	Added operator==() method.
+
+	* libcorpscorba/gamelist-impl.cc, libcorpscorba/gamelist-impl.hh:
+	_unregister(string) -> _unregister(const string &)
+
+	* libcorpscorba/gamelist-wrapper.cc:
+	Removed "#include <corps/tools.hh>".
+
+	* libcorpscorba/gamelist-impl.cc, libcorpscorba/gamelist-impl.hh, libcorpscorba/Makefile.am:
+	Added RolePlaying::GameList implementation.
+
+	* libcorpscorba/game-impl.cc, libcorpscorba/system-impl.cc:
+	Check if memory could be allocated.
+
+	* libcorpscorba/system-impl.cc, libcorpscorba/system-impl.hh:
+	Made get_name() and get_description() return "string" instead of
+	"const string &".
+
+	* libcorpscorba/game-impl.cc, libcorpscorba/game-impl.hh:
+	Make get_name(), get_description(), and _join() return "string" instead of
+	"const string &".
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	Modified CORPS_XML::get_root() so that non-element nodes are ignored.
+
+	* libcorpstool/xml.cc:
+	Actually return list in CORPS_XML::Element::get_children().
+
+	* libcorpstool/xml.hh: Made CORPS_XML::split_string() static.
+
+	* NEWS:
+	Moved corps-client into a separate package and fixed bugs in File_Exception.
+
+	Close any sentence with a trailing dot.
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh:
+	Fixed bug that could cause wrong line numbers if File_Exception got
+	contructed by widening an Exception object. Version 1.4.2 -> 1.4.3.
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh:
+	Beautified output of File_Exception::get_error_string().
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh:
+	Fixed bug that caused to have File_Exception to abort program if a line
+	number was given.
+
+	Version 1.4.0 -> 1.4.1.
+
+1999-12-18  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/corbaexception.cc:
+	Print "unknown CORBA exception" instead of INTERNAL_ERROR, if CORBA
+	exception is neither an UserException nor a SystemException.
+
+	* libcorpscorba/system-impl.cc, libcorpscorba/system-impl.hh:
+	Moved System_Impl::get_name() and System_Impl::get_description() from
+	system-impl.hh to system-impl.cc.
+
+	* libcorpscorba/orb.cc, libcorpscorba/orb.hh:
+	Implemented CORPS_ORB::get_context().
+
+	* libcorpscorba/corbaexception.hh:
+	Public inheritance of CORBA::Exception.
+
+	* libcorpscorba/client-impl.cc, libcorpscorba/client-impl.hh:
+	Contexts are passed to kick() and request_object().
+
+	* Makefile.am: Fixed rule dist-debian again.
+
+	* TODO: To do: CORPS-Infocom.
+
+	* debian/changelog, Makefile.am:
+	Fixed rule dist-debian: No empty files in source package.
+
+1999-12-04  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/game-impl.hh: Fixed typo.
+
+	* libcorpscorba/game-impl.hh, libcorpscorba/game-impl.cc:
+	Contructor now requires a pointer to Game_Impl passed to it.
+
+	* libcorpscorba/game-impl.cc, libcorpscorba/game-impl.hh:
+	Added default methods for get_*(), which return the contents of protected
+	variables.
+
+	* libcorpscorba/system-impl.cc:
+	Use a default name and description if they aren't provided.
+
+	* i18n.hh: Include <libintl.h>.
+
+	* libcorpscorba/orb.cc, libcorpscorba/orb.hh:
+	Added methods ready() and run().
+
+	* libcorpscorba/orb.cc: Also destroy orb in destructor.
+
+	* libcorpscorba/system-impl.hh:
+	Added default actions for get_name() and get_description(): They return
+	a protected string variable.
+
+	* libcorpscorba/clienthandler-wrapper.cc, libcorpscorba/clienthandler-wrapper.hh:
+	Removed default constructor.
+
+	Added context handling.
+
+	* libcorpscorba/client-wrapper.cc, libcorpscorba/client-wrapper.hh:
+	Added context handling and call CORBA methods with context argument.
+
+	* libcorpscorba/ch-history-wrapper.cc, libcorpscorba/ch-history-wrapper.hh:
+	Replaced constructors by constructor that takes an ClientHandler_Wrapper
+	object as argument.
+
+	Adjusted CORBA calls to pass context argument.
+
+	* libcorpscorba/Makefile.am, libcorpscorba/orb.cc, libcorpscorba/orb.hh:
+	New class that wraps ORBs.
+
+	* idl/roleplaying.idl:
+	Removed attribute block_input from interface CH_Popup.
+
+	Added context("cookie") where possible.
+
+	* debian/changelog, debian/control:
+	Dumped standards version to 3.1.1 and added build dependencies.
+
+1999-11-13  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/tools.cc, libcorpstool/tools.hh:
+	Added function to create cookies.
+
+	* libcorpscorba/ch-history-wrapper.cc, libcorpscorba/ch-history-wrapper.hh, libcorpscorba/Makefile.am:
+	Added RolePlaying::CH_History wrapper.
+
+	* libcorpscorba/client-wrapper.cc, libcorpscorba/client-wrapper.hh:
+	Added cookie handling.
+
+1999-10-23  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/system-wrapper.cc, libcorpscorba/system-wrapper.hh, libcorpscorba/game-wrapper.cc, libcorpscorba/game-wrapper.hh:
+	Cleanups.
+
+	* libcorpscorba/Makefile.am: Compile all the new files.
+
+	* libcorpscorba/clienthandler-wrapper.cc, libcorpscorba/clienthandler-wrapper.hh, libcorpscorba/client-wrapper.cc, libcorpscorba/client-wrapper.hh, libcorpscorba/game-impl.hh, libcorpscorba/gamelist-wrapper.cc, libcorpscorba/gamelist-wrapper.hh, libcorpscorba/system-impl.cc, libcorpscorba/system-impl.hh, libcorpscorba/clienthandler-impl.cc, libcorpscorba/clienthandler-impl.hh, libcorpscorba/client-impl.cc, libcorpscorba/client-impl.hh, libcorpscorba/game-impl.cc:
+	Added many wrappers and implementations.
+
+	* libcorpscorba/corbaexception.cc, libcorpscorba/corbaexception.hh:
+	Moved from libcorpstool.
+
+	* TODO: To do: Do authentification checks in _impls.
+
+	* NEWS: Fixed a typo.
+
+	* corps.m4: Added some more omniORB libs.
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh:
+	Reworked class Exception.
+
+	Added internal exception "NO_SUCH_OBJECT".
+
+	* i18n.hh: Fixed multiple inclusion guard.
+
+	* libcorpstool/corbaexception.cc, libcorpstool/corbaexception.hh, libcorpstool/Makefile.am:
+	Moved corbaexception.{cc,hh} to libcorpscorba.
+
+	* po/de.po: One more string translated.
+
+	* idl/roleplaying.idl: Added exception UnknownMIMEType.
+
+	Added raises() expression to Client::request_object().
+
+	Changed usage of Client::join() and Client::leave().
+
+	Changed usage of GameList::register() and GameList::unregister().
+
+1999-10-17  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: Removed obsolete translations.
+
+	* NEWS, libcorpstool/corbaexception.cc, libcorpstool/corbaexception.hh, libcorpstool/Makefile.am:
+	Added class CorbaException.
+
+	* libcorpscorba/game-wrapper.cc, libcorpscorba/game-wrapper.hh, libcorpscorba/Makefile.am, libcorpscorba/system-wrapper.cc, libcorpscorba/system-wrapper.hh, NEWS:
+	Added system-wrapper and game-wrapper.
+
+	* idl/roleplaying.idl, NEWS:
+	Merged interfaces GameInfo/Game and SystemInfo/System.
+
+1999-10-01  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, debian/control: Added dependency on omniorb-dev.
+
+	* configure.in: Check for ranlib.
+
+	* autogen.sh: Create ChangeLog to satisfy automake.
+
+	Retry using aclocal without arguments if calling aclocal -I ${srcdir} fails.
+
+	* Makefile.am:
+	Issue warning, if ChangeLog can´t be created but don´t stop installing.
+
+	* docs/Makefile.am: Distribute docs/CONCEPTS.
+
+	* debian/docs: Added docs/CONCEPTS.
+
+	* idl/roleplaying.idl, NEWS: Changes to corps.idl:
+	 o Dropped concept of MIME handlers and replaced by function oriented handlers
+	 o Changed uppercase method names to lowercase (someName -> some_name)
+
+	* libcorpscorba/Makefile.am, libcorpscorba/mime-impl.cc, libcorpscorba/mime-impl.hh:
+	Removed mime handler.
+
+	* docs/CONCEPTS:
+	New file describing how servers are using the CORPS CORBA interface.
+
+1999-09-25  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, debian/dirs, debian/rules, Makefile.am:
+	Removed debian/dirs.
+
+	* debian/.cvsignore: Removed debian/files.
+
+	* configure.in, NEWS, README: Dumped version to 0.3.0.
+
+	* README: Some packages were split up or renamed.
+
+	* TODO: corps-client was moved to a separate package.
+
+	* debian/changelog, debian/control, debian/copyright:
+	Dumped standards version to 3.0.1.
+
+	corps-client was moved to a separate package.
+
+	* debian/dirs: Removed usr/games from dirs to create.
+
+	* Makefile.am: Removed debian/files.
+
+	* po/de.po: Removed obsolete entries.
+
+	* configure.in, Makefile.am: Removed client from this package.
+
+	* Makefile.am: ChangeLog ist now listed in MANIFEST.
+
+	logo.xcf is now distributed.
+
+	* debian/rules: Simplified rules file.
+
+1999-09-24  Sebastian Rittau  <srittau@moby>
+
+	* idl/roleplaying.idl:
+	MIME handlers will be replaced by functional handlers (MAIN_DISPLAY,
+	HISTORY, COMPASS, etc.) in the next version. Preparations.
+
+1999-09-10  Sebastian Rittau  <srittau@moby>
+
+	* logo.xcf: Added ninja, starship, and text.
+
+	* logo.xcf: Very first version of CORPS logo.
+
+	* libcorpscorba/Makefile.am:
+	Generated files aren´t distributed anymore.
+
+	* autogen.sh:
+	AM_CORPS_ macros are now found even if package was not installed before.
+
+	* libcorpscorba/Makefile.am:
+	Generated files are now also rebuilt if $(IDL_COMPILER) was updated.
+
+	* libcorpscorba/character-impl.cc, libcorpscorba/character-impl.hh, libcorpscorba/Makefile.am, libcorpscorba/property-impl.cc, libcorpscorba/property-impl.hh, libcorpscorba/thing-impl.cc, libcorpscorba/thing-impl.hh:
+	Added character, thing, and property implementations.
+
+	* libcorpscorba/mime-impl.cc:
+	Added a check if memory could be allocated.
+
+	* debian/changelog, debian/dirs: usr/doc -> usr/share/doc
+
+1999-06-29  Sebastian Rittau  <srittau@moby>
+
+	* idl/roleplaying.idl, NEWS: Added concept of "Thing".
+
+1999-06-20  Sebastian Rittau  <srittau@moby>
+
+	* README: libxml is required.
+
+	* autogen.sh: Removed "-I macros" from aclocal call.
+
+	* configure.in, Makefile.am:
+	Removed macros directory and put corps.m4 in root directory.
+
+	* corps.m4: Re-placed this one in root directory.
+
+1999-06-18  Sebastian Rittau  <srittau@moby>
+
+	* corps.m4, Makefile.am: Moved corps.m4 to macros directory.
+
+	* corps.m4: Put libxml.m4 into corps.m4.
+
+	* corps.m4: Added -lcorpstool to CORPS_CORBA_LIBS.
+
+	* corps.m4: Added -lcorpscorba to CORPS_CORBA_LIBS.
+
+	* NEWS: More changes to corps.m4.
+
+	* corps.m4: Integrated check for omniORB and threads.
+
+	Fixes.
+
+	* corps.m4: Include -lcorpstool into CORPS_FILE_LIBS.
+
+	* corps.m4: Renamed AM_PATH_CORPS_FILE to AM_CORPS_FILE.
+
+	* corps.m4: Fixes.
+
+	* corps.m4:
+	Splitted AC_CORPS_CORE into AM_PATH_CORPS and AM_PATH_CORPS_FILE.
+
+	* TODO: Removed obsolete entries.
+
+	* Makefile.am: Distribute corps.m4, not corps-core.m4.
+
+	* libcorpstool/file.cc, libcorpstool/file.hh, libcorpstool/Makefile.am:
+	Removed obsolete file-handler from libcorpstool.
+
+	* libcorpstool/Makefile.am, libcorpstool/README: Removed README.
+
+	* libcorpstool/xml.hh:
+	Include <parser.h> instead of <gnome-xml/parser.h>.
+
+	* libcorpstool/Makefile.am: Pass @XML_CFLAGS@ to c++-compiler.
+
+	* configure.in: Check for libxml.
+
+	* corps-core.m4, corps.m4, Makefile.am, NEWS:
+	Renamed corps-core.m4 to corps.m4.
+
+	Added check for libxml.
+
+1999-06-14  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	Added separate CORPS_XML::load() method.
+
+	CORPS_XML::CORPS_XML(filename) throws now File_Exception.
+
+	Bugfix: CORPS_XML default constructor initializes variables.
+
+	* NEWS: Added XML file handler.
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	Renamed get_childs* to get_children*.
+
+	Added default constructor to class CORBA_XML::Element.
+
+	Made variables of class CORBA_XML::Element private and added public
+	accessor methods.
+
+	Various bug fixes.
+
+1999-06-13  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/xml.hh, libcorpstool/xml.cc:
+	Added default constructor to class CORPS_XML::Attribute.
+
+	Made some methods const.
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	CORPS_XML::Attribute: make "name" and "value" private, provide read-only
+	access methods.
+
+	* debian/changelog, debian/control:
+	Renamed binary-package to corps-dev.
+
+	Placed package at priority "extra".
+
+	* libcorpstool/xml.cc, libcorpstool/xml.hh:
+	CORPS_XML: added default constructor and attribute handling methods
+
+1999-06-12  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/Makefile.am, libcorpstool/xml.cc, libcorpstool/xml.hh:
+	Added class CORPS_XML.
+
+	* README: Fixed path to tarball-archives.
+
+	* debian/changelog, configure.in, NEWS, README:
+	Changes for new version.
+
+	* README: mention corps-maps
+
+	* autogen.sh:
+	search also for string <i18n.hh> for creating of POTFILES.in
+
+	* po/de.po: removed obsolete entries
+
+	* debian/changelog, debian/control:
+	don't suggest imlib, gtk, etc., but the other corps-packages
+
+	* Makefile.am: distribute i18n.hh
+
+	* configure.in, Makefile.am, NEWS:
+	moved map-handling into separate package
+
+	* debian/control: fixed typo
+
+	removed fourth field of Standard-Version-Header
+
+	* libcorpscorba/corba.cc, libcorpstool/exception.cc, libcorpstool/file.cc, i18n.hh, NEWS, TODO:
+	use dgettext() inside of library-functions
+
+1999-06-08  Sebastian Rittau  <srittau@moby>
+
+	* debian/.cvsignore: do not ignore Makefile{,.in} anymore
+
+	* debian/Makefile.am, configure.in, Makefile.am, NEWS:
+	removed debian from source-distribute, added target debian-dist to main
+	Makefile
+
+1999-06-07  Sebastian Rittau  <srittau@moby>
+
+	* TODO: do: install dtd and css
+
+	* idl/roleplaying.idl: added interface Character
+
+1999-06-05  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, NEWS, README: dumped version to 0.1.3
+
+	added information about debian-packages
+
+	* po/de.po: removed obsolete string
+
+	* NEWS:
+	fixed: Game_Wrapper::attrs_from_object(): do not fail, if game has no
+	text-handler
+
+	* debian/.cvsignore, debian/Makefile.am, configure.in, Makefile.am:
+	include debian-directory in distribution
+
+	* debian/control: suggest corps-server, corps-data
+
+	* debian/dirs: added more dirs
+
+	* debian/docs: removed INSTALL
+
+	* TODO: do: docs & man-pages
+
+	* po/de.po: commit version-header
+
+	* NEWS: capitalized entries
+
+	new: debianized
+
+	* debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, .cvsignore:
+	debianized
+
+	* po/de.po: more translations
+
+	fixed MIME-Headers
+
+	* NEWS: renamed testcorpsmap to corps-testmap
+
+	binaries are now installed in $(prefix)/games
+
+1999-06-04  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/corba.cc:
+	added "invalid CORBA error" message in convert_CORBA_Exception()
+
+1999-06-01  Sebastian Rittau  <srittau@moby>
+
+	* docs/corba.sgml: reversed order of cookie-usage when join()ing
+
+	minimalized markup
+
+1999-05-29  Sebastian Rittau  <srittau@moby>
+
+	* docs/corba.sgml, NEWS: documentation enhancements
+
+	* docs/HACKING:
+	mention the file, in which a line must be changed to enable CORPS to run
+	on non-i386 platforms
+
+1999-05-24  Sebastian Rittau  <srittau@moby>
+
+	* idl/roleplaying.idl: reworked modifier handling
+
+	* configure.in: dumped version to 0.1.2
+
+1999-05-23  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: more translated strings
+
+	* NEWS: updated
+
+	* idl/roleplaying.idl: added attribute Game::type
+
+	* idl/roleplaying.idl:
+	removed obsolete Game::joinReturnType enumeration
+
+	* idl/roleplaying.idl:
+	Game::join() can fail because of failed authorization
+
+1999-04-25  Sebastian Rittau  <srittau@moby>
+
+	* libcorpstool/exception.cc, libcorpstool/exception.hh:
+	Bugfix: line was inserted if line was NO_LINE
+
+1999-04-18  Sebastian Rittau  <srittau@moby>
+
+	* README: Require gtk-- 1.0.0 or better
+
+	* configure.in: Require gtk-- 1.0.0 or better
+
+	test directory is now a MAPDIR
+
+	Moved down test for omniORB
+
+	* Makefile.am: test directory is now a MAPDIR
+
+1999-02-28  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/Makefile.am: Removed -D__x86__ hack
+
+	* docs/HACKING: Documented -D__x86__ hack
+
+	* README: corps-gtk requires glib/gtk+ >= 1.2.0
+
+1999-02-15  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: maps are now resizable
+
+	* NEWS: BUG: trailing zeros were deleted
+
+	* libcorpstool/tools.cc:
+	num2str(): fixed a bug, which caused trailing zeros to be deleted
+
+1999-02-12  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: new translation
+
+1999-02-07  Sebastian Rittau  <srittau@moby>
+
+	* docs/HACKING: Adopted to use of omniORB2
+
+	* idl/roleplaying.idl:
+	New exception for connecting (and possibly other purposes as well):
+	NoAuthorization
+
+	* configure.in, README, NEWS: Dumped version to 0.1.1
+
+	* README: Chaned ordering of dependencies
+
+	* po/de.po: Updated
+
+1999-02-06  Sebastian Rittau  <srittau@moby>
+
+	* autogen.sh: Show that we are executing gettextize with -f option
+
+	* libcorpscorba/mime-impl.hh, configure.in, NEWS: Thread-safety
+
+	Removed bugs in corps-client concerning gamelist-handling
+
+	* po/de.po: Updates
+
+	* TODO: TODO: Corps-Client: cannot read from stdin in sub-threads
+
+	* libcorpstool/tools.hh, libcorpstool/tools.cc:
+	New support functions num2str(), threaded_{output,warning}
+
+	* TODO: Fixed gamelist handling
+
+	TODO: do not install test programs
+
+	* TODO: Found two errors in corps-client
+
+	I'm currently working on thread-safety - so strip it out
+
+	* libcorpstool/exception.hh, libcorpstool/exception.cc, NEWS:
+	Exception::print*() allows now to suppress the header
+
+	* .cvsignore: Ignore generated ChangeLog
+
+	* TODO: Removed obsolete entries
+
+1999-02-05  Sebastian Rittau  <srittau@moby>
+
+	* idl/roleplaying.idl: Readded a missing attribute
+
+	* po/de.po: Updates
+
+	* idl/roleplaying.idl:
+	Removed InputMIME and OutputMIME from interface GameInfo
+
+	* idl/roleplaying.idl:
+	We are slowly getting rid of context expressions: supply client and
+	cookie as arguments to Game::leave()
+
+	* configure.in, README, NEWS: Dumped version to 0.1.0 (finally)
+
+	* TODO: TODO: thread-safety
+
+	No need to provide ORBit patches
+
+	* libcorpscorba/mime-impl.hh, libcorpscorba/mime-impl.cc, libcorpscorba/corba.hh, libcorpscorba/corba.cc, README, NEWS:
+	Use omniORB2
+
+1999-02-04  Sebastian Rittau  <srittau@moby>
+
+	* libcorpscorba/mime-wrapper.hh, libcorpscorba/mime-wrapper.cc, libcorpscorba/mime-impl.hh, libcorpscorba/mime-impl.cc, libcorpscorba/corba_wrapper.hh, libcorpscorba/corba_wrapper.cc, libcorpscorba/corba_servant.hh, libcorpscorba/corba_servant.cc, libcorpscorba/corba.hh, libcorpscorba/corba.cc, libcorpscorba/Makefile.am, libcorpscorba/.cvsignore, configure.in:
+	Use omniORB instead of ORBit
+
+1999-02-03  Sebastian Rittau  <srittau@moby>
+
+	* idl/roleplaying.idl:
+	Removed all context expressions for now. omniidl2 dislikes them...
+
+	* libcorpscorba/Makefile.am, configure.in, Makefile.am:
+	First preparation for using omniORB2: new macro CORPS_OMNIORB replaces
+	RPGMASTER_ORBIT_CHECK
+
+	macros are now distributed
+
+	* autogen.sh: Force use of gettextize
+
+	* po/de.po: One more string
+
+	* NEWS: We are going to use omniORB2 instead of ORBIT
+
+	* ChangeLog: Removed ChangeLog again (d'oh...)
+
+	* idl/roleplaying.idl:
+	New exception for text output MIME handler: NoAnswer
+
+	* docs/corba.sgml:
+	s/linkterm/endterm on one occasion (yes, should check with nsgmls before
+	committing)
+
+	* docs/corba.sgml: Added section text-handler-right
+
+	Fixed syntax errors
+
+	Replaced some closing text by </>
+
+1999-01-31  Sebastian Rittau  <srittau@moby>
+
+	* docs/corba.sgml:
+	Cleaned up description of MIME system (there existed two versions - ah, in
+	a way I hate DocBook)
+
+	Documented MIME handler for text/*
+
+	Added some more ideas as FIXMEs
+
+	Small changes
+
+	* TODO: TODO: fix ChangeLog handling, distribute ORBit patches
+
+	* README: glib is now needed (by corps-servers)
+
+1999-01-29  Sebastian Rittau  <srittau@moby>
+
+	* docs/HACKING: Wrote short introduction
+
+	* README: Small fix
+
+	* docs/corba.sgml:
+	Some more documentation on map set tiles and their function (and vice-versa)
+
+	* idl/roleplaying.idl: Added ID tag
+
+	* ChangeLog: Readded ChangeLog
+
+	* configure.in, README, NEWS:
+	Made 0.0.6 release, dumped version to 0.0.7
+
+	* po/de.po, ChangeLog, configure.in, Makefile.am, NEWS, TODO:
+	Create ChangeLog when preparing the distribution
+
+	Cleaned up TODO
+
+	Moved mapesets to package corps-data
+
+	Made modifiers work and removed a bug in pixmap loading in turn
+
+	* po/de.po: More translations
+
+	* po/corps-core.pot, po/.cvsignore:
+	Removed automatically generated file
+
+	* TODO: TODO: draw modifiers
+
+	* docs/.cvsignore, idl/.cvsignore, libcorpscorba/.cvsignore, libcorpstool/.cvsignore, po/.cvsignore, .cvsignore:
+	Ignore generated files
+
+	* libcorpscorba/corba.cc, libcorpscorba/corba.hh, libcorpscorba/corba_servant.cc, libcorpscorba/corba_servant.hh, libcorpscorba/corba_wrapper.cc, libcorpscorba/corba_wrapper.hh, libcorpscorba/Makefile.am, libcorpscorba/mime-impl.cc, libcorpscorba/mime-impl.hh, libcorpscorba/mime-wrapper.cc, libcorpscorba/mime-wrapper.hh, libcorpscorba/README, libcorpstool/exception.cc, libcorpstool/exception.hh, libcorpstool/file.cc, libcorpstool/file.hh, libcorpstool/Makefile.am, libcorpstool/README, libcorpstool/tools.cc, libcorpstool/tools.hh, po/ChangeLog, po/corps-core.pot, po/de.po:
+	Initial CVS version
+
+	* libcorpscorba/corba.cc, libcorpscorba/corba.hh, libcorpscorba/corba_servant.cc, libcorpscorba/corba_servant.hh, libcorpscorba/corba_wrapper.cc, libcorpscorba/corba_wrapper.hh, libcorpscorba/Makefile.am, libcorpscorba/mime-impl.cc, libcorpscorba/mime-impl.hh, libcorpscorba/mime-wrapper.cc, libcorpscorba/mime-wrapper.hh, libcorpscorba/README, libcorpstool/exception.cc, libcorpstool/exception.hh, libcorpstool/file.cc, libcorpstool/file.hh, libcorpstool/Makefile.am, libcorpstool/README, libcorpstool/tools.cc, libcorpstool/tools.hh, po/ChangeLog, po/corps-core.pot, po/de.po:
+	New file.
+
+	* acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, corps-core.m4, docs/clients.txt, docs/corba.sgml, docs/HACKING, docs/Makefile.am, idl/Makefile.am, idl/roleplaying.idl, Makefile.am, NEWS, README, TODO:
+	Initial CVS version
+
+	* acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, corps-core.m4, docs/clients.txt, docs/corba.sgml, docs/HACKING, docs/Makefile.am, idl/Makefile.am, idl/roleplaying.idl, Makefile.am, NEWS, README, TODO:
+	New file.
+

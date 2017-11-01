@@ -1,0 +1,118 @@
+/*  IDL definition for CORPS clients
+    Copyright (C) 2000 Sebastian Rittau <srittau@jroger.in-berlin.de>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+// FIXME: Note well that the following interfaces are work-in-progress.
+// Especially the strings will be replaced by wstrings.
+
+module CORPS {
+
+  /*************************** Client-Side Handlers *************************/
+
+  interface ClientHandler {
+    void show();
+    void hide();
+    attribute bool is_sensitive;
+    void release();
+  };
+
+  interface CH_Display : ClientHandler {
+    typedef struct { unsigned short width; unsigned short height; } Size;
+    readonly attribute MIMEList SupportedMIME;
+    readonly attribute Size size;
+    // show static pictures, information, etc.
+    void show(in Picture pic);
+    // play animations
+    void play(in Animation anim);
+    oneway void start_playing(in Animation anim);
+  };
+
+  // The main display of a client.
+  interface CH_MainDisplay : CH_Display {
+    // clear display
+    oneway void clear();
+  }
+
+  // Data is displayed in a separate window. The popup is shown as soon as
+  // data is to be shown.
+  interface CH_PopupDisplay : CH_Display {
+    typedef unsigned short PopupId;
+    PopupId create(inout Size size);
+    oneway void erase(PopupId);
+    // Returns former active popup.
+    void make_active(inout PopupId id);
+  };
+
+  interface CH_History : ClientHandler {
+    void append_text(in string text);
+    oneway void clear();
+    // in future version there may be a feature that allows to embed
+    // other types of data into history
+  };
+
+  // CH_InputLine is disabled by default
+  interface CH_InputLine : ClientHandler {
+    attribute EventHandler handler;
+  };
+
+  interface CH_Requester : ClientHandler {
+    // one line
+    string request_string(in string what, in boolean cancelable);
+    // one hidden line
+    string request_password(in string what, in boolean cancelable);
+    // multiples lines
+    string request_text(in string what, in boolean cancelable);
+    // there will be more complex requesters in future versions
+  };
+
+  interface CH_CharacterList : ClientHandler {
+    //FIXME
+  };
+
+  interface CH_Compass : ClientHandler {
+    //FIXME
+  };
+
+  interface CH_Sound : ClientHandler {
+    readonly attribute MIMEList SupportedMIME;
+    void play(in Sound snd);
+    oneway void start_playing(in Sound snd);
+  };
+
+  /********************************** Client ********************************/
+
+  interface Client {
+    // currently the following handlers are defined (all in version 1):
+    // MAIN_DISPLAY (for maps, images, etc.)
+    // POPUP_DISPLAY (pops up visual data in a separate window)
+    // HISTORY (scrolling text area)
+    // INPUT_LINE (for entering one-line texts etc.)
+    // REQUESTER (for requesting various kinds of information in a simple way)
+    // FORM (complex requesters)
+    // CHARACTER_LIST
+    // COMPASS
+    // SOUND
+    ClientHandler get_handler(in string which, inout string version);
+
+    // Client gets kicked out by server
+    oneway void kick(in string reason);
+
+    exception NoHandlerAvailable {};
+    void request_object(in MIMEType type, inout Object o)
+      raises(UnknownMIMEType, NoHandlerAvailable);
+    };
+};

@@ -1,0 +1,78 @@
+# German translation for corps-client.
+# Copyright (C) 1999 Sebastian Rittau <srittau@jroger.in-berlin.de>.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: corps-client 0.3.0\n"
+"POT-Creation-Date: 1999-12-26 21:12+0100\n"
+"PO-Revision-Date: 1999-12-23 23:57+0100\n"
+"Last-Translator: Sebastian Rittau <srittau@jroger.in-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: src/arghandler.cc:53 src/arghandler.cc:61 src/arghandler.cc:94
+msgid "you have to specify exactly one game or one list"
+msgstr "Sie müssen genau ein Spiel oder eine Liste angeben"
+
+#: src/arghandler.cc:67 src/arghandler.cc:88
+#, c-format
+msgid "Usage: %s [OPTIONS]\n"
+msgstr "Benutzung: %s [OPTIONEN]\n"
+
+#: src/arghandler.cc:69
+msgid ""
+"Option summary:\n"
+"\n"
+" -g --game          - connect to specific game\n"
+" -l --list          - choose game from list\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+"Optionsüberblick:\n"
+"\n"
+" -g --game       - Mit einem speziellen Spiel verbinden.\n"
+" -l --list       - Spiel aus Liste auswählen.\n"
+" -h --help       - Anzeigen dieser Hilfe und beenden.\n"
+" -v --version    - Ausgabe der Versionsinformation und beenden.\n"
+"\n"
+"Bitte melden Sie Fehler an srittau@jroger.in-berlin.de\n"
+
+#: src/arghandler.cc:87
+msgid "invalid number of arguments"
+msgstr "ungültige Anzahl an Argumenten"
+
+#: src/client.cc:37
+msgid "You have been kicked out of the game: "
+msgstr "Sie wurden aus dem Spiel geworfen: "
+
+#: src/main.cc:97
+msgid "specified object reference is not a game"
+msgstr "angegebene Objektreferenz ist kein Spiel"
+
+#: src/main.cc:108
+msgid "***Connected***"
+msgstr "***Verbunden***"
+
+#: src/gamelist.cc:45
+msgid "specified object reference is not a game list"
+msgstr "angegebene Objektreferenz ist keine Spielliste"
+
+#: src/gamelist.cc:75
+msgid "Sorry, the list of games is empty."
+msgstr "Die Liste der Spiele ist leer."
+
+#: src/gamelist.cc:79
+msgid "Please choose a game from the following list:"
+msgstr "Bitte wählen Sie ein Spiel aus der folgenden Liste:"
+
+#: src/gamelist.cc:84
+msgid "Press Return to cancel."
+msgstr "Zum Abbrechen Return drücken."
+
+#: src/gamelist.cc:95
+msgid "Invalid input!"
+msgstr "Ungültige Eingabe!"

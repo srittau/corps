@@ -1,0 +1,89 @@
+News in corps-core 0.3.0
+========================
+
+o Splitted roleplaying.idl into multiple files and changed:
+  o Module name renamed to CORPS.
+  o Introduced interface GameClient.
+  o Dropped concept of MIME handlers and replaced by function oriented handlers.
+  o Changed uppercase method names to lowercase. (someName -> some_name)
+  o Merged System/SystemInfo and Game/GameInfo.
+  o Dropped cookie stuff. (A better security scheme is needed.)
+o Added a lot of basic wrappers and object implementations.
+o Moved corps-client into a separate package.
+o Added a class CorbaException that wraps CORBA exceptions into a subclass
+  of class Exception.
+o Splitted class Exception into class Exception and class File_Exception
+o Fixed bugs in class File_Exception.
+
+News in corps-core 0.2.0
+========================
+
+o Added XML file handler to libcorpstool.
+o Added concept of "Thing" to CORPS idl.
+o Renamed corps-core.m4 to corps.m4 and reimplemented.
+
+News in corps-core 0.1.3
+========================
+
+o Moved map-handling into separate package.
+o Localized strings do now work inside libraries.
+o Removed directory "debian" from source-distribution, added dist-debian
+  target to main Makefile.
+
+News in corps-core 0.1.2
+========================
+
+o corps-client: It is now possible to connect to games without text-handler.
+o Enhanced documentation.
+o Binaries are now installed in $(prefix)/games.
+o Renamed testcorpsmap to corps-testmap.
+o Added debian-specific files.
+
+News in corps-core 0.1.1
+========================
+
+o libcorpsmap.a: Maps are now resizable.
+o libcorpstool.a: bugfix: Trailing zeros were deleted in num2str().
+o Slightly improved roleplaying.idl.
+o Fixes in configure-script.
+
+News in corps-core 0.1.0
+========================
+
+o Made everything thread-safe.
+o Improved version of Exception::print*() that allows suppresion of header.
+o Corps-Client: There were errors in game-list handling, if a game list
+  contained invalid games. Fixed.
+o We do now use omniORB2 instead of ORBit. 
+
+News in corps-core 0.0.6
+========================
+
+o libcorpstool: CORPS_File does now support storing of filename.
+o libcorpsmap: Modifiers are now handled, cleaned up code in turn.
+o libcorpsmap: Fixed bad bug that cause pixmap loading to be screwed up so
+  weird things could happen (damn, shouldn't code, when I'm too tired).
+o Fix in libcorpsmap: if an error occured while loading a map set or a
+  pixmap indirectly by loading a map, the error message was printed with
+  wrong filename.
+o CORBA_Servant: made environment protected and removed getCORBAEnv() in turn
+o Moved directory mapsets to corps-data package.
+
+News in corps-core 0.0.5
+========================
+
+o Started work on a simple text-only client.
+o Splitted up libcorps into libcorpstool and libcorpscorba.
+o New class in libcorpscorba.a: CORBA_Wrapper for easy implementation of CORBA
+  object wrapper classes. (see docs/HACKING)
+o Build intl/ and po/ at first. This is required to ensure existance of
+  libintl.a.
+o CORBA_File does now recognize duplicate attributes.
+o Slightly improved error-handling in CORBA_File and associated classes.
+o Run-together attributes ("attr1;attr2 foo;attr3 bar;") are now recognized
+  correctly by CORBA_File.
+o MapSet: Pixmaps are now correctly copied and freed. This should prevent
+  memory leaks.
+o CORBA_Servant: Environment isn't needed as argument anymore.
+o Changes in roleplaying.idl: Clients and Games have a common MIME handlers
+  (MIMEHandler*); Minor changes in roleplaying.idl to avoid ambiguous names.

@@ -1,0 +1,246 @@
+# German po file for corps-gtk
+# Copyright (C) 1998-99 Sebastian Rittau
+# Sebastian Rittau <srittau@jroger.in-berlin.de>, 1998-99
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: corps-gtk 0.2.0\n"
+"POT-Creation-Date: 1999-09-25 10:21+0200\n"
+"PO-Revision-Date: 1999-08-13 19:13+0200\n"
+"Last-Translator: Sebastian Rittau <srittau@jroger.in-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: gcorps/arghandler.cc:49 gcorps/arghandler.cc:68
+#, c-format
+msgid "Usage: %s [OPTIONS]\n"
+msgstr "Benutzung: %s [OPTIONS]\n"
+
+#: gcorps/arghandler.cc:51
+msgid ""
+"Option summary:\n"
+"\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+"Optionsüberblick:\n"
+"\n"
+" -h --help          gibt diesen Text aus und beendet\n"
+" -v --version       gibt die Version aus und beendet\n"
+"\n"
+"Bitte melden Sie Fehler an srittau@jroger.in-berlin.de\n"
+
+#: gcorps/arghandler.cc:67
+msgid "invalid number of arguments"
+msgstr "falsche Anzahl an Argumenten"
+
+#: gcorps/client-gui.cc:174
+msgid "Choose Game or Game List"
+msgstr "Wählen Sie ein Spiel oder eine Spieleliste"
+
+#: gcorps/client-gui.cc:175
+msgid "Please enter the id of a Game or Game List:"
+msgstr "Bitte geben Sie die ID eines Spiels oder einer Spielliste ein:"
+
+#: gcorps/client-gui.cc:227
+msgid "Sorry, the list of games is empty."
+msgstr "Die Spieleliste ist leer."
+
+#: gcorps/client-gui.cc:302
+msgid "Choose a game"
+msgstr "Wählen Sie ein Spiel"
+
+#. an error occured
+#. FIXME: notify parent process to cancel busy requester
+#: gcorps/client-gui.cc:361
+msgid "Could not run adventure-file: "
+msgstr "Konnte Abenteuer-Datei nicht ausführen: "
+
+#: gcorps/client-gui.cc:370
+msgid "Waiting..."
+msgstr "Warte..."
+
+#: gcorps/client-gui.cc:371
+msgid "Waiting for game to connect..."
+msgstr "Warte auf Verbindung zum Spiel ..."
+
+#: gcorps/client-gui.cc:409 gcorps/client-gui.cc:433
+msgid "Information Request"
+msgstr "Informations-Abfrage"
+
+#: gcorps/client-gui.cc:457
+msgid "Game Quitted"
+msgstr "Spiel beendet"
+
+#: gcorps/client-gui.cc:458
+msgid "The game has closed connection:"
+msgstr "Das Spiel hat die Verbindung getrennt:"
+
+#: gcorps/communication.cc:43
+msgid "could not initialize CORBA"
+msgstr "konnte CORBA nicht initialisieren"
+
+#: gcorps/game-wrapper.cc:124
+msgid "This client does not support all needed features."
+msgstr "Dieses Programm unterstützt nicht alle erforderlichen Features."
+
+#: gcorps/game-wrapper.cc:126
+msgid "The game does not accept more clients."
+msgstr "Dieses Spiel akzeptiert keine Spieler mehr."
+
+#: gcorps/game-wrapper.cc:128
+msgid "You are not authorized to join this game."
+msgstr "Sie dürfen diesem Spiel nicht beitreten."
+
+#: gcorps/gui.cc:156
+msgid ""
+"CORPS client implementation,\n"
+"using gtk+."
+msgstr "CORPS-Klient, gtk+-Version."
+
+#: gcorps/gui_gamewindow.cc:38 maptool/gui_mapwindow.cc:59
+#: maptool/gui_mapwindow.cc:89
+msgid "File"
+msgstr "Datei"
+
+#: gcorps/gui_gamewindow.cc:39
+msgid "New game"
+msgstr "Neues Spiel"
+
+#: gcorps/gui_gamewindow.cc:40 maptool/gui_mapwindow.cc:61
+#: maptool/gui_mapwindow.cc:91
+msgid "Open..."
+msgstr "Öffnen..."
+
+#: gcorps/gui_gamewindow.cc:41
+msgid "Connect..."
+msgstr "Verbinden..."
+
+#: gcorps/gui_gamewindow.cc:42
+msgid "Leave"
+msgstr "Verlassen"
+
+#: gcorps/gui_gamewindow.cc:43 maptool/gui_mapwindow.cc:63
+#: maptool/gui_mapwindow.cc:93
+msgid "Close"
+msgstr "Schließen"
+
+#: gcorps/gui_gamewindow.cc:44 maptool/gui_mapwindow.cc:64
+#: maptool/gui_mapwindow.cc:94
+msgid "Exit"
+msgstr "Beenden"
+
+#: gcorps/gui_gamewindow.cc:45 maptool/gui_mapwindow.cc:67
+#: maptool/gui_mapwindow.cc:97
+msgid "Help"
+msgstr "Hilfe"
+
+#: gcorps/gui_gamewindow.cc:46 maptool/gui_mapwindow.cc:68
+#: maptool/gui_mapwindow.cc:98
+msgid "About..."
+msgstr "Über..."
+
+#: gcorps/gui_playfield.cc:33
+msgid "Name:"
+msgstr "Name:"
+
+#: gcorps/gui_playfield.cc:34
+msgid "System:"
+msgstr "System:"
+
+#: gcorps/gui_gamechooser.cc:33
+msgid "Select a Game"
+msgstr "Wählen Sie ein Spiel"
+
+#: gcorps/gui_gamechooser.cc:44
+msgid "Name"
+msgstr "Name"
+
+#: gcorps/gui_gamechooser.cc:45
+msgid "System"
+msgstr "System"
+
+#: gcorps/gui_gamechooser.cc:46
+msgid "Flags"
+msgstr "Optionen"
+
+#: gcorps/gamelist-wrapper.cc:41
+msgid "object reference is not a game list"
+msgstr "Object-Referenz ist keine Spiele-Liste"
+
+#: libcorpsgtk/gui_about.cc:31 libcorpsgtk/gui_exception.cc:28
+#: libcorpsgtk/gui_requester.cc:30
+msgid "Ok"
+msgstr "Ok"
+
+#: libcorpsgtk/gui_exception.cc:30
+msgid "Error"
+msgstr "Fehler"
+
+#: libcorpsgtk/gui_requester.cc:31
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: maptool/arghandler.cc:49
+#, c-format
+msgid ""
+"Usage: %s [MAPS...]\n"
+"\n"
+"Report bugs to <srittau@jroger.in-berlin.de>\n"
+msgstr ""
+"Benutzung: %s [KARTEN...]\n"
+"\n"
+"Bitte melden Sie Fehler an srittau@jroger.in-berlin.de.\n"
+
+#: maptool/gui.cc:159
+msgid "Please Wait..."
+msgstr "Bitte warten..."
+
+#: maptool/gui.cc:159
+msgid "Please wait. Map is being loaded."
+msgstr "Bitte warten, die Karte wird geladen..."
+
+#: maptool/gui.cc:209
+msgid "CORPS map manipulator."
+msgstr "CORPS Karten-Editor."
+
+#: maptool/gui_mapwindow.cc:60 maptool/gui_mapwindow.cc:90
+msgid "New Window"
+msgstr "Neues Fenster"
+
+#: maptool/gui_mapwindow.cc:62 maptool/gui_mapwindow.cc:92
+msgid "Open new..."
+msgstr "Neu Öffnen..."
+
+#: maptool/gui_mapwindow.cc:65 maptool/gui_mapwindow.cc:95
+msgid "Edit"
+msgstr "Ändern"
+
+#: maptool/gui_mapwindow.cc:66 maptool/gui_mapwindow.cc:96
+msgid "Change Size..."
+msgstr "Größe ändern..."
+
+#: maptool/gui_mapwindow.cc:134 maptool/gui_mapwindow.cc:147
+msgid "Choose a map file"
+msgstr "Wählen Sie eine Karten-Datei"
+
+#: maptool/gui_sizereq.cc:30
+msgid "Choose New Size"
+msgstr "Neue Größe angeben"
+
+#: maptool/gui_sizereq.cc:33
+msgid "Width:"
+msgstr "Breite:"
+
+#: maptool/gui_sizereq.cc:35
+msgid "Height:"
+msgstr "Höhe:"
+
+#: maptool/gui_sizereq.cc:80 maptool/gui_sizereq.cc:88
+#: maptool/gui_sizereq.cc:95
+msgid "Invalid size"
+msgstr "Ungültige Größe"

@@ -1,0 +1,341 @@
+gui_mapwindow.o: gui_mapwindow.cc ../config.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstdlib \
+ /usr/include/stdlib.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/stddef.h \
+ /usr/include/sys/types.h /usr/include/bits/types.h \
+ /usr/include/time.h /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/alloca.h /usr/include/pthread.h /usr/include/sched.h \
+ /usr/include/bits/sched.h /usr/include/bits/time.h \
+ /usr/include/signal.h /usr/include/bits/pthreadtypes.h \
+ /usr/include/bits/sigthread.h /usr/include/libintl.h \
+ /usr/include/locale.h /usr/include/gtk--/fileselection.h \
+ /usr/include/gtk--/window.h /usr/include/gtk--/bin.h \
+ /usr/include/gtk--/container.h /usr/include/gtk--/widget.h \
+ /usr/include/gtk--/object.h /usr/include/gtk--/base.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/string \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/bastring.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstddef \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/straits.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cctype \
+ /usr/include/ctype.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstring \
+ /usr/include/string.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/alloc.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_config.h \
+ /usr/include/_G_config.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_alloc.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/new \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/exception \
+ /usr/include/assert.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iterator \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_relops.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iostream.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/streambuf.h \
+ /usr/include/libio.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/stdarg.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_iterator.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/bastring.cc \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/list \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_algobase.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_pair.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/type_traits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/limits.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/new.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_construct.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_uninitialized.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_list.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/vector \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_vector.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_bvector.h \
+ /usr/lib/Gtk--/include/gtk--config.h /usr/include/gdk--.h \
+ /usr/include/gdk/gdk.h /usr/include/gdk/gdktypes.h \
+ /usr/include/glib.h /usr/lib/glib/include/glibconfig.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/include/float.h \
+ /usr/include/gdk/gdkcursors.h /usr/include/gdk/gdkrgb.h \
+ /usr/include/gdk--/types.h /usr/lib/Gtk--/include/gdk--config.h \
+ /usr/include/gtk/gtkfeatures.h /usr/include/gdk--/color.h \
+ /usr/include/gdk--/main.h /usr/include/gdk--/colormap.h \
+ /usr/include/gdk--/visual.h /usr/include/gdk--/gc.h \
+ /usr/include/gdk--/font.h /usr/include/gdk--/drawable.h \
+ /usr/include/gdk--/window.h /usr/include/gdk--/list.h \
+ /usr/include/gdk--/pixmap.h /usr/include/gdk--/bitmap.h \
+ /usr/include/gdk--/image.h /usr/include/gtk--sig.h \
+ /usr/include/gtk--sigcommon.h /usr/include/gtk/gtksignal.h \
+ /usr/include/gtk/gtkenums.h /usr/include/gtk/gtkobject.h \
+ /usr/include/gtk/gtkarg.h /usr/include/gtk/gtktypeutils.h \
+ /usr/include/gtk/gtktypebuiltins.h /usr/include/gtk/gtkdebug.h \
+ /usr/include/gtk/gtkmarshal.h /usr/include/gtk/gtkwidget.h \
+ /usr/include/gtk/gtkaccelgroup.h /usr/include/gtk/gtkadjustment.h \
+ /usr/include/gtk/gtkdata.h /usr/include/gtk/gtkstyle.h \
+ /usr/include/gtk--sigconn.h /usr/include/gtk--sigproxy.h \
+ /usr/include/gtk--sigslot.h /usr/include/gtk--sigcpp.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/memory \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_tempbuf.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_raw_storage_iter.h \
+ /usr/include/gtk--/style.h /usr/include/gtk/gtkcontainer.h \
+ /usr/include/gtk/gtkbin.h /usr/include/gtk--/accelgroup.h \
+ /usr/include/gtk/gtkwindow.h /usr/include/gtk--/entry.h \
+ /usr/include/gtk--/editable.h /usr/include/gtk/gtkeditable.h \
+ /usr/include/gtk/gtkentry.h /usr/include/gtk--/label.h \
+ /usr/include/gtk--/misc.h /usr/include/gtk/gtkmisc.h \
+ /usr/include/gtk/gtklabel.h /usr/include/gtk--/box.h \
+ /usr/include/gtk/gtkbox.h /usr/include/gtk/gtkvbox.h \
+ /usr/include/gtk/gtkhbox.h /usr/include/gtk--/button.h \
+ /usr/include/gtk/gtkbutton.h /usr/include/gtk/gtkfilesel.h \
+ /usr/include/gtk--/main.h /usr/include/gtk/gtkmain.h \
+ /usr/include/corps/file_exception.hh \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iostream \
+ /usr/include/corps/exception.hh /usr/include/corps/mapfile.hh \
+ /usr/include/corps/xml.hh /usr/include/gnome-xml/parser.h \
+ /usr/include/gnome-xml/tree.h /usr/include/stdio.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/stdio.h \
+ /usr/include/gnome-xml/valid.h /usr/include/gnome-xml/xmlIO.h \
+ /usr/include/gnome-xml/encoding.h /usr/include/gnome-xml/entities.h \
+ /usr/include/corps/map.hh /usr/include/gdk_imlib.h \
+ /usr/include/gdk_imlib_types.h /usr/include/corps/mapmodifier.hh \
+ /usr/include/corps/mapset.hh /usr/include/gdk--/extra/imlib.h \
+ /usr/include/corps/mapsetfile.hh gui.hh \
+ ../libcorpsgtk/gui_exception.hh /usr/include/gtk--/dialog.h \
+ /usr/include/gtk/gtkdialog.h /usr/include/gtk--/frame.h \
+ /usr/include/gtk/gtkframe.h gui_mapwindow.hh \
+ /usr/include/gtk--/clist.h /usr/include/gtk--/scrollbar.h \
+ /usr/include/gtk--/range.h /usr/include/gtk--/adjustment.h \
+ /usr/include/gtk--/data.h /usr/include/gtk/gtkrange.h \
+ /usr/include/gtk/gtkscrollbar.h /usr/include/gtk/gtkhscrollbar.h \
+ /usr/include/gtk/gtkvscrollbar.h /usr/include/gtk/gtkclist.h \
+ /usr/include/gtk/gtkalignment.h /usr/include/gtk--/menu.h \
+ /usr/include/gtk--/menushell.h /usr/include/gtk/gtkmenushell.h \
+ /usr/include/gtk--/menuitem.h /usr/include/gtk--/item.h \
+ /usr/include/gtk/gtkitem.h /usr/include/gtk/gtkmenuitem.h \
+ /usr/include/gtk/gtkmenu.h /usr/include/gtk--/menubar.h \
+ /usr/include/gtk/gtkmenubar.h /usr/include/gtk--/paned.h \
+ /usr/include/gtk/gtkpaned.h /usr/include/gtk/gtkhpaned.h \
+ /usr/include/gtk/gtkvpaned.h /usr/include/gtk--/scrolledwindow.h \
+ /usr/include/gtk--/viewport.h /usr/include/gtk/gtkviewport.h \
+ /usr/include/gtk/gtkscrolledwindow.h /usr/include/gtk--/statusbar.h \
+ /usr/include/gtk/gtkstatusbar.h gui_iconview.hh \
+ /usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstdio \
+ /usr/include/gtk/gtkselection.h gui_mapwidget.hh \
+ ../libcorpsgtk/map_widget.hh /usr/include/gtk--/drawingarea.h \
+ /usr/include/gtk/gtkdrawingarea.h gui_sizereq.hh \
+ /usr/include/gtk--/table.h /usr/include/gtk/gtktable.h \
+ ../libcorpsgtk/gui_requester.hh ../libcorpsgtk/trashcan.hh
+gui_mapwindow.cc :
+../config.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstdlib :
+/usr/include/stdlib.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/stddef.h :
+/usr/include/sys/types.h :
+/usr/include/bits/types.h :
+/usr/include/time.h :
+/usr/include/endian.h :
+/usr/include/bits/endian.h :
+/usr/include/sys/select.h :
+/usr/include/bits/select.h :
+/usr/include/bits/sigset.h :
+/usr/include/sys/sysmacros.h :
+/usr/include/alloca.h :
+/usr/include/pthread.h :
+/usr/include/sched.h :
+/usr/include/bits/sched.h :
+/usr/include/bits/time.h :
+/usr/include/signal.h :
+/usr/include/bits/pthreadtypes.h :
+/usr/include/bits/sigthread.h :
+/usr/include/libintl.h :
+/usr/include/locale.h :
+/usr/include/gtk--/fileselection.h :
+/usr/include/gtk--/window.h :
+/usr/include/gtk--/bin.h :
+/usr/include/gtk--/container.h :
+/usr/include/gtk--/widget.h :
+/usr/include/gtk--/object.h :
+/usr/include/gtk--/base.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/string :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/bastring.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstddef :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/straits.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cctype :
+/usr/include/ctype.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstring :
+/usr/include/string.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/alloc.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_config.h :
+/usr/include/_G_config.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_alloc.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/new :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/exception :
+/usr/include/assert.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iterator :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_relops.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iostream.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/streambuf.h :
+/usr/include/libio.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/stdarg.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_iterator.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/std/bastring.cc :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/list :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_algobase.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_pair.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/type_traits.h :
+/usr/include/limits.h :
+/usr/include/bits/posix1_lim.h :
+/usr/include/bits/local_lim.h :
+/usr/include/linux/limits.h :
+/usr/include/bits/posix2_lim.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/limits.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/new.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_construct.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_uninitialized.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_list.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/vector :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_vector.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_bvector.h :
+/usr/lib/Gtk--/include/gtk--config.h :
+/usr/include/gdk--.h :
+/usr/include/gdk/gdk.h :
+/usr/include/gdk/gdktypes.h :
+/usr/include/glib.h :
+/usr/lib/glib/include/glibconfig.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/include/float.h :
+/usr/include/gdk/gdkcursors.h :
+/usr/include/gdk/gdkrgb.h :
+/usr/include/gdk--/types.h :
+/usr/lib/Gtk--/include/gdk--config.h :
+/usr/include/gtk/gtkfeatures.h :
+/usr/include/gdk--/color.h :
+/usr/include/gdk--/main.h :
+/usr/include/gdk--/colormap.h :
+/usr/include/gdk--/visual.h :
+/usr/include/gdk--/gc.h :
+/usr/include/gdk--/font.h :
+/usr/include/gdk--/drawable.h :
+/usr/include/gdk--/window.h :
+/usr/include/gdk--/list.h :
+/usr/include/gdk--/pixmap.h :
+/usr/include/gdk--/bitmap.h :
+/usr/include/gdk--/image.h :
+/usr/include/gtk--sig.h :
+/usr/include/gtk--sigcommon.h :
+/usr/include/gtk/gtksignal.h :
+/usr/include/gtk/gtkenums.h :
+/usr/include/gtk/gtkobject.h :
+/usr/include/gtk/gtkarg.h :
+/usr/include/gtk/gtktypeutils.h :
+/usr/include/gtk/gtktypebuiltins.h :
+/usr/include/gtk/gtkdebug.h :
+/usr/include/gtk/gtkmarshal.h :
+/usr/include/gtk/gtkwidget.h :
+/usr/include/gtk/gtkaccelgroup.h :
+/usr/include/gtk/gtkadjustment.h :
+/usr/include/gtk/gtkdata.h :
+/usr/include/gtk/gtkstyle.h :
+/usr/include/gtk--sigconn.h :
+/usr/include/gtk--sigproxy.h :
+/usr/include/gtk--sigslot.h :
+/usr/include/gtk--sigcpp.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/memory :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_tempbuf.h :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/stl_raw_storage_iter.h :
+/usr/include/gtk--/style.h :
+/usr/include/gtk/gtkcontainer.h :
+/usr/include/gtk/gtkbin.h :
+/usr/include/gtk--/accelgroup.h :
+/usr/include/gtk/gtkwindow.h :
+/usr/include/gtk--/entry.h :
+/usr/include/gtk--/editable.h :
+/usr/include/gtk/gtkeditable.h :
+/usr/include/gtk/gtkentry.h :
+/usr/include/gtk--/label.h :
+/usr/include/gtk--/misc.h :
+/usr/include/gtk/gtkmisc.h :
+/usr/include/gtk/gtklabel.h :
+/usr/include/gtk--/box.h :
+/usr/include/gtk/gtkbox.h :
+/usr/include/gtk/gtkvbox.h :
+/usr/include/gtk/gtkhbox.h :
+/usr/include/gtk--/button.h :
+/usr/include/gtk/gtkbutton.h :
+/usr/include/gtk/gtkfilesel.h :
+/usr/include/gtk--/main.h :
+/usr/include/gtk/gtkmain.h :
+/usr/include/corps/file_exception.hh :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/iostream :
+/usr/include/corps/exception.hh :
+/usr/include/corps/mapfile.hh :
+/usr/include/corps/xml.hh :
+/usr/include/gnome-xml/parser.h :
+/usr/include/gnome-xml/tree.h :
+/usr/include/stdio.h :
+/usr/include/bits/stdio_lim.h :
+/usr/include/bits/stdio.h :
+/usr/include/gnome-xml/valid.h :
+/usr/include/gnome-xml/xmlIO.h :
+/usr/include/gnome-xml/encoding.h :
+/usr/include/gnome-xml/entities.h :
+/usr/include/corps/map.hh :
+/usr/include/gdk_imlib.h :
+/usr/include/gdk_imlib_types.h :
+/usr/include/corps/mapmodifier.hh :
+/usr/include/corps/mapset.hh :
+/usr/include/gdk--/extra/imlib.h :
+/usr/include/corps/mapsetfile.hh :
+gui.hh :
+../libcorpsgtk/gui_exception.hh :
+/usr/include/gtk--/dialog.h :
+/usr/include/gtk/gtkdialog.h :
+/usr/include/gtk--/frame.h :
+/usr/include/gtk/gtkframe.h :
+gui_mapwindow.hh :
+/usr/include/gtk--/clist.h :
+/usr/include/gtk--/scrollbar.h :
+/usr/include/gtk--/range.h :
+/usr/include/gtk--/adjustment.h :
+/usr/include/gtk--/data.h :
+/usr/include/gtk/gtkrange.h :
+/usr/include/gtk/gtkscrollbar.h :
+/usr/include/gtk/gtkhscrollbar.h :
+/usr/include/gtk/gtkvscrollbar.h :
+/usr/include/gtk/gtkclist.h :
+/usr/include/gtk/gtkalignment.h :
+/usr/include/gtk--/menu.h :
+/usr/include/gtk--/menushell.h :
+/usr/include/gtk/gtkmenushell.h :
+/usr/include/gtk--/menuitem.h :
+/usr/include/gtk--/item.h :
+/usr/include/gtk/gtkitem.h :
+/usr/include/gtk/gtkmenuitem.h :
+/usr/include/gtk/gtkmenu.h :
+/usr/include/gtk--/menubar.h :
+/usr/include/gtk/gtkmenubar.h :
+/usr/include/gtk--/paned.h :
+/usr/include/gtk/gtkpaned.h :
+/usr/include/gtk/gtkhpaned.h :
+/usr/include/gtk/gtkvpaned.h :
+/usr/include/gtk--/scrolledwindow.h :
+/usr/include/gtk--/viewport.h :
+/usr/include/gtk/gtkviewport.h :
+/usr/include/gtk/gtkscrolledwindow.h :
+/usr/include/gtk--/statusbar.h :
+/usr/include/gtk/gtkstatusbar.h :
+gui_iconview.hh :
+/usr/lib/gcc-lib/i386-linux/2.95.2/../../../../include/g++-3/cstdio :
+/usr/include/gtk/gtkselection.h :
+gui_mapwidget.hh :
+../libcorpsgtk/map_widget.hh :
+/usr/include/gtk--/drawingarea.h :
+/usr/include/gtk/gtkdrawingarea.h :
+gui_sizereq.hh :
+/usr/include/gtk--/table.h :
+/usr/include/gtk/gtktable.h :
+../libcorpsgtk/gui_requester.hh :
+../libcorpsgtk/trashcan.hh :

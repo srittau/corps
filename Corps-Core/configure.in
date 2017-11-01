@@ -1,0 +1,34 @@
+dnl Configuration file for CORPS
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) 1998-99 Sebastian Rittau
+
+AC_INIT(libcorpstool/exception.cc)
+AM_CONFIG_HEADER(config.h)
+
+AM_INIT_AUTOMAKE(corps-core, 0.3.0)
+
+dnl Checks for standard programs.
+AC_ISC_POSIX
+
+AC_PROG_CXX
+AC_PROG_RANLIB
+
+dnl Check for libxml
+AM_CORPS_FILE(, AC_MSG_ERROR(libxml >= 1.0.0 not found.))
+
+dnl Check for omniORB2
+AM_CORPS_CORBA(, AC_MSG_ERROR(CORBA libraries not found.))
+
+dnl Internationalization
+ALL_LINGUAS="de"
+AM_GNU_GETTEXT
+
+AC_OUTPUT([
+	Makefile
+	idl/Makefile
+	libcorpstool/Makefile
+	libcorpscorba/Makefile
+	docs/Makefile
+	intl/Makefile
+	po/Makefile.in
+])

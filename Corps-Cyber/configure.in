@@ -1,0 +1,31 @@
+dnl Configuration file for corps-cyber
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) 1999 Sebastian Rittau
+
+AC_INIT(system/system.cc)
+AM_CONFIG_HEADER(config.h)
+
+AM_INIT_AUTOMAKE(corps-cyber, 0.3.0)
+
+AC_PROG_CXX
+AC_LANG_CPLUSPLUS
+
+AC_ISC_POSIX
+
+dnl Check for CORPS
+AM_PATH_CORPS
+AM_CORPS_CORBA
+AM_CORPS_FILE
+
+dnl Internationalization
+ALL_LINGUAS="de"
+AM_GNU_GETTEXT
+
+AC_OUTPUT([
+	Makefile
+	intl/Makefile
+	po/Makefile.in
+	system/Makefile
+	adventures/Makefile
+	adventures/maniax/Makefile
+])

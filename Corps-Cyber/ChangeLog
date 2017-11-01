@@ -1,0 +1,97 @@
+1999-12-18  Sebastian Rittau  <srittau@moby>
+
+	* configure.in:
+	AC_INIT(system/system-impl.cc) -> AC_INIT(system/system.cc)
+
+	Removed adventures/lib/Makefile from list of files to create.
+
+	* adventures/maniax/Makefile.am: Build without libadventure.a.
+
+	* adventures/maniax/game.cc, adventures/maniax/game.hh, adventures/maniax/game-impl.cc, adventures/maniax/game-impl.hh, adventures/maniax/Makefile.am, adventures/maniax/maniax.cc:
+	New interface.
+
+	* adventures/Makefile.am: Removed library.
+
+	* system/Makefile.am, system/system.cc, system/system.hh, system/system-impl.cc, system/system-impl.hh:
+	Adopted to new libcorpscorba.a interface.
+
+	* configure.in: Added check: AC_ISC_POSIX.
+
+	* autogen.sh: Create ChangeLog.
+
+	* Makefile.am: Fixed rule dist-debian again.
+
+	* debian/changelog, Makefile.am:
+	Fixed rule dist-debian: No empty files in source package.
+
+1999-12-04  Sebastian Rittau  <srittau@moby>
+
+	* debian/control: Fix in Build-Conflicts: <= 0.4.0 -> >= 0.4.0.
+
+	* debian/changelog, debian/rules:
+	Install link to undocumented(7) for now.
+
+	* debian/changelog, debian/control:
+	Dumped standards version to 3.1.1 and added build dependencies.
+
+1999-10-10  Sebastian Rittau  <srittau@moby>
+
+	* Makefile.am:
+	Issue a warning if ChangeLog can't be created, but don't stop
+
+1999-09-25  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, README, NEWS:
+	Dumped version to 0.3.0.
+
+	* debian/rules: Removed dh_installdirs.
+
+	* Makefile.am, debian/dirs: Removed debian/dirs.
+
+	* debian/control, debian/copyright: Dumped standards version to 3.0.1.
+
+	Slightly enhanced package description.
+
+	* debian/rules: Simplified rules file.
+
+	* debian/dirs: Added docs directory.
+
+	* debian/.cvsignore, Makefile.am: Removed debian/files.
+
+	* TODO: World Handler.
+
+	* Makefile.am: ChangeLog is now listed in MANIFEST.
+
+1999-08-13  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: New translations.
+
+	* system/character.cc, system/character.hh, system/Makefile.am:
+	Added very first version of character handling.
+
+	* configure.in: Added check: AM_CORPS_FILE.
+
+1999-08-07  Sebastian Rittau  <srittau@moby>
+
+	* po/.cvsignore: Ignore corps-cyber.pot not corps-data.pot.
+
+1999-06-29  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog:
+	Arg. Forgot to change "debian-data" to "debian-cyber".
+
+	* adventures/maniax/Makefile.am: Path to cyber-library changed.
+
+	* README: corps-data -> corps-cyber
+
+	* debian/changelog, debian/control: This is a different package now.
+
+	* system/.cvsignore, system/cyber_character.css, system/cyber_character.dtd, system/Makefile.am, system/sam.xml, system/system-impl.cc, system/system-impl.hh:
+	Moved system/cyber to system.
+
+	* acconfig.h, adventures/.cvsignore, adventures/Makefile.am, adventures/maniax/arghandler.cc, adventures/maniax/arghandler.hh, adventures/maniax/.cvsignore, adventures/maniax/game-impl.cc, adventures/maniax/game-impl.hh, adventures/maniax/Makefile.am, adventures/maniax/maniax.cc, adventures/maniax/plot.cc, adventures/maniax/plot.hh, adventures/maniax/supermarket.xml, AUTHORS, autogen.sh, configure.in, .cvsignore, debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, Makefile.am, NEWS, po/ChangeLog, po/.cvsignore, po/de.po, README, system/.cvsignore, system/Makefile.am, TODO:
+	First CVS version.
+
+	* acconfig.h, adventures/.cvsignore, adventures/Makefile.am, adventures/maniax/arghandler.cc, adventures/maniax/arghandler.hh, adventures/maniax/.cvsignore, adventures/maniax/game-impl.cc, adventures/maniax/game-impl.hh, adventures/maniax/Makefile.am, adventures/maniax/maniax.cc, adventures/maniax/plot.cc, adventures/maniax/plot.hh, adventures/maniax/supermarket.xml, AUTHORS, autogen.sh, configure.in, .cvsignore, debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, Makefile.am, NEWS, po/ChangeLog, po/.cvsignore, po/de.po, README, system/.cvsignore, system/Makefile.am, TODO:
+	New file.
+

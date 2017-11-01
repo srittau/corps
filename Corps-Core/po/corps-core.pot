@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2000-04-16 08:42+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: libcorpscorba/game-wrapper.cc:85
+msgid "This client does not support all needed features."
+msgstr ""
+
+#: libcorpscorba/game-wrapper.cc:87
+msgid "The game does not accept more clients."
+msgstr ""
+
+#: libcorpscorba/game-wrapper.cc:89
+msgid "You are not authorized to join this game."
+msgstr ""
+
+#: libcorpscorba/game-wrapper.cc:91
+msgid "You are always connected to this game."
+msgstr ""
+
+#: libcorpscorba/orb.cc:43
+msgid "could not initialize CORBA"
+msgstr ""
+
+#: libcorpscorba/corba.cc:39
+#, c-format
+msgid "CORBA error: %s"
+msgstr ""
+
+#: libcorpscorba/corba.cc:41
+msgid "unknown CORBA error"
+msgstr ""
+
+#: libcorpscorba/corba.cc:43
+msgid "invalid CORBA error"
+msgstr ""
+
+#: libcorpscorba/game-impl.cc:29 libcorpscorba/system-impl.cc:28
+msgid "Unnamed"
+msgstr ""
+
+#: libcorpscorba/game-impl.cc:30
+msgid "The game´s author did not provide a description."
+msgstr ""
+
+#: libcorpscorba/system-impl.cc:29
+msgid "No description was provided by the system's author."
+msgstr ""
+
+#: libcorpstool/exception.cc:112 libcorpstool/exception.cc:115
+msgid "WARNING"
+msgstr ""
+
+#: libcorpstool/exception.cc:168
+msgid "an internal error occured, please report"
+msgstr ""
+
+#: libcorpstool/exception.cc:170
+msgid "out of system resources"
+msgstr ""
+
+#: libcorpstool/exception.cc:172
+msgid "syntax error"
+msgstr ""
+
+#: libcorpstool/exception.cc:174
+msgid "not implemented"
+msgstr ""
+
+#: libcorpstool/exception.cc:176
+msgid "no such object"
+msgstr ""

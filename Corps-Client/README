@@ -1,0 +1,34 @@
+                              CORPS Client 0.3.0
+                              ==================
+
+This package contains a simple text-only client for CORPS - The CORBA
+Roleplaying System.
+
+Requirements
+------------
+
+corps-core 0.3.0 and its dependencies
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1998-99 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+More Information
+----------------
+
+http://www.in-berlin.de/user/jroger/corps/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<?xml-stylesheet href="corps-mapset.css" type="text/css"?>
+<!DOCTYPE MapSet SYSTEM "corps-mapset.dtd">
+
+<MapSet>
+  <Meta>
+    <Name>Generic</Name>
+    <Version version="1.0"/>
+  </Meta>
+
+  <Images width="25" height="25">
+
+    <Pixmap uri="generic.png" specials="3">
+      <IdList>
+        <Id id="tiled_floor"/>
+        <Id id="street"/>
+      </IdList>
+      <FieldList xml:lang="en">
+        <FieldName>Tiled Floor</FieldName>
+        <FieldName>Street</FieldName>
+      </FieldList>
+      <FieldList xml:lang="de_DE">
+        <FieldName>Fliesen</FieldName>
+        <FieldName>Straße</FieldName>
+      </FieldList>
+    </Pixmap>
+
+    <ModifierPixmap uri="generic_mod.png">
+      <IdList>
+        <Id id="wall_top"/>
+        <Id id="wall_bottom"/>
+        <Id id="wall_left"/>
+        <Id id="wall_right"/>
+        <Id id="wall_top_left"/>
+        <Id id="wall_top_right"/>
+        <Id id="wall_bottom_left"/>
+        <Id id="wall_bottom_right"/>
+        <Id id="wall_top_bottom"/>
+        <Id id="wall_left_right"/>
+        <Id id="wall_top_left_bottom"/>
+        <Id id="wall_top_right_bottom"/>
+        <Id id="wall_left_top_right"/>
+        <Id id="wall_left_bottom_right"/>
+        <Id id="walled"/>
+        <Id id="fence_top"/>
+        <Id id="fence_bottom"/>
+        <Id id="fence_left"/>
+        <Id id="fence_right"/>
+        <Id id="door_closed_top"/>
+        <Id id="door_closed_bottom"/>
+        <Id id="door_closed_left"/>
+        <Id id="door_closed_right"/>
+        <Id id="door_open_top"/>
+        <Id id="door_open_bottom"/>
+        <Id id="door_open_left"/>
+        <Id id="door_open_right"/>
+        <Id id="sliding_door_top"/>
+        <Id id="sliding_door_bottom"/>
+        <Id id="sliding_door_left"/>
+        <Id id="sliding_door_right"/>
+        <Id id="shelf_top"/>
+        <Id id="shelf_bottom"/>
+        <Id id="shelf_left"/>
+        <Id id="shelf_right"/>
+      </IdList>
+
+      <FieldList xml:lang="en">
+        <!-- Walls -->
+        <FieldName>Top Wall</FieldName>
+        <FieldName>Bottom Wall</FieldName>
+        <FieldName>Left Wall</FieldName>
+        <FieldName>Right Wall</FieldName>
+        <FieldName>Top Left Wall</FieldName>
+        <FieldName>Top Right Wall</FieldName>
+        <FieldName>Bottom Left Wall</FieldName>
+        <FieldName>Bottom Right Wall</FieldName>
+        <FieldName>Top Bottom Wall</FieldName>
+        <FieldName>Left Right Wall</FieldName>
+        <FieldName>Top Left Bottom Wall</FieldName>
+        <FieldName>Top Right Bottom Wall</FieldName>
+        <FieldName>Left Top Right Wall</FieldName>
+        <FieldName>Left Bottom Right Wall</FieldName>
+        <FieldName>Walled</FieldName>
+        <!-- Fences -->
+        <FieldName>Top Fence</FieldName>
+        <FieldName>Bottom Fence</FieldName>
+        <FieldName>Left Fence</FieldName>
+        <FieldName>Right Fence</FieldName>
+        <!-- Doors -->
+        <FieldName>Closed Door Top</FieldName>
+        <FieldName>Closed Door Bottom</FieldName>
+        <FieldName>Closed Door Left</FieldName>
+        <FieldName>Closed Door Right</FieldName>
+        <FieldName>Open Door Top</FieldName>
+        <FieldName>Open Door Bottom</FieldName>
+        <FieldName>Open Door Left</FieldName>
+        <FieldName>Open Door Right</FieldName>
+        <FieldName>Sliding Door Top</FieldName>
+        <FieldName>Sliding Door Bottom</FieldName>
+        <FieldName>Sliding Door Left</FieldName>
+        <FieldName>Sliding Door Right</FieldName>
+        <!-- Shelves -->
+        <FieldName>Shelf Top</FieldName>
+        <FieldName>Shelf Bottom</FieldName>
+        <FieldName>Shelf Left</FieldName>
+        <FieldName>Shelf Right</FieldName>
+      </FieldList>
+      <FieldList xml:lang="de_DE">
+        <!-- Walls -->
+        <FieldName>Mauer oben</FieldName>
+        <FieldName>Mauer unten</FieldName>
+        <FieldName>Mauer links</FieldName>
+        <FieldName>Mauer rechts</FieldName>
+        <FieldName>Mauer oben links</FieldName>
+        <FieldName>Mauer oben rechts</FieldName>
+        <FieldName>Mauer unten links</FieldName>
+        <FieldName>Mauer unten rechts</FieldName>
+        <FieldName>Mauer oben unten</FieldName>
+        <FieldName>Mauer links rechts</FieldName>
+        <FieldName>Mauer oben links unten</FieldName>
+        <FieldName>Mauer oben rechts unten</FieldName>
+        <FieldName>Mauer links oben rechts</FieldName>
+        <FieldName>Mauer links unten rechts</FieldName>
+        <FieldName>Ummauert</FieldName>
+        <!-- Fences -->
+        <FieldName>Zaun oben</FieldName>
+        <FieldName>Zaun unten</FieldName>
+        <FieldName>Zaun links</FieldName>
+        <FieldName>Zaun rechts</FieldName>
+        <!-- Doors -->
+        <FieldName>Geschlossene Tür oben</FieldName>
+        <FieldName>Geschlossene Tür unten</FieldName>
+        <FieldName>Geschlossene Tür links</FieldName>
+        <FieldName>Geschlossene Tür rechts</FieldName>
+        <FieldName>Offene Tür oben</FieldName>
+        <FieldName>Offene Tür unten</FieldName>
+        <FieldName>Offene Tür links</FieldName>
+        <FieldName>Offene Tür rechts</FieldName>
+        <FieldName>Schiebetür oben</FieldName>
+        <FieldName>Schiebetür unten</FieldName>
+        <FieldName>Schiebetür links</FieldName>
+        <FieldName>Schiebetür rechts</FieldName>
+        <!-- Shelves -->
+        <FieldName>Regal oben</FieldName>
+        <FieldName>Regal unten</FieldName>
+        <FieldName>Regal links</FieldName>
+        <FieldName>Regal rechts</FieldName>
+      </FieldList>
+    </ModifierPixmap>
+
+  </Images>
+</MapSet>

@@ -1,0 +1,839 @@
+<!DOCTYPE BOOK PUBLIC "-//Davenport//DTD DocBook V3.0//EN">
+
+<BOOK>
+  <BOOKINFO>
+    <BOOKBIBLIO>
+      <TITLE/CORPS CORBA Objects/
+      <SUBTITLE/Description of CORPS' CORBA Interfaces/
+      <AUTHOR lang="de"><FIRSTNAME/Sebastian/<SURNAME/Rittau/</>
+      <COPYRIGHT><YEAR/1999/<HOLDER lang="de">Sebastian Rittau</></>
+      <RELEASEINFO>This is the very first version of this document. It is work-in-progress.</>
+    </>
+  </>
+
+  <TOC//
+
+<!--=======================================================================-->
+
+  <CHAPTER><TITLE/Introduction/
+    <PARA>CORPS is a generic roleplaying-system, based on CORBA - The Common
+    Object Request Broker Architecture. There are many different purposes
+    this system fulfills: it can be used as a database for game-masters
+    preparing a pen&amp;paper-session, it is possible to use a CORPS suite
+    during playing such a session as support for the game-master, and most
+    importantly it is possible to play a computer-based roleplaying game in
+    a veriety of ways. Game-mastering may be completely in the hands of one
+    or more humans, or in the hands of a computer or even in a mixture of
+    both. Characters in the play can either be steered by one human or
+    multiple human players.</>
+
+    <PARA>Because the CORBA technology is used, all participants in the
+    game (may they be human or artificial) and all components can be
+    spread around the world. CORPS was designed to allow very different
+    components to integrate as nicely as possible with each other. Therefore
+    it is possible to have command-line driven or text-only programs, but
+    also full-fledged multimedia capable components.</>
+
+    <SECT1><TITLE/Interfaces/
+      <PARA>CORPS defines a set of CORBA interfaces, which are the basis on
+      which all components communicate with each other. Here is a brief
+      overview over these interfaces:
+
+      <ITEMIZEDLIST>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="mime">MIME Handling Interface</></>
+          to ease the use of MIME types, which are used to determine the
+          capabilities of CORPS components.
+        </></>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="system">System Interface</></>
+          which describes methods for maintaining a specific roleplaying
+          system (such as a generic fantasy setting for example). Systems
+          define attributes and methods common to a certain kind of games.
+          This way reimplementation is avoided and objects that are defined
+          in a system may be transferred from one game using this system
+          to another.
+        </></>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="game">Game Interface</></>
+          describes the methods and attributes games have to be able to be
+          played by (human or artificial) players.
+        </></>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="client">Client Interface</></>
+          describes the methods and attributes a game implementation may
+          access to supply the player with information about what is happening
+          in the game.
+        </></>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="gamelist">Game List Interface</></>
+          are an easy method to collect information about game objects in a list,
+          which can be accessed by clients to gain information about games
+          that still search for players etc.
+        </></>
+        <LISTITEM><SIMPARA>
+          <EMPHASIS><LINK linkend="map">Map Interfaces</></> are
+          a special set of interfaces used for displaying, manipulating and
+          playing on 2-D maps.
+        </></>
+      </ITEMIZEDLIST></PARA>
+    </SECT1>
+
+    <SECT1><TITLE/Authorization and Authentification/
+      <PARA>Currently, CORPS employs a simple, cookie-based authentification
+      scheme between a servers and clients connected to it. When a client
+      connects for the first time, it provides a so-called cookie
+      that the server has to provide with each request. On the other hand,
+      the server also passes back a cookie, when it is connected for the first
+      time. This cookie the client must send with each furtherrequest.</>
+
+      <NOTE><PARA>The client sends the cookie the server must use because
+      it may get requests from the server while the <FUNCTION/join()/
+      method has not returned, yet.
+      (E. g. the server may request a username and a password from the
+      client before it is allowed to join.) Therefore, the client
+      must know the cookie the server will send, before it has successfully
+      joined a game.</></>
+
+      <PARA>There a several methods for clients to connect to servers.
+      One of the most-used is the <FUNCTION/join()/ call of
+      game objects. All these <FIRSTTERM/connect/-methods
+      provide an inout-parameter, called <PARAMETER/my_cookie/.
+      The client has to provide its cookie with this call and receives
+      the server's cookie in return.</>
+
+      <PARA>Whenever the client makes a call to the server, it provides
+      the cookie sent in the calls context-object. Vice versa, the server
+      provides its cookie, when it makes a call to the client.</>
+
+      <PARA>When a call is made and this call is either lacking a cookie
+      or the cookie provided is wrong, an exception is raised. The CORPS
+      IDL provides a special exception, called <ERRORNAME/WrongCookie/
+      for this purpose. If this cookie is to be raised by either client
+      or server, somebody tries to manipulate the connection. Therefore
+      it is a good idea to inform a human user about this condition.</>
+
+      <PARA>Authorization issues are currently not handled by CORPS itself.
+      Nevertheless, servers may implement their own authorization methods,
+      e. g. by prompting the client for username and password. CORPS
+      provides an exception, called <ERRORNAME/NoAuthorization/
+      that is to be thrown, if an authorization fails. As opposed to
+      exception <ERRORNAME/WrongCookie/ this exception is not
+      part of the base Roleplaying module, but is defined for each
+      connect-method that it needs.</>
+    </SECT1>
+  </CHAPTER>
+
+<!--=============================== Interfaces ============================-->
+
+  <CHAPTER><TITLE/Interface Descriptions/
+  <SECT1><TITLE/Introduction/
+    <PARA>FIXME</>
+  </SECT1>
+
+<!--===================            MIME handling           =================-->
+
+    <SECT1 id="mime"><TITLE/MIME Handling/
+      <PARA>FIXME</>
+
+      <SECT2><TITLE/MIME List Interface/
+        <PARA>FIXME</>
+      </SECT2>
+
+      <SECT2><TITLE/MIME Handlers/
+        <SECT3><TITLE/Overview/
+          <PARA>Each game and each client object provides a list of MIME
+          handlers. Each MIME handler is responsible for processing data of a
+          certain kind. They are the basis of communication between games
+          and clients. Methods, specific to a certain type of MIME handlers
+          are invoked on the handlers, who then perform some kind of
+          action.</>
+
+          <PARA>MIME handlers are object implementations. For each MIME type
+          a special interface is defined. All these interface are derived
+          from interface MIMEHandlerBase. This interface supports an
+          attribute <PROPERTY>Type</PROPERTY>, which reflects the MIME
+          type of an object implementation. One interface may be applicable
+          to multiple MIME types. For example there is a general handler
+          for all text MIME types (text/* - MIMEHandlerText) and also for
+          all image MIME types (image/* - MIMEHandlerImage).</>
+
+          <PARA>Both, the interface Client as well as the interface Game
+          support the operation
+          <FUNCSYNOPSIS>
+            <FUNCSYNOPSISINFO>exception <ERRORCODE/MIMETypeNotSupported/ {}</>
+            <FUNCDEF>MIMEHandlerBase <FUNCTION/get_MIMEObject/</>
+            <PARAMDEF>in string <PARAMETER/which/</>
+            <FUNCSYNOPSISINFO>raises(<ERRORNAME/MIMETypeNotSupported/)</>
+          </>.
+          It returns the MIME type requested by the parameter
+          <PARAMETER/which/. If the MIME type is not supported by
+          either the client or game, the exception
+          <ERRORNAME/MIMETypeNotSupported/ is raised. Note well
+          that there is only one function for both: input and output MIME
+          handlers. If a client or game supports a certain MIME type (which
+          is indicated by listing it in one of the attributes
+          <PROPERTY/InputMIME/ or <PROPERTY/OutputMIME/)
+          it must return a valid MIME handler, when this handler is requested.
+          This MIME handler does not need to support output operations, if the
+          MIME type is only listed in <PROPERTY/InputMIME/ and not
+          input operations, if the MIME type is only listed in
+          <PROPERTY/OutputMIME/. If it is listed in both lists, it
+          must support both kinds of operations.</>
+
+          <PARA>If a certain MIME handler implementation does not support
+          input or output operations, but is invoked with such an operation,
+          it must throw the exception
+          <ERRORNAME/MIMEHandlerBase::OperationNotSupported/.</>
+        </SECT3>
+
+        <SECT3><TITLE>text/*</>
+          <SECT4><TITLE/Description/
+            <PARA>All text MIME types are handled by objects of interface
+            MIMEHandlerText. There is only one input operation for printing
+            a text on the screen and two output operations for requesting
+            some text.</>
+
+            <PARA>The operation
+            <FUNCSYNOPSIS>
+              <FUNCDEF>void <FUNCTION/print/</>
+              <PARAMDEF>in string <PARAMETER/text/</>
+              <FUNCSYNOPSISINFO>raises(<ERRORNAME/OperationNotSupported/,
+              <ERRORNAME/WrongCookie/)
+              context("cookie");</>
+            </>.
+            instructs a client to print <PARAMETER/text/ to the
+            user. When invoked on game MIME handler, the supplied string
+            should be broadcast to the current client scope (see
+            <LINK linkend="game" endterm="game-title"// for more
+            information on scopes).</>
+
+            <PARA>For some game implementations this command is also used
+            to give commands to the game. Usually a parsed will pick up
+            the text and try to generate a sensible command. This kind
+            of game may honor the scope, but usually it will not.</>
+
+            <PARA>There are two nearly identical operations for requesting a
+            certain text from the user or game:
+            <FUNCSYNOPSIS>
+              <FUNCDEF>void <FUNCTION/request_string/</>
+              <PARAMDEF>in string <PARAMETER/what/</>
+              <PARAMDEF>out string <PARAMETER/str/</>
+              <FUNCSYNOPSISINFO>raises(<ERRORNAME/OperationNotSupported/,
+              <ERRORNAME/WrongCookie/,
+              <ERRORNAME/NoAnswer/)
+              context("cookie")</>
+            </> and
+            <FUNCSYNOPSIS>
+              <FUNCDEF>void <FUNCTION/request_text/</>
+              <PARAMDEF>in string <PARAMETER/what/</>
+              <PARAMDEF>out string <PARAMETER/text/</>
+              <FUNCSYNOPSISINFO>raises(<ERRORNAME/OperationNotSupported/,
+              <ERRORNAME/WrongCookie/,
+              <ERRORNAME/NoAnswer/)
+              context("cookie")</>
+            </>.
+            Both functions require a certain information to be returned in
+            textual form. What kind of information should be returned is
+            described in <PARAMETER/what/. Invoked on a client
+            or mastered game MIME handler, this should be a human readable
+            text, possibly a quite long one. In this text, it should be
+            clearly stated that the user has something to enter. (Of course,
+            this is hard to enforce, if the user is allowed to enter a
+            free-form request-text.) Invoked on unmastered games
+            <PARAMETER/what/ is usually in command form. (Even
+            though some kinds of games - like MUDs - may implement quite
+            complex parsers.) But see also <LINK linkend="text-handler-right" endterm="text-handler-right-title"//.</>
+
+            <PARA>The exception <ERRORNAME/NoAnswer/ is thrown, if either
+            a user refuses to answer a request (e.g. by clicking on a
+            cancel button) or if a automatic parser doesn't know how to
+            answer a request.</>
+
+            <PARA>The difference between both function is the kind of text
+            returned: <FUNCTION/request_string/ is supposed to
+            return a short string, like a name, a password or something
+            similar. This text must not contain anything that's suitable
+            for breaking the text into multiple lines (like newlines -
+            <LINK linkend="text-handler-newlines"/see below/).
+            Text requested by <FUNCTION/request_text/, on the
+            other hand, can be very long. As a thumb of rule you can say
+            that everything that's supposed to be read by humans and is
+            not a single fact (like a name, etc.) should be requested
+            with <FUNCTION/request_text/, while everything
+            that is processed by a computer should be requested by
+            <FUNCTION/request_string/.</>
+
+            <PARA>While <FUNCTION/request_string/ and
+            <FUNCTION/request_text/ are being answered by
+            an object implementation (be it a client or a game), the
+            object should not lock up and should still accept invocations
+            of other methods and at least queue those requests. They
+            are not required to answer them immediatly (this may not
+            be possible for clients), but as soon as the request is
+            satisfied. Game implementations may choose to do whatever
+            they want with a request by a client, which is currently to
+            answer a request. Often it is desired to silently forget such
+            a request or reply with an exception. This is especially true
+            is a game implementation has requested some kind of
+            authentification from the client, which is not satisfied, yet.
+            (Anyhow, a game implementation may do whatever it pleases with
+            every request of a client implementation.)</>
+          </>
+
+          <SECT4 id="text-handler-newlines"><TITLE>Newline Issues</TITLE>
+            <PARA>When using the functions <FUNCTION>print</FUNCTION>,
+            <FUNCTION>request_string</FUNCTION> and
+            <FUNCTION>request_text</FUNCTION> on MIME type text/plain, you
+            should keep in mind that you don't know the output medium. It
+            may be a text-console, a printer, a LCD screen or a line in
+            a listview of a graphical program, you don't know how much
+            characters fit into a line, which font will be used (a
+            proportional or a non-proportional), etc. So, newlines do not
+            have the meaning of a new line in the text MIME handler. Instead
+            they have the meaning of a new paragraph.</PARA>
+
+            <PARA>Because you will often have lengthy paragraphs that don't
+            fit onto one line of your output medium, the receiver of a text
+            is responsible for splitting it into lines that fit. How
+            paragraphs are drawn is their responsibility, too. Transmitted
+            texts should not have any trailing newlines as all text MIME
+            handlers must be able to begin a new line after displaying
+            received text, if this is necessary.</PARA>
+
+            <PARA>So what do you do, if you want to use ASCII drawings and
+            things like that? Simple: don't. There are MIME types that are
+            more suitable that text/plain.</PARA>
+
+            <PARA>Some other formats than text/plain (like text/html)
+            don't have the problems described above, while many have. You
+            should deal with formats of the latter kind like with
+            text/plain.</PARA>
+          </SECT4>
+
+          <SECT4><TITLE>Dealing with Illegal Input</TITLE>
+            <PARA>It is possible to send a wide veriety of characters with
+            each of the three functions of interface MIMEHandlerBase. But
+            normally not all these characters are suitable for displaying
+            or are allowed in a certain context. For example in
+            a string returned by <FUNCTION>request_string</FUNCTION>
+            newlines, page breaks etc. are not allowed. Another example
+            is the request of a telephone-number, where only numbers
+            are allowed.</PARA>
+
+            <PARA>If an illegal character is received, a text MIME handler
+            implementation is allowed to do with the received string,
+            whatever it wants to. In some circumstances it may choose to
+            silently discard it, even though this is normally discouraged.
+            Alternatively it may try to fix the error (e.g. by stripping the
+            offending characters), it may reissue a request or it may
+            throw an exception. </PARA>
+
+            <PARA>Of course, the kind of reaction depends heavily on the
+            kind of error. In the case of a wrong newline, the client
+            application is faulty. This should usually be answered by
+            throwing an exception. In the case of a telephone-number,
+            containing characters, the request may be reissued. If a
+            request is not satisfied (i.e. an empty string is returned),
+            the operation may be cancelled.</PARA>
+          </SECT4>
+
+          <SECT4 id="text-handler-right"><TITLE id="text-handler-right-title">Choosing the Right Operation</>
+            <PARA>It is obvious to use the input function <FUNCTION>print</>
+            if you want to transfer textual information to the remote side
+            and do not need an answer. It is not as obvious that you can
+            use this function also the get information.</>
+
+            <PARA>The input functions
+            <FUNCTION>request_string</> and <FUNCTION>request_text</>
+            are only used for getting an immediate response and for
+            getting a particular kind of information (like a name, a
+            password or a character description). Therefore they are not
+            suitable for a turn-based adventure-like games, where each
+            user-action is followed by a response by the server. Neither
+            should the game invoke <FUNCTION>request_string</>
+            with a <PARAMETER>what</> parameter like <LITERAL>"What now?"</>
+            on the client, nor should the client invoke a request
+            operation on the server, with a <PARAMETER>what</> parameter,
+            containing the command. Ideally the server doesn't even support
+            output methods. Turn-based games should be implemented using
+            sequences of <FUNCTION>print</> operations by both, client
+            and game.</>
+
+            <PARA>Clients normally don't invoke text output operations on the
+            game object. But if a game object implements text output functions,
+            it has to handle them correctly. What exactly a game object
+            does with such a request is implementation-defined. Unmastered
+            games usually take the <PARAMETER>what</> string as
+            identifier for a certain kind of information, they will
+            return. Mastered games will ask the game-master to answer the
+            request manually. (Therefore, client users can use free-form
+            requests in such cases.) Semi-mastered games may do both,
+            possibly deciding, if a request is to be handled automatically
+            by searching for a special character.</>
+          </>
+
+          <SECT4><TITLE>Rendering Suggestions</>
+            <PARA>Text that is sent via <FUNCTION>print</> represents
+            one block of information and is normally rendered as one or
+            more (if text contains newlines) paragraphs. That also means
+            that a new line should be started, if text doesn't end with
+            a newline character (which it shouldn't). There is currently no
+            method to print a string and continue that string later on the
+            same line.</>
+
+            <PARA>The <PARAMETER>what</> of the operations
+            <FUNCTION>request_string</> and <FUNCTION>request_text</> can
+            contain multiple paragraphs and may be rendered over multiple
+            lines. Their input is different, though; a text-only client
+            could ask for a string by putting the cursor after the last
+            word of the <PARAMETER>what</> text. If a text is requested,
+            a line is begun for the user to enter the text.</>
+
+            <PARA>Graphical user-agents could pop up a requester on a
+            request-operation. While for <FUNCTION>request_string</>
+            the text is entered into a string-widget, for
+            <FUNCTION>request_text</>, it's entered into a text-field.
+            Note that the user-agent should try to strip out newlines in the
+            text-field to avoid creating paragraphs at the client side.
+            Paragraphs could be generated by using two newlines in
+            sequence.</>
+          </SECT4>
+        </SECT3>
+
+        <SECT3><TITLE>image/*</>
+          <PARA>FIXME</>
+        </SECT3>
+
+        <SECT3><TITLE>sound/*</>
+          <PARA>FIXME</>
+        </SECT3>
+
+        <SECT3><TITLE>x-rpg/map</>
+          <PARA>CORPS maps and the corresponding interfaces are explained
+          in detail in a <LINK linkend="map"/later chapter/. This
+          section just deals with the MIME handler specific to CORPS
+          maps.</>
+<!-- FIXME -->
+
+          <SECT4><TITLE/Moving and Resizing the Map/
+            <PARA>CORPS Client Map Handlers implement a method, which allows
+            game objects to move and/or resize the current map:
+            <FUNCSYNOPSIS>
+              <FUNCDEF>void <FUNCTION/moveMap/</>
+              <PARAMDEF>in Position <PARAMETER/lefttop/</>
+              <PARAMDEF>in Position <PARAMETER/rightbottom/</>
+              <FUNCSYNOPSISINFO/context("cookie")/
+            </>
+            Passed to this function are the new positions of the top-left and
+            bottom-right corner of the map. Negative values for
+            <PARAMETER/lefttop/ mean to enlarge the map, positive
+            values mean to shrinken it. For <PARAMETER/rightbottom/
+            it is vice versa.</>
+
+            <PARA>To illustrate the use of this function, here are some
+            examples:
+            <ITEMIZEDLIST> <!-- FIXME: format -->
+              <LISTITEM><SIMPARA>moveMap({0, 0}, {10, 0}) The map is enlarged
+              by 10 fields in x-direction.</></>
+              <LISTITEM><SIMPARA>moveMap({0, 0}, {-5, 10}) The map is shrunk by 5
+              fields in x-direction (i.e. the five right-most columns are
+              cut off), but enlarged by 10 fields in y-direction.</></>
+              <LISTITEM><SIMPARA>moveMap({-10, 5}, {-10, 5}) The contents of the map
+              is moved 10 fields to the right and 5 fields to the top.</></>
+              <LISTITEM><SIMPARA>moveMap({-5, -5}, {0, 0}) The contents of the map is
+              moved 5 fields to the bottom and to the right, while enlarging
+              the map by 5 rows and columns.</></>
+            </></>
+          </SECT4>
+
+<!-- FIXME -->
+        </SECT3>
+
+        <SECT3><TITLE>x-rpg/hexmap</>
+          <PARA>FIXME</>
+        </SECT3>
+
+        <SECT3><TITLE>x-rpg/dungeon</>
+          <PARA>FIXME</>
+        </SECT3>
+      </SECT2>
+    </SECT1>
+
+<!--=====================================-->
+
+    <SECT1 id="system"><TITLE id="system-title"/Roleplaying System Interface/
+      <PARA>FIXME</>
+    </SECT1>
+
+<!--=====================================-->
+
+    <SECT1 id="game"><TITLE id="game-title"/Game Interface/
+      <PARA>FIXME</>
+
+      <SECT2><TITLE/Game Mastering/
+        <SECT3><TITLE/Overview/
+          <PARA>FIXME: human vs. computer game-masters (mastered game,
+          semi-mastered game, unmastered game and unknown game)</>
+        </SECT3>
+
+        <SECT3 id="super-clients"><TITLE/Super-Clients/
+          <PARA>FIXME: Special support for ordinary clients used by
+          game-masters</>
+        </SECT3>
+      </SECT2>
+
+      <SECT2 id="game-scoping"><TITLE/Scoping/
+        <SECT3><TITLE/Overview/
+          <PARA>FIXME: restricting output to certain users etc.</>
+
+          <PARA>Note though that scopes are only suggestions of a client
+          to a game implementation. The implementation may always
+          change the scope without notifying the scoping client (or with
+          notifying, if it pleases to do so).</>
+        </SECT3>
+
+        <SECT3><TITLE/Client Scope/
+          <PARA>FIXME</>
+
+          <PARA><LINK linkend="super-clients">Super-Clients</> can never
+          be excluded from distribution of scoped information, though.</>
+        </SECT3>
+      </SECT2>
+    </SECT1>
+
+<!--=====================================-->
+
+    <SECT1 id="client"><TITLE/Client Interface/
+      <SECT2><TITLE/Introduction/
+        <PARA>FIXME</>
+
+        <PARA>FIXME: player and gamemaster clients</>
+      </SECT2>
+
+      <SECT2><TITLE/FIXME/
+        <PARA>FIXME: kick() etc.</>
+      </SECT2>
+
+<!-- FIXME -->
+
+    </SECT1>
+
+<!--=====================================-->
+
+    <SECT1 id="gamelist"><TITLE/Game List Interface/
+      <PARA>FIXME</>
+    </SECT1>
+
+<!--=====================================-->
+
+    <SECT1 id="map"><TITLE/Map Interfaces/
+      <SECT2 id="map-interface"><TITLE/Map Interfaces/
+	<PARA>Currently there is only one kind of map-interface. It is
+        marked by the MIME type "x-rpg/map". This denotes a simple
+        map, made up of quadratic fields. Later, there will be definitions
+        for simple hex-maps and for free-form maps, too.</>
+
+        <PARA>FIXME</>
+      </SECT2>
+
+      <SECT2><TITLE/Map Sets/
+        <PARA>A CORPS map set is a set of tiles that is used by
+        <LINK linkend="map-interface"/CORPS maps/ to draw the
+        fields. It must be distinguised between a certain map set
+        definition and a actual implementation. A definition just specifies
+        the tiles, it supports. For example a map set definition,
+        called "Bathroom" may include a tile for normal floor, one for
+        showers, and one for toilets. Game implementations therefore must
+        choose a certain map set definition for a map and create the map
+        using the tiles provided by the definition.</>
+
+        <PARA>Even though every tile of a map set has a certain name and
+        a look that matches this name, you can not assume the function of
+        a certain field on the map by the name or look of its tile. The
+        functions of the fields are completely in he hands of the game
+        implementation. A game implementation may choose any tile of a map
+        set for any function, its implementor thinks matches. For example,
+        a tile named "Marble Floor" may be a solid floor in one field,
+        but may be a magic floor illusion in another one. Game implementations
+        may even dynamically change the meaning of a field without changing
+        the tile during play-time!</>
+
+        <PARA>The actual implementations of a certain definition can look
+        quite different from each other. But the general meaning of the field
+        must match the meaning of the definition. I.e. a shower tile can't
+        look like a toilet. The diffences may be in the style or in the size
+        of the tiles. You may even create implementations that draw tiles as
+        ASCII characters. (But note well that these can't be turned into
+        CORBA object yet and can only be used locally.)</>
+
+        <PARA>Map set definitions are identified by their names and a version.
+        Since there is no special name-space handling, you should check
+        new map set names with <ULINK
+        url="mailto:srittau@jroger.in-berlin.de"/Sebastian Rittau/ before
+        distributing map sets publicly. <EMPHASIS>Note well that map set
+        names are case-sensitive to allow easy mapping to some
+        filesystems.</></>
+
+        <PARA>A version is provided with each map set implentation to
+        specify which tiles exactly a specific implementation of a map set
+        supports. A game implementation will ask for a specific map set
+        version to use. Clients can then check, if the required version is
+        available locally (e.g. in cache or on disk) and if not use the
+        map set implementation provided by the game implementation via
+        object reference. If a map set implementation supports a certain
+        version of a map set definition, it automatically supports all
+        lower version, too, since newer version only add new fields, they
+        never change existing ones.</>
+
+        <PARA>Map sets contain two kinds of tiles: basic tiles and modifiers.
+        Each field of a map must have exactly one basic tile and a 
+        number of modifiers. The basic tile is the "ground" of a fields.
+        This could be earth, a paved floor, stones, nothing (i.e. a black
+        field) etc. Of course, the basic tile of a map fields may change
+        during the life-time of the map.</>
+
+        <PARA>Modifiers are everything that may change a field easily, like
+        chairs, shelves, characters, etc. But also walls are modifiers,
+        since they just "modify" the basic tile of a field. Each map set
+        should have a big storage of native modifier tiles, but game
+        implementations may supply own modifiers, even though they are
+        discouraged to do so, since this can lead to problems with different
+        styles, resolutions etc.</>
+
+        <PARA>The handling of the modifiers is completely in the hand of a
+        game implementation. The map set is just responsible for its look.
+        Modifiers may be rotated and moved by a game implementation, using
+        rountines of the map set implementation.</>
+
+        <PARA>There are some special basic fields. Normally fields with one
+        of these should not have modifiers, even though this is not forbidden.
+        All three types must exist in a map set implementation. Later
+        additions can be left out, if the version of the definition used
+        does not require its inclusion.</>
+
+        <VARIABLELIST>
+          <VARLISTENTRY><TERM/FT_Unknown/
+            <LISTITEM><SIMPARA>The field is of an unknown type. Normally, this
+            kind of field should never be rendered. Nevertheless the suggested
+            rendering is a well visible question mark.</></>
+          </>
+          <VARLISTENTRY><TERM/FT_Nothing/
+            <LISTITEM><SIMPARA>The field is not covered by the map. If, for
+            example, a map describes the fifth level of a building, this
+            type may be used to describe the outside. These fields are never
+            used by game implementations as areas of action (i.e. never
+            anything happens on these fields) and the type of them should
+            not be changed (they stay <PROPERTY/FT_Nothing/ the whole game).
+            </></>
+          </>
+          <VARLISTENTRY><TERM/FT_Unseen/
+            <LISTITEM><SIMPARA>The client that is to display this field does
+            not know, which kind of field this one is. Normally the player
+            can find this out by moving his character near this field, but
+            this depends on the game or system implementation.</></>
+          </>
+        </>
+
+        <!-- FIXME -->
+      </SECT2>
+
+      <SECT2><TITLE/Modifiers/
+        <PARA>FIXME</>
+      </SECT2>
+
+    </SECT1>
+  </CHAPTER>
+
+<!--====================================================================-->
+
+  <APPENDIX><TITLE/Module RolePlaying IDL Definition/
+    <PARA>FIXME</>
+  </APPENDIX>
+
+<!--====================================================================-->
+
+  <APPENDIX><TITLE/Object Implementation to File Mappings/
+    <SECT1><TITLE/Introduction/
+      <PARA>Instead of having a special server for every object implementation
+      that may be used by different game implementations (such as most map set
+      implementations) it is easier for many kinds of object implementations
+      to be saved to a file in a common format. These files are loaded by
+      special implementations that map the file contents to certain data. For
+      example nearly all map sets don't need any special handling, because
+      they are fairly simple: they consist of two pixmaps (for basic fields
+      and for modifiers) and some information about this pixmap (like its
+      name or the names of the fields).</>
+
+      <PARA>Therefore for it makes sense to store map sets in files using a
+      common format and have just one map set implementation that is able
+      to read these files and provide a map set object out of them. For
+      some kinds of CORPS object implementations (like maps and map sets)
+      common file format specifications exist.</>
+
+      <PARA>Even game implementations can sometimes be saved to files. Because
+      game implementations vary wildly and often need special routines, there
+      is no global game file format, but only formats for specific groups
+      of games. E.g. game implementation for a specific systems may be
+      saved in a special file format and a game implementation is able to
+      read and create objects out of them. </>
+    </SECT1>
+
+    <SECT1><TITLE/Generic File Format/
+      <PARA>Each CORPS file is a plain ASCII file that is separated into
+      different sections. Each section start with a declaration in the form
+      "section <REPLACEABLE/TYPE/ <TOKEN/{/" and ends with
+      a closing  bracket (<TOKEN/}/). Unknown sections are ignored
+      by the parser.</>
+
+      <PARA>Inside the section, you will find declarations in the form
+      "<REPLACEABLE/IDENTIFIER/<OPTIONAL>[<REPLACEABLE/TYPE/]</>
+      <REPLACEABLE/CONTENTS/;". <REPLACEABLE/TYPE/
+      is an optional type that can be specified to narrow a declaration. This
+      may be the language of a text given as <REPLACEABLE/CONTENTS/
+      or something similar. If a declaration is declared as required, a
+      default declaration (i.e. one without any option) must exist. Unknown
+      identifiers are ignored by the parser.</>
+    </SECT1>
+
+    <SECT1><TITLE/Parsing/
+      <!-- FIXME -->
+      <PARA>FIXME: different sections in one file</>
+      <!-- FIXME -->
+    </SECT1>
+
+    <SECT1><TITLE/Common File Formats/
+      <PARA>If default is just a dash, this attribute is required.</>
+
+      <SECT2><TITLE/Adventures/
+        <TABLE><TITLE/Adventure Attributes/<TGROUP cols="3">
+          <THEAD><ROW><ENTRY/Syntax/<ENTRY/Default/<ENTRY/Comment/</></>
+          <TBODY>
+            <ROW>
+              <ENTRY>Name<OPTIONAL/[LANG]/ <PARAMETER/NAME/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Title of the adventure. This may be specified in
+              different languages.</></>
+            </>
+          </>
+        </></>
+      </SECT2>
+
+      <SECT2><TITLE/Maps/
+        <TABLE><TITLE/Map Attributes/<TGROUP cols="3">
+          <THEAD><ROW><ENTRY/Syntax/<ENTRY/Default/<ENTRY/Comment/</></>
+          <TBODY>
+            <ROW>
+              <ENTRY>Name<OPTIONAL/[LANG]/ <PARAMETER/NAME/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Name of the map. This may be given in different
+              languages.</></>
+            </>
+            <ROW>
+              <ENTRY>Size <PARAMETER/X-SIZE/ <PARAMETER/Y-SIZE/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Size of the map in fields.</></>
+            </>
+            <ROW>
+              <ENTRY>Fields <PARAMETER>NR1<OPTIONAL/[:MOD1,MOD2,...]/</>
+                            <PARAMETER>NR2<OPTIONAL/[...]/</>
+                            <PARAMETER>NR3<OPTIONAL/[...]/</> ...;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Fields and modifiers, numbered according to
+              their map set declaration. You may use default names instead of
+              numbers here.</></>
+            </>
+            <ROW>
+              <ENTRY>MapSet <PARAMETER/NAME/;</>
+              <ENTRY><LITERAL/Generic/</>
+              <ENTRY><SIMPARA>Use a named map set. Defaults to the default
+              map set (<LITERAL/Generic/).</></>
+            </>
+          </>
+        </></>
+      </SECT2>
+
+      <SECT2><TITLE/Map Sets/
+        <TABLE><TITLE/Map Set Attributes/<TGROUP cols="3">
+          <THEAD><ROW><ENTRY/Syntax/<ENTRY/Default/<ENTRY/Comment/</></>
+          <TBODY>
+            <ROW>
+              <ENTRY>Name<OPTIONAL/[LANG]/ <PARAMETER/NAME/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Name of the map set. This may be given in
+              different languages.</></>
+            </>
+            <ROW>
+              <ENTRY>Version <PARAMETER/VERSION/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA><PARAMETER/VERSION/ is a single
+              integer number that specifies the maximum version of the map set
+              definition this implementation supports.</></>
+            </>
+            <ROW>
+              <ENTRY>Fields <PARAMETER/NR/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Number of fields supported excluding special fields.</></>
+            </>
+            <ROW>
+              <ENTRY>FieldNames<OPTIONAL/[LANG]/ <PARAMETER/NAME1/ <PARAMETER/NAME2/ ...;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Names of the field definitions. Note that these
+              must match the official names of the definition.</></>
+            </>
+            <ROW>
+              <ENTRY>SpecialFieldTypes <PARAMETER/NR/;</>
+              <ENTRY/3/
+              <ENTRY><SIMPARA>Number of special field types, the map set
+              supports. This must be at least 3. If this is e.g. 3, the
+              first image in the pixmap-file is the "unknown" image, the
+              second one is the "nothing" image, and the third one is the
+              "unseen" image. The following images are custom images.</></>
+            </>
+            <ROW>
+              <ENTRY>Modifiers <PARAMETER/NR/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Number of modifiers supported. May be zero.</></>
+            </>
+            <ROW>
+              <ENTRY>ModifierNames<OPTIONAL/[LANG]/ <PARAMETER/NAME1/ <PARAMETER/NAME2/ ...;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Names of the modifiers. Note that these
+              must match the official names of the definition.</></>
+            </>
+            <ROW id="mapset-pixmapfile">
+              <ENTRY>PixmapFile <PARAMETER/FILENAME1/ <PARAMETER/FILENAME2/ ...;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Name of the pixmap files, where the images for
+              the field types are saved. This is relative to the path of the
+              file, this section is in. This pixmap file is a field of small
+              images that represent all supported fields. The special field
+              types come first, then the custom fields. The first field image
+              is in the upper left corner of the first file, the successing
+              images follow to the right. The images may be splitted into
+              multiple lines or files.</></>
+            </>
+            <ROW>
+              <ENTRY>ModifierFile <PARAMETER/FILENAME1/ <PARAMETER/FILENAME2/ ...;</>
+              <ENTRY/None/
+              <ENTRY><SIMPARA>This is just like
+              <LINK linkend="mapset-pixmapfile"/PixmapFile/ above, but for
+              the modifiers. If you use modifiers, this attribute is
+              required, otherwise it is ignored.</></>
+            </>
+            <ROW>
+              <ENTRY>Size <PARAMETER/X-SIZE/ <PARAMETER/Y-SIZE/;</>
+              <ENTRY/-/
+              <ENTRY><SIMPARA>Size of one field in pixels.</></>
+            </>
+          </>
+        </></>
+      </SECT2>
+    </SECT1>
+  </APPENDIX>
+
+<!--========================================================================-->
+
+<!-- FIXME: glossary: game, system, client, object, artificial -->
+
+</BOOK>

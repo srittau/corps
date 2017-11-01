@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE Map SYSTEM "map.dtd">
+
+<Map>
+  <Meta>
+    <Name>Test Map</Name>
+    <Version version="1.0"/>
+    <Size width="3" height="3"/>
+    <MapSet name="generic"/>
+  </Meta>
+
+  <FieldList>
+    <!-- row #1 -->
+    <Field type="unknown"/>
+    <Field type="nothing"/>
+    <Field type="unseen"/>
+
+    <!-- row #2 -->
+    <Field type="256"/>
+    <Field type="257"></Field>
+    <Field type="street"/>
+
+    <!-- row #3 -->
+    <Field type="256"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"><Modifier type="wall_top"></Modifier></Field>
+    <Field type="street"><Modifier type="wall_left" depth="0"/><Modifier type="fence_bottom" depth="+10"/></Field>
+  </FieldList>
+</Map>

@@ -1,0 +1,90 @@
+# German po file for corps-core
+# Copyright (C) 1998-99 Sebastian Rittau
+# Sebastian Rittau <srittau@jroger.in-berlin.de>, 1998-99
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: corps-core 0.3.0\n"
+"POT-Creation-Date: 2000-04-16 08:42+0200\n"
+"PO-Revision-Date: 1999-10-23 23:39+0100\n"
+"Last-Translator: Sebastian Rittau <srittau@jroger.in-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: libcorpscorba/game-wrapper.cc:85
+msgid "This client does not support all needed features."
+msgstr ""
+"Dieses Programm hat nicht alle für dieses Spiel benötigten Fähigkeiten."
+
+#: libcorpscorba/game-wrapper.cc:87
+msgid "The game does not accept more clients."
+msgstr "Das Spiel akzeptiert keine weiteren Spieler."
+
+#: libcorpscorba/game-wrapper.cc:89
+msgid "You are not authorized to join this game."
+msgstr "Sie dürfen diesem Spiel nicht beitreten."
+
+#: libcorpscorba/game-wrapper.cc:91
+msgid "You are always connected to this game."
+msgstr "Sie sinhd diesem Spiel bereits beigetreten."
+
+#: libcorpscorba/orb.cc:43
+msgid "could not initialize CORBA"
+msgstr "konnte CORBA nicht initialisieren"
+
+#: libcorpscorba/corba.cc:39
+#, c-format
+msgid "CORBA error: %s"
+msgstr "CORBA Fehler: %s"
+
+#: libcorpscorba/corba.cc:41
+msgid "unknown CORBA error"
+msgstr "unbekannter CORBA-Fehler"
+
+#: libcorpscorba/corba.cc:43
+msgid "invalid CORBA error"
+msgstr "ungültiger CORBA-Fehler"
+
+#: libcorpscorba/game-impl.cc:29 libcorpscorba/system-impl.cc:28
+msgid "Unnamed"
+msgstr "Unbenannt"
+
+#: libcorpscorba/game-impl.cc:30
+msgid "The game´s author did not provide a description."
+msgstr "Der Autor des Spiel gab keine Beschreibung an."
+
+#: libcorpscorba/system-impl.cc:29
+msgid "No description was provided by the system's author."
+msgstr "Der Autor des Systems gab keine Beschreibung an."
+
+#: libcorpstool/exception.cc:112 libcorpstool/exception.cc:115
+msgid "WARNING"
+msgstr "WARNUNG"
+
+#: libcorpstool/exception.cc:168
+msgid "an internal error occured, please report"
+msgstr "es trat ein interner Fehler auf, bitte melden Sie dies"
+
+#: libcorpstool/exception.cc:170
+msgid "out of system resources"
+msgstr "mangelnde System-Resources"
+
+#: libcorpstool/exception.cc:172
+msgid "syntax error"
+msgstr "Syntax-Fehler"
+
+#: libcorpstool/exception.cc:174
+msgid "not implemented"
+msgstr "nicht implementiert"
+
+#: libcorpstool/exception.cc:176
+msgid "no such object"
+msgstr "Objekt existiert nicht"
+
+#~ msgid "wrong argument"
+#~ msgstr "falsches Argument"
+
+#~ msgid "unexpected end of file"
+#~ msgstr "unerwartetes Datei-Ende"

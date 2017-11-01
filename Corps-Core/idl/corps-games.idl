@@ -1,0 +1,116 @@
+/*  CORPS interfaces describing role-playing systems and games
+    Copyright (C) 1998-99 Sebastian Rittau <srittau@jroger.in-berlin.de>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+// FIXME: Note well that the following interfaces are work-in-progress.
+// Especially the strings will be replaced by wstrings.
+
+module CORPS {
+
+  /******************************* Properties *******************************/
+
+  interface Property {
+    readonly attribute string type;
+    readonly attribute any o;
+  };
+
+  typedef sequence<Property> PropertyList;
+
+  /********************************* Objects ********************************/
+
+  // Generic object interface. Specific objects are derived from this
+  // interface.
+  interface Thing {
+    readonly attribute string Name; // identification
+    readonly attribute PropertyList Properties;
+  };
+  typedef sequence<Thing> ThingList;
+
+  // A special object: a container.
+  interface Container : Thing {
+    readonly attribute ThingList contents;
+  };
+
+  /******************************** Character *******************************/
+
+  // This is a generic interface for roleplaying characters. System-specific
+  // interfaces should be derived from this class. All characters are
+  // a special kind of "Container". (Yes, I know ...)
+
+  // The "Name" attribute is the character's generic name. Many systems
+  // may want to implement a more sophisticated naming scheme (containing
+  // first names, last names, etc.). In this case, name contains a generic
+  // form, built of the other attributes. (E.g. first and last name
+  // concatenated together.)
+
+  interface Character : Container {
+  };
+
+  /************************************ System ******************************/
+
+  // a role-playing system
+  interface System {
+    readonly attribute string name;
+    readonly attribute string description;
+  };
+
+  /************************************ Game ********************************/
+
+  interface EventHandler {
+    void text_entered(in string text);
+  };
+
+  interface GameClient {
+    oneway void leave();
+  };
+
+  interface Game {
+    typedef unsigned long GameType;
+    const GameType GTMastered = 1;
+    const GameType GTMultiPlayer = 2;
+    const GameType GTMultiCharacter = 4;
+
+    readonly attribute string name;
+    readonly attribute string description;
+    readonly attribute System sys;
+    readonly attribute GameType type;
+
+    exception FeatureMissing {}; // the client is missing a feature the
+                                 // game needs
+    exception AlreadyJoined {};
+    exception GameFull {};
+    exception NoAuthorization {};
+    GameClient join(in Client cl)
+      raises(FeatureMissing, AlreadyJoined, GameFull, NoAuthorization);
+  };
+  
+  /********************************** GameList ******************************/
+
+  // A GameList object is provided by each GameList server
+  interface GameList {
+    typedef sequence<Game> GList;
+
+    // GameList contains a list of RPGGame object references
+    readonly attribute GList list;
+
+    // Register a new game in this game List
+    exception AlreadyRegistered {};
+    Cookie register(in Game g) raises(AlreadyRegistered);
+    oneway void unregister(in Cookie id);
+  };
+
+};

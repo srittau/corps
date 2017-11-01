@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1999-12-24 00:15+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: adventures/maniax/arghandler.cc:50 adventures/maniax/arghandler.cc:73
+#, c-format
+msgid "Usage: %s [OPTIONS]\n"
+msgstr ""
+
+#: adventures/maniax/arghandler.cc:52
+msgid ""
+"Option summary:\n"
+"\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+" -r --register-with - specify meta-server to register with\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+
+#: adventures/maniax/arghandler.cc:72
+msgid "invalid number of arguments"
+msgstr ""
+
+#: adventures/maniax/game.cc:42
+msgid "The Maniax"
+msgstr ""
+
+#: adventures/maniax/game.cc:43
+msgid "A simple introduction adventure for the system \"Cyber\"."
+msgstr ""
+
+#: adventures/maniax/game.cc:76
+#, c-format
+msgid "broadcasting text: %s"
+msgstr ""
+
+#: adventures/maniax/game.cc:109
+msgid "client trying to join game"
+msgstr ""
+
+#: adventures/maniax/game.cc:145
+#, c-format
+msgid "%s joined game"
+msgstr ""
+
+#: adventures/maniax/game.cc:164
+msgid "client trying to leave game"
+msgstr ""
+
+#: adventures/maniax/game.cc:174
+#, c-format
+msgid "%s has left game"
+msgstr ""
+
+#: adventures/maniax/game.cc:184
+msgid "client not found"
+msgstr ""
+
+#: system/system.cc:29
+msgid "A cyperpunk roleplaying system, involving magic, dragons etc."
+msgstr ""

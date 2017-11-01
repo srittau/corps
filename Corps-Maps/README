@@ -1,0 +1,35 @@
+                               CORPS Maps 0.3.0
+                               ================
+
+This package contains the libraries and data files needed to use
+CORPS maps.
+
+Requirements
+------------
+
+latest version of corps-core and its dependencies
+glib and gtk 1.2.0, gtk-- 1.0.0, and ImLib 1.9.0 or better
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1999 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+More Information
+----------------
+
+http://www.in-berlin.de/user/jroger/corps/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/

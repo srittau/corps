@@ -1,0 +1,5 @@
+Some CORPS clients:
+
+o A text-only client (possibly calling external programs)
+o Corps2Telnet mapper (text-only)
+o Multimedia-client

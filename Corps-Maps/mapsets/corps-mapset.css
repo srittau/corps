@@ -1,0 +1,52 @@
+MapSet {
+    display: block;
+    color: black; background-color: #ccccff;
+    padding: 4px;
+}
+
+Meta { display: block;
+       font-size: xx-large;
+       text-align: center;
+}
+Name:before { content: "Pixmap " open-quote; }
+Name:after { content: close-quote; }
+Name, Version { padding-left: 0.5ex; padding-right: 0.5ex; }
+Version:before { content: "(Version: " attr(version) ")"; }
+
+Pixmap, ModifierPixmap {
+    display: block;
+    margin-top: 4px; margin-bottom: 4px;
+    border-style: ridge; border-width: 4px;
+    width: 50ex;
+}
+Pixmap { background-color: #ffcccc }
+ModifierPixmap { background-color: #ccffcc; }
+Pixmap:before, ModifierPixmap:before {
+    display: block;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+Pixmap:before {
+    background-color: red;
+    content: "Fields in " open-quote attr(uri) close-quote;
+}
+ModifierPixmap:before {
+    background-color: green;
+    content: "Modifiers in " open-quote attr(uri) close-quote;
+}
+
+FieldList {
+    display: block;
+    border-top-style: groove;
+    border-top-width: 2px;
+}
+FieldList:before {
+    display: block;
+    font-weight: bold;
+    content: attr(xml:lang);
+}
+FieldName {
+    display: list-item;
+    padding-left: 3ex;
+}

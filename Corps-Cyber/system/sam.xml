@@ -1,0 +1,53 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet href="cyber_character.css" type="text/css"?>
+<!DOCTYPE CyberChar SYSTEM "cyber_character.dtd">
+
+<CyberChar xml:lang="en" id="red_scorpion">
+  <Identity>
+    <FirstName xml:lang="de">Axel</FirstName>
+    <LastName xml:lang="de">Bruns</LastName>
+    <StreetName xml:lang="en">Red Scorpion</StreetName>
+    <Sex sex="Male"/>
+  </Identity>
+
+  <Background>
+    <Birthday day="25" month="3" year="2038"/>
+    <Measures><Height cm="1.85"/></Measures>
+
+    <Look>
+      <Body><P>Axel is well-build and muscular.</P></Body>
+      <Face><P>The face is quite ugly: A big red scar from his left ear
+      to his mouth seems to make him smile all time; a unpleasant and
+      very disturbing smile.</P></Face>
+      <Hair><P>Axel's hair is black and unwashed.</P></Hair>
+      <Eyes><P>Axel has dark cyber-eyes.</P></Eyes>
+    </Look>
+
+    <History>
+      <P>Axel was born in Berlin in a lower-class family and lived there
+      all his life. He got involved in a gang, split with them and became
+      a Shadowrunner. With the money he got, while he was with the gang,
+      he bought cyberware and weapons.</P>
+    </History>
+
+    <Traits>
+      <P>Axel is the typical street-samurai. He behaves macho-like.</P>
+    </Traits>
+  </Background>
+
+  <Attributes>
+    <Constitution natural="5"/>
+    <Quickness natural="6"/>
+    <Strength natural="5"/>
+    <Charisma natural="2"/>
+    <Intelligence natural="2"/>
+    <Willpower natural="3"/>
+    <Essence natural="6"/>
+    <Magic natural="0"/>
+  </Attributes>  
+
+  <SkillList>
+    <Skill name="Fireweapons" level="6"/>
+    <Skill name="Armoury" level="4"/>
+  </SkillList>
+</CyberChar>

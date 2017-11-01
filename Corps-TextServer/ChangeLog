@@ -1,0 +1,21 @@
+1999-12-18  Sebastian Rittau  <srittau@moby>
+
+	* /home/cvs/corps-textserver/Makefile.am: Fixed rule dist-debian again.
+
+	* /home/cvs/corps-textserver/Makefile.am:
+	Fixed rule dist-debian: No empty files in source package.
+
+	* /home/cvs/corps-textserver/po/de.po: Removed obsolete translations.
+
+	* /home/cvs/corps-textserver/po/.cvsignore:
+	Ignore corps-textserver.pot, not corps-servers.pot.
+
+	* /home/cvs/corps-textserver/configure.in:
+	AC_INIT(src/communication.cc) -> AC_INIT(src/main.cc)
+
+	* /home/cvs/corps-textserver/acconfig.h, /home/cvs/corps-textserver/AUTHORS, /home/cvs/corps-textserver/autogen.sh, /home/cvs/corps-textserver/configure.in, /home/cvs/corps-textserver/.cvsignore, /home/cvs/corps-textserver/debian/changelog, /home/cvs/corps-textserver/debian/control, /home/cvs/corps-textserver/debian/copyright, /home/cvs/corps-textserver/debian/.cvsignore, /home/cvs/corps-textserver/debian/docs, /home/cvs/corps-textserver/debian/menu, /home/cvs/corps-textserver/debian/rules, /home/cvs/corps-textserver/debian/undocumented, /home/cvs/corps-textserver/Makefile.am, /home/cvs/corps-textserver/NEWS, /home/cvs/corps-textserver/po/ChangeLog, /home/cvs/corps-textserver/po/.cvsignore, /home/cvs/corps-textserver/po/de.po, /home/cvs/corps-textserver/README, /home/cvs/corps-textserver/src/arghandler.cc, /home/cvs/corps-textserver/src/arghandler.hh, /home/cvs/corps-textserver/src/.cvsignore, /home/cvs/corps-textserver/src/game.cc, /home/cvs/corps-textserver/src/game.hh, /home/cvs/corps-textserver/src/main.cc, /home/cvs/corps-textserver/src/Makefile.am, /home/cvs/corps-textserver/src/system.cc, /home/cvs/corps-textserver/src/system.hh, /home/cvs/corps-textserver/TODO:
+	First import.
+
+	* /home/cvs/corps-textserver/acconfig.h, /home/cvs/corps-textserver/AUTHORS, /home/cvs/corps-textserver/autogen.sh, /home/cvs/corps-textserver/configure.in, /home/cvs/corps-textserver/.cvsignore, /home/cvs/corps-textserver/debian/changelog, /home/cvs/corps-textserver/debian/control, /home/cvs/corps-textserver/debian/copyright, /home/cvs/corps-textserver/debian/.cvsignore, /home/cvs/corps-textserver/debian/docs, /home/cvs/corps-textserver/debian/menu, /home/cvs/corps-textserver/debian/rules, /home/cvs/corps-textserver/debian/undocumented, /home/cvs/corps-textserver/Makefile.am, /home/cvs/corps-textserver/NEWS, /home/cvs/corps-textserver/po/ChangeLog, /home/cvs/corps-textserver/po/.cvsignore, /home/cvs/corps-textserver/po/de.po, /home/cvs/corps-textserver/README, /home/cvs/corps-textserver/src/arghandler.cc, /home/cvs/corps-textserver/src/arghandler.hh, /home/cvs/corps-textserver/src/.cvsignore, /home/cvs/corps-textserver/src/game.cc, /home/cvs/corps-textserver/src/game.hh, /home/cvs/corps-textserver/src/main.cc, /home/cvs/corps-textserver/src/Makefile.am, /home/cvs/corps-textserver/src/system.cc, /home/cvs/corps-textserver/src/system.hh, /home/cvs/corps-textserver/TODO:
+	New file.
+

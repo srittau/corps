@@ -1,0 +1,10 @@
+o recognize, when gl-server shuts down
+o commmands: "!list"  - list all connected clients - may be disabled
+             "!quit"  - leave game
+             "!leave" -   "     "
+             "!exit"  -   "     "
+o Also transmit data of other kinds (image/*)
+o allow "super-client" (ie a game-master)
+o make in-game language selectable
+o Documentation & man-pages
+o Many, many FIXME´s to fix.

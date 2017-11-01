@@ -1,0 +1,45 @@
+This is just a list of issues I came accross during coding CORPS. If you
+have any question or suggestion, feel free to mail me at
+<srittau@jroger.in-berlin.de>
+
+                             Non i386-Platforms
+                             ==================
+
+Currently there is a hack that enables CORPS to work with OmniORB on
+i386 platforms. This probably breaks compiling on all other platforms.
+In order to remove this hack, replace the line
+'OMNIORB_CXXFLAGS="-D__x86__"' by 'OMNIORB_CXXFLAGS=""' in macros/orb.m4
+and rerun ./autogen.sh.
+
+                               CORBA classes
+                               =============
+
+When using the interfaces defined in roleplaying.idl you should note
+that these are still work-in-progress and may change. Especially the
+strings will be changes into wstrings as soon as ORBit supports them.
+
+                                File Naming
+                                ===========
+
+When using CORBA interfaces, you either need to implement a CORBA object
+or you need some kind of "wrapper" around the CORBA operation calls.
+Please use the following file- and class names to do that:
+
+o object implementation Foo: class Foo_Impl (filename: foo-impl.{cc,hh})
+
+  These are actual object implementations. They are sub-classes of their
+  RolePlaying::_sk_Foo class.
+
+o interface wrapper Foo: class Foo_Wrapper (filenames: foo-wrapper.{cc,hh})
+
+  These are wrappers for using objects implemented by remote applications.
+  They don't need to implement all methods a certain CORBA interface
+  defines. Actually their interface can be completely different from
+  the CORBA interface of the wrapped object. But normally the interface will
+  resemble each other to a certain degree. This way it also easier to
+  reuse a certain wrapper.
+
+  Since with omniORB2 we are using a true C++ CORBA ORB, the importance
+  of wrapper classes has decreased.
+
+If you use either of these classes, you need to link with libcorpscorba.a.

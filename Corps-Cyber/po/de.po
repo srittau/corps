@@ -1,0 +1,99 @@
+# German po file for corps-date
+# Copyright (C) 1999 Sebastian Rittau
+# Sebastian Rittau <srittau@jroger.in-berlin.de>, 1999
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: corps-data 0.2.0\n"
+"POT-Creation-Date: 1999-12-18 21:43+0100\n"
+"PO-Revision-Date: 1999-08-13 20:25+0200\n"
+"Last-Translator: Sebastian Rittau <srittau@jroger.in-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: adventures/maniax/arghandler.cc:50 adventures/maniax/arghandler.cc:73
+#, c-format
+msgid "Usage: %s [OPTIONS]\n"
+msgstr "Benutzung: %s [OPTIONEN]\n"
+
+#: adventures/maniax/arghandler.cc:52
+msgid ""
+"Option summary:\n"
+"\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+" -r --register-with - specify meta-server to register with\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+"Optionsübersicht:\n"
+"\n"
+" -h --help          - gibt diesen Text aus und beendet\n"
+" -v --version       - gibt die Version aus und beendet\n"
+" -r --register-with - gibt den Meta-Server an, bei dem das Spiel\n"
+"                      registriert werden soll\n"
+"\n"
+"Bitte melden Sie Fehler an srittau@jroger.in-berlin.de\n"
+
+#: adventures/maniax/arghandler.cc:72
+msgid "invalid number of arguments"
+msgstr "ungültige Anzahl an Argumenten"
+
+#: adventures/maniax/game.cc:42
+msgid "The Maniax"
+msgstr "Die Maniax"
+
+#: adventures/maniax/game.cc:43
+msgid "A simple introduction adventure for the system \"Cyber\"."
+msgstr "Ein einfaches Einführungs-Abenteuer für das System \"Cyber\"."
+
+#: adventures/maniax/game.cc:75
+#, c-format
+msgid "broadcasting text: %s"
+msgstr "Gebe Text global aus: %s"
+
+#: adventures/maniax/game.cc:108
+msgid "client trying to join game"
+msgstr "Ein Client versucht, das Spiel zu betreten."
+
+#: adventures/maniax/game.cc:144
+#, c-format
+msgid "%s joined game"
+msgstr ""
+
+#: adventures/maniax/game.cc:163
+msgid "client trying to leave game"
+msgstr "Client versucht, das Spiel zu verlassen."
+
+#: adventures/maniax/game.cc:173
+#, fuzzy, c-format
+msgid "%s has left game"
+msgstr "Spieler hat das Spiel verlassen."
+
+#: adventures/maniax/game.cc:183
+msgid "client not found"
+msgstr "Client nicht gefunden."
+
+#: system/system.cc:30
+msgid "A cyperpunk roleplaying system, involving magic, dragons etc."
+msgstr "Ein Cyberpunk-Rollenspielsystem, das Magie, Drachen usw. beinhaltet."
+
+#~ msgid "game was joined"
+#~ msgstr "Spiel wurde betreten."
+
+#~ msgid "client misses MIME feature"
+#~ msgstr "Dem Client fehlen benötigte MIME-Fähigkeiten."
+
+#~ msgid "too many tries to enter nick"
+#~ msgstr "Zu viele Versuche, ein Nick einzugeben."
+
+#~ msgid "unknown CORBA user exception"
+#~ msgstr "Unbekannte CORBA-Benutzer-Ausnahme."
+
+#~ msgid "cookie mismatch"
+#~ msgstr "Falsches Cookie!"
+
+#~ msgid "reached maximum error count -> removed player"
+#~ msgstr "Maximale Fehler-Anzahl erreicht -> Spieler entfernt."

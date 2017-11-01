@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE Map SYSTEM "map.dtd">
+
+<Map>
+  <Meta>
+    <Name>Cat's Supermarket</Name>
+    <Version version="1.0"/>
+    <Size width="7" height="15"/>
+    <MapSet name="generic"/>
+  </Meta>
+
+  <FieldList>
+    <!-- row #1 -->
+    <Field type="tiled_floor"><Modifier type="wall_top_left"/></Field>
+    <Field type="tiled_floor"><Modifier type="sliding_door_top"/></Field>
+    <Field type="tiled_floor"><Modifier type="sliding_door_top"/></Field>
+    <Field type="tiled_floor"><Modifier type="wall_top"/></Field>
+    <Field type="tiled_floor"><Modifier type="sliding_door_top"/><Modifier type="fence_left"/></Field>
+    <Field type="tiled_floor"><Modifier type="sliding_door_top"/></Field>
+    <Field type="tiled_floor"><Modifier type="wall_top"/><Modifier type="shelf_top"/></Field>
+
+    <!-- row #2 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="fence_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+
+    <!-- row #3 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="fence_left"/><Modifier type="wall_bottom"/></Field>
+    <Field type="tiled_floor"><Modifier type="wall_bottom"/></Field>
+    <Field type="tiled_floor"><Modifier type="wall_bottom"/></Field>
+
+    <!-- row #4 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #5 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #6 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #7 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #8 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #9 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #10 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #11 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #12 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #13 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #14 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+
+    <!-- row #15 -->
+    <Field type="tiled_floor"><Modifier type="wall_left"/><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_left"/></Field>
+    <Field type="tiled_floor"/>
+    <Field type="tiled_floor"><Modifier type="shelf_right"/></Field>
+  </FieldList>
+</Map>

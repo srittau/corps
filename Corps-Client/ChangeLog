@@ -1,0 +1,99 @@
+1999-12-26  Sebastian Rittau  <srittau@moby>
+
+	* src/main.cc: Do a "sleep(1)" in main_loop().
+
+1999-12-23  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: Updated.
+
+1999-12-18  Sebastian Rittau  <srittau@moby>
+
+	* src/gamelist.cc, src/gamelist.hh:
+	Use GameList_Wrapper instead of accesing GameList_var directly.
+
+	* configure.in, src/client.cc, src/communication.cc, src/communication.hh, src/gamelist.cc, src/main.cc, src/Makefile.am:
+	Removed communication.{cc,hh}, use CORPS_ORB instead.
+
+	* Makefile.am: Fixed rule dist-debian again.
+
+	* debian/changelog, Makefile.am:
+	Fixed rule dist-debian: No empty files in source package.
+
+1999-12-04  Sebastian Rittau  <srittau@moby>
+
+	* debian/control: Replaced explicit dependencies by ${shlibs:Depends}.
+
+	* debian/changelog, debian/control:
+	Dumped standards version to 3.1.1 and add build dependencies.
+
+1999-10-23  Sebastian Rittau  <srittau@moby>
+
+	* src/main.cc: Use class Client instead of class Client-Impl.
+
+	Use class CorbaException instead of convert_CORBA_Exception().
+
+	* src/gamelist.cc: Adoptions for gamelist-wrapper.
+
+	Use class CorbaException instead of convert_CORBA_Exception().
+
+	* src/Makefile.am:
+	Removed client-impl.{cc,hh} and added client.{cc,hh}.
+
+	* src/client.cc, src/client.hh: New class to wrap Client-Impl.
+
+	* src/game-wrapper.cc, src/game-wrapper.hh, src/client-impl.cc, src/client-impl.hh:
+	Moved Client-Impl and Game-Wrapper to libcorpscorba.
+
+	* TODO:
+	To do: client should ask for a game list if invoked without arguments.
+
+1999-10-17  Sebastian Rittau  <srittau@moby>
+
+	* src/client-impl.cc, src/client-impl.hh, src/clienttext-impl.cc, src/clienttext-impl.hh, src/Makefile.am:
+	Removed clienttext-impl.{cc,hh}.
+
+	* man/.cvsignore: Ignore generated files.
+
+1999-10-01  Sebastian Rittau  <srittau@moby>
+
+	* autogen.sh: Create ChangeLog to satisfy automake.
+
+	* configure.in, Makefile.am: Added man directory.
+
+	Issue warning if rcs2log fails but don´t stop make-dist.
+
+	* man/corps-client.6, man/Makefile.am:
+	Added very first version of manpage for corps-client.
+
+1999-09-25  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, debian/dirs, debian/rules, Makefile.am:
+	Removed debian/dirs.
+
+	* debian/.cvsignore: Removed debian/files.
+
+	* configure.in, NEWS, README: Dumped version to 0.3.0.
+
+	* debian/menu:
+	Binary package is named corps-text-client, not corps-client. Corrected.
+
+	* debian/changelog: First entry.
+
+	* ChangeLog: Removed ChangeLog from CVS.
+
+	* Makefile.am: Removed debian/files from Makefile.am.
+
+	* po/de.po: First translation.
+
+	* src/.cvsignore, .cvsignore: Ignore generated files.
+
+	* po/.cvsignore: Ignore corps-client.pot, not corps-gtk.pot. Oops.
+
+	* po/ChangeLog: Needed file.
+
+	* acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/menu, debian/rules, debian/undocumented, Makefile.am, NEWS, po/.cvsignore, po/de.po, README, src/arghandler.cc, src/arghandler.hh, src/client-impl.cc, src/client-impl.hh, src/clienttext-impl.cc, src/clienttext-impl.hh, src/communication.cc, src/communication.hh, src/gamelist.cc, src/gamelist.hh, src/game-wrapper.cc, src/game-wrapper.hh, src/main.cc, src/Makefile.am, TODO:
+	Initial import.
+
+	* acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/menu, debian/rules, debian/undocumented, Makefile.am, NEWS, po/.cvsignore, po/de.po, README, src/arghandler.cc, src/arghandler.hh, src/client-impl.cc, src/client-impl.hh, src/clienttext-impl.cc, src/clienttext-impl.hh, src/communication.cc, src/communication.hh, src/gamelist.cc, src/gamelist.hh, src/game-wrapper.cc, src/game-wrapper.hh, src/main.cc, src/Makefile.am, TODO:
+	New file.
+

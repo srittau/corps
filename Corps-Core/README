@@ -1,0 +1,101 @@
+                 CORPS 0.3.0 - The CORBA Roleplaying System
+                 ==========================================
+
+What is it?
+-----------
+
+This is a very early version of CORPS - The CORBA Roleplaying System. It
+is neither ready nor useable in any way. This version was released to
+attract new developers.
+
+CORPS is based on CORBA - The Common Object Request Broker Architecture.
+If you want to participate in developing CORPS, you should have at least
+some basic knowledge of CORBA. (But don't despair - I have just basic
+knowledge myself.) For more see the pages of the Object Management Group[1].
+
+CORPS currently consists of six packages:
+
+corps-core
+  This is the base-package needed to compile the other packages.
+
+corps-client
+  A simple text-only CORPS client.
+
+corps-servers
+  This package currently contains two servers:
+  o The CORPS gamelist-server - This one acts as a container for games that
+    you are offering to remote clients
+  o Textserv is a very simple exampleneous implementation of a CORPS game
+    server. It takes text (and possibly later pictures and other media) and
+    delivers them to all connected clients.
+
+corps-maps
+  Shipped with this package are libraries and data needed to use CORPS
+  maps with your servers or clients.
+
+corps-gtk
+  Currently, this contains two programs, based on Gtk+:
+  o GCORPS - A graphical CORPS client. Currently, this one is the only client
+    for CORPS.
+  o MapTool - A graphical tool to view and edit maps.
+
+corps-cyber
+  Contains data needed for playing the roleplaying system "Cyber".
+
+BTW: It's spelled C-O-R-P-S, but it's pronounced "corpse". (I know, I know,
+the Netscape-Mozilla-thingie is better.)
+
+Requirements
+------------
+
+omniORB 2.5.0 or better
+libxml 1.0.0 or better
+glib and gtk 1.2.0, gtk-- 1.0.0, and ImLib 1.9.0 or better for support of
+maps (required for corps-maps and corps-gtk)
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+Where to get CORPS
+------------------
+
+CORPS homepage: http://www.in-berlin.de/user/jroger/corps/
+
+Get the latest version here:
+
+http://www.in-berlin.de/user/jroger/corps/corps-core_0.3.0.tar.gz
+http://www.in-berlin.de/user/jroger/corps/corps-client_0.3.0.tar.gz
+http://www.in-berlin.de/user/jroger/corps/corps-servers_0.3.0.tar.gz
+http://www.in-berlin.de/user/jroger/corps/corps-maps_0.3.0.tar.gz
+http://www.in-berlin.de/user/jroger/corps/corps-gtk_0.3.0.tar.gz
+http://www.in-berlin.de/user/jroger/corps/corps-cyber_0.3.0.tar.gz
+
+Debian packages (i386) are available here:
+
+http://www.in-berlin.de/user/jroger/corps/corps-dev_0.3.0-1_i386.deb
+http://www.in-berlin.de/user/jroger/corps/corps-client_0.3.0-1_i386.deb
+http://www.in-berlin.de/user/jroger/corps/corps-servers_0.3.0-1_i386.deb
+http://www.in-berlin.de/user/jroger/corps/corps-maps_0.3.0-1_i386.deb
+http://www.in-berlin.de/user/jroger/corps/corps-gtk_0.3.0-1_i386.deb
+http://www.in-berlin.de/user/jroger/corps/corps-cyber_0.3.0-1_i386.deb
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1998-99 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+References
+----------
+
+[1] http://www.omg.org/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/

@@ -1,0 +1,92 @@
+/*  CORPS maps interfaces
+    Copyright (C) 2000 Sebastian Rittau <srittau@jroger.in-berlin.de>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+// FIXME: Note well that the following interfaces are work-in-progress.
+// Especially the strings will be replaced by wstrings.
+
+module CORPS {
+
+  /*********************************** Map **********************************/
+
+  typedef string MapSet;
+
+  interface Map {
+    struct Position_s { short xpos, ypos; };
+    typedef Position_s Position;
+
+    typedef unsigned short FieldType;
+    // special field types:
+    const FieldType FT_Unknown = 0; // unknown field
+    const FieldType FT_Nothing = 1; // used, eg to create invisible fields
+    const FieldType FT_Unseen  = 2; // a field, the client hasn't seen, yet
+    const FieldType FT_User    = 256; // first field type, a MapSet may use
+
+    typedef unsigned short FieldFlags;
+    // field flags:
+    const FieldFlags FF_Invisible = 1; // the client doesn't know the 
+                                       // current state of the field
+
+    // modifiers
+    //
+    // Modifiers modify fields. Such a modifier may be a character,
+    // furniture, plants, things that are lying around etc. Modifiers
+    // may have objects attached to them. E. g. a character modifier
+    // will have the characters object connected to it.
+
+    typedef unsigned short ModifierType;
+    // special modifier types:
+    const ModifierType MT_Unknown = 0;   // unknown modifier
+    const ModifierType MT_User    = 256; // first modifier type, a MapSet
+                                         // may use
+
+    typedef unsigned short ModifierFlags;
+    // modifier flags
+    const ModifierFlags MF_HasObject = 1; // an object is connected to
+                                          // this modifier
+
+    struct Modifier {
+      ModifierType  type;
+      ModifierFlags flags;
+      Object        o;
+    };
+    typedef sequence<Modifier> ModifierList;
+
+    // fields
+
+    struct Field {
+      Position     pos;
+      FieldType    type;
+      FieldFlags   flags;
+      ModifierList modifiers;
+    };
+    typedef sequence<Field> FieldList;
+
+    // This is the short form of a field. It is used, if a complete map
+    // has to be set.
+    struct PackedField {
+      FieldType    type;
+      FieldFlags   flags;
+      ModifierList modifiers;
+    };
+
+    typedef sequence<PackedField> PackedFieldList;
+
+    readonly attribute MapSet mapset;
+};
+
+};

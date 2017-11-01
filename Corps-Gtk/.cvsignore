@@ -1,0 +1,15 @@
+ChangeLog
+intl
+aclocal.m4
+configure
+config.h.in
+config.h
+config.log
+config.status
+config.cache
+stamp-h.in
+stamp-h
+build-stamp
+install-stamp
+Makefile.in
+Makefile

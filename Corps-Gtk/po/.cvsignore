@@ -1,0 +1,9 @@
+POTFILES.in
+POTFILES
+Makefile.in
+Makefile
+stamp-cat-id
+cat-id-tbl.c
+corps-gtk.pot
+*.gmo
+

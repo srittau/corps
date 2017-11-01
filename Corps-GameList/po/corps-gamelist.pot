@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 1999-12-26 21:24+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: ENCODING\n"
+
+#: src/arghandler.cc:48
+msgid ""
+"Option summary:\n"
+"\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+
+#: src/arghandler.cc:64
+msgid "invalid number of arguments"
+msgstr ""
+
+#: src/gamelist.cc:52
+msgid "=== start database dump ==="
+msgstr ""
+
+#: src/gamelist.cc:60
+msgid "<error>"
+msgstr ""
+
+#: src/gamelist.cc:65
+msgid "=== end database dump ==="
+msgstr ""
+
+#: src/gamelist.cc:111
+#, c-format
+msgid "registered game: %s\n"
+msgstr ""
+
+#: src/gamelist.cc:137
+#, c-format
+msgid "unregistered game: %s\n"
+msgstr ""
+
+#: src/gamelist.cc:151
+#, c-format
+msgid "WARNING: invalid id: %s\n"
+msgstr ""

@@ -1,0 +1,530 @@
+1999-09-25  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, debian/.cvsignore, Makefile.am:
+	Removed debian/files.
+
+	* debian/changelog, configure.in, NEWS, README:
+	Dumped version to 0.3.0.
+
+	* po/de.po: Comments were changed.
+
+	* debian/changelog, debian/control, debian/copyright, debian/dirs, debian/menu, debian/rules, debian/undocumented, Makefile.am:
+	Made menu entries for binaries.
+
+	Linked manpages for binaries to undocumented(7).
+
+	Dumped standards version header to 3.0.1.
+
+	Simplified rules file.
+
+	Removed debian/dirs.
+
+	* maptool/gui_mapwidget.cc, maptool/gui_mapwidget.hh:
+	Moved constructors to gui_mapwidget.cc.
+
+	Added debug information.
+
+	* maptool/gui_iconview.cc, maptool/gui_iconview.hh:
+	Publically provide dnd_target_string and dnd_target_info.
+
+	* Makefile.am: Added ChangeLog to MANIFEST.
+
+	* TODO: MapTool: scrolling window for map area.
+
+	* gcorps/client-gui.cc: Readability improvements.
+
+	* libcorpsgtk/gui_exception.cc, libcorpsgtk/gui_filereq.cc, libcorpsgtk/gui_inputreqs.cc, libcorpsgtk/gui_requester.cc:
+	Made egcs happy.
+
+1999-09-05  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui.cc, TODO:
+	Use GUI_BusyRequester instead of GUI_MessageRequester when loading files.
+
+	* libcorpsgtk/map_widget.cc, libcorpsgtk/map_widget.hh:
+	Further improved MapWidget - map is now mapped just once.
+
+1999-09-04  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_mapwindow.cc: MapWidget::draw() -> MapWidget::set_map()
+
+	* maptool/gui_iconview.cc:
+	Status text is now always erased if pointer leaves widget.
+
+	* maptool/gui_iconview.hh: Made dnd_target public.
+
+	* gcorps/gui_gamechooser.cc: Make egcs happy.
+
+	* TODO: More work to do on busy-requester.
+
+	* libcorpsgtk/map_widget.cc, libcorpsgtk/map_widget.hh, NEWS:
+	Reworked MapWidget. It has now its own gdk window.
+
+1999-09-03  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_mapwidget.cc, maptool/gui_mapwidget.hh, maptool/gui_mapwindow.hh, maptool/Makefile.am:
+	Introduced GUI_MapWidget that inherits class MapWidget to add drag'n'drop
+	functionality.
+
+	* maptool/gui_iconview.cc, maptool/gui_iconview.hh:
+	Reset status bar if drag is aborted.
+
+	Simplified GUI_Iconview::motion_notify_event_impl().
+
+1999-08-15  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_iconview.cc, maptool/gui_iconview.hh, maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh:
+	First drag'n'drop functionality.
+
+	Added modifier list to the right of map window.
+
+1999-08-14  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: Documented last change (icons in field list).
+
+	* maptool/gui_iconview.cc, maptool/gui_iconview.hh, maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh, maptool/Makefile.am:
+	Field list is now displayed with icons representing the available field
+	types. Also introduced a status bar while doing this.
+
+1999-08-13  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsgtk/gui_about.cc, libcorpsgtk/map_widget.cc, maptool/gui_mapwindow.cc, gcorps/client-gui.cc, gcorps/gui_gamewindow.cc, gcorps/gui_playfield.cc:
+	Fixes for new egcc version.
+
+	* maptool/gui.cc, maptool/gui.hh, maptool/gui_mapwindow.cc, maptool/main.cc:
+	New way to create new map windows.
+
+	* maptool/gui_sizereq.cc: Added comment.
+
+	* gcorps/client-gui.cc: Added missing pthread_detach().
+
+1999-06-20  Sebastian Rittau  <srittau@moby>
+
+	* NEWS:
+	Maps are now loaded in separate thread; busy-requester shows that. Still
+	much work to do.
+
+	* maptool/gui.cc, maptool/gui.hh, maptool/gui_sizereq.cc, maptool/gui_sizereq.hh, maptool/main.cc, NEWS:
+	Added check for validity of size values when changing map-size.
+
+	Made GUI::about() static and guard gui-calls by GUI::(un)lock().
+
+	Added GUI::exception().
+
+	Renamed GUI::newMap() to GUI::new_map().
+
+	* libcorpsgtk/gui_about.cc, NEWS:
+	"Ok" button in GUI_About does now default.
+
+	* maptool/Makefile.am: Added THREAD_CFLAGS to CXXFLAGS.
+
+	* autogen.sh, configure.in, Makefile.am: Removed macros directory.
+
+	* configure.in: Reset default language to C after AM_PATH_GTKMM.
+
+	* maptool/gui_mapwindow.cc: Interface for maps was slightly changed.
+
+	Use MapSetFile::load_default() instead of MapSetFile::load_named("Generic").
+
+	* maptool/Makefile.am, gcorps/Makefile.am: Use new defines.
+
+	* configure.in: Modified for use of corps.m4.
+
+1999-06-19  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: Adoptions for new map handling stuff.
+
+1999-06-18  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_mapwindow.cc, NEWS:
+	Scrollbar policy of map-window now set to "automatic".
+
+1999-06-14  Sebastian Rittau  <srittau@moby>
+
+	* maptool/main.cc:
+	Use MapSetFile::load_default() instead of MapSetFile::load_named("Generic").
+
+	* debian/changelog, debian/control: Placed package at priority "extra".
+
+1999-06-12  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, NEWS, README:
+	Preparations for next release.
+
+	* po/de.po: New translation.
+
+	* debian/control: corps-maps recommended
+
+	typo fixed
+
+	stripped fourth field from Standards-Version-Header
+
+1999-06-08  Sebastian Rittau  <srittau@moby>
+
+	* debian/.cvsignore, debian/Makefile.am, configure.in, NEWS, Makefile.am:
+	removed dir debian from source-distribution, added rule dist-debian
+	to main Makefile
+
+1999-06-07  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh, NEWS, TODO:
+	maptool: put tile-list and map-window into paned-window
+
+	* gcorps/gui_gamewindow.cc, maptool/gui_mapwindow.cc, NEWS:
+	right-justified "Help"-menus
+
+	* TODO: GCorps: left-align game- and system-name
+
+1999-06-06  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamewindow.hh, NEWS:
+	added "Leave" menu-item
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh, gcorps/game-wrapper.cc, gcorps/game-wrapper.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamewindow.hh, gcorps/gui_playfield.cc, gcorps/gui_playfield.hh:
+	text-entry widget is set_sensitive(false) now if game provides no text_handler
+
+	included methods that are called when game is left
+
+	* po/de.po: removed obsolete entry
+
+	* debian/changelog, debian/dirs: added pixmap-dir to list of dirs
+
+1999-06-05  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, NEWS, README: dumped version to 0.1.3
+
+	* debian/.cvsignore, debian/Makefile.am, configure.in, Makefile.am:
+	distribute debian-directory
+
+	* gcorps/game-wrapper.hh, gcorps/game-wrapper.cc, NEWS:
+	new version of game-wrapper.{cc,hh}, fixes problems with connecting to
+	some games
+
+	* NEWS, maptool/Makefile.am, gcorps/Makefile.am:
+	install binaries in $(prefix)/games
+
+	* debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, .cvsignore, NEWS:
+	debianized
+
+	* TODO: do: docs & man-pages
+
+	* po/de.po: fixed MIME-Headers
+
+	* gcorps/game-wrapper.cc, gcorps/game-wrapper.hh:
+	fixed version information of game-wrapper.{cc,hh}
+
+1999-06-04  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: new translations
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh:
+	corrected error-handling, when opening games
+
+	improved error message, when running an adventure fails
+
+	* gcorps/game-wrapper.cc:
+	Game_Wrapper::join(): handle some more user exceptions
+
+	* gcorps/client-gui.cc: Client_GUI::connect_to_game(): handle errors
+
+	* po/de.po: new translations
+
+	* NEWS: capitalized entries
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh:
+	fixed various bugs; opening games does now work!
+
+	* gcorps/gui.cc:
+	GUI::freelock(): fixes another bug: the current depth of locking was
+	returned, regardless of the lock's owner
+
+	* gcorps/client.cc:
+	Client::~Client() and Client::delete_client(): on leave a game, if a
+	game-object really exists
+
+	* gcorps/gui.cc:
+	fixed GUI::freelock() - it freed the gui-lock, even if thread was not owner
+	of lock
+
+1999-05-27  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/gui_playfield.cc, maptool/gui_sizereq.cc, libcorpsgtk/gui_busyreq.cc, libcorpsgtk/gui_inputreqs.cc, NEWS:
+	added grab_default()'s and grab_focus()'
+
+	* po/de.po: new/changed translations
+
+	* gcorps/client-gui.cc:
+	FIX: segfaults, if "Open File..." file-requester was canceled
+
+	* gcorps/client.cc, gcorps/game-wrapper.cc, gcorps/game-wrapper.hh:
+	removed cookie argument from Game_Wrapper::join() and
+	Game_Wrapper::leave()
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh: cleaned up
+
+	* gcorps/gamelist-impl.cc, gcorps/gamelist-impl.hh:
+	fixed race-condition if game-file to load could not be executed
+
+	* gcorps/game-wrapper.cc:
+	use Communication::string_to_object() instead of
+	Communication::getCORBAORB()->string_to_object()
+
+	* gcorps/communication.cc, gcorps/communication.hh:
+	added Communication::string_to_object()
+
+	* gcorps/client.cc, gcorps/client.hh, gcorps/client-impl.hh, gcorps/client-impl.cc:
+	removed Client_Impl::join() and Client_Impl::leave() methods
+
+1999-05-26  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/client-gui.cc, gcorps/gamelist-impl.cc, gcorps/gamelist-impl.hh:
+	added busy-requester while waiting for games to connect
+
+	* libcorpsgtk/gui_busyreq.cc, libcorpsgtk/gui_busyreq.hh, libcorpsgtk/Makefile.am, NEWS:
+	added busy-requester to libcorpsgtk
+
+	* libcorpsgtk/gui_requester.cc, libcorpsgtk/gui_requester.hh:
+	added another button layout: LAY_CANCEL
+
+	* gcorps/gui.cc:
+	allow GUI::freelock() to be applied, if there is no lock
+
+	* TODO: removed obsolete entry
+
+	GCorps: shutdown opened games, when window is closed
+
+1999-05-24  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/client-gui.cc, gcorps/client-gui.hh, gcorps/communication.cc, gcorps/communication.hh, gcorps/gamelist-impl.cc, gcorps/gamelist-impl.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamewindow.hh, gcorps/Makefile.am, NEWS:
+	opening local game-files does now work
+
+	fixed segfaults, when closing a game-window with open requesters
+
+	* libcorpsgtk/gui_filereq.cc, libcorpsgtk/gui_filereq.hh, libcorpsgtk/Makefile.am:
+	added file requester
+
+	* configure.in: dump version to 0.1.2
+
+1999-05-23  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: made space for v0.1.2 and added some fixes
+
+	* po/de.po: fixed translation
+
+	* TODO:
+	fixed a problem and added another one (size of tile-list in maptool)
+
+	* maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh:
+	added list of tiles in mapset to map-editor window
+
+1999-04-18  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsgtk/Makefile.am: add GTKMM_CFLAGS to CXXFLAGS
+
+	* gcorps/gui_gamewindow.cc:
+	set_submenu() does now require an object-reference
+
+	* gcorps/gui_gamechooser.cc: s/realized()/is_realized()/
+
+	* gcorps/gui.cc: lock GUI, when popping up about-window
+
+	* maptool/Makefile.am, gcorps/Makefile.am:
+	include GTKMM_CFLAGS in CXXFLAGS
+
+	* configure.in: require gtk-- 1.0.0
+
+	move check for omniORB down
+
+	check for standard c headers
+
+	* README: require gtk-- 1.0.0
+
+1999-02-28  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/Makefile.am: Removed -D__x86__ hack
+
+	* README: Also require glib >= 1.2.0
+
+	* configure.in, README: Require gtk+ >= 1.2.0
+
+1999-02-15  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: map resize stuff
+
+	* maptool/gui_sizereq.cc, maptool/gui_sizereq.hh, maptool/main.cc, maptool/gui_mapwindow.hh, maptool/gui_mapwindow.cc, maptool/gui.hh, maptool/gui.cc, maptool/Makefile.am:
+	map can now be resized
+
+	* libcorpsgtk/map_widget.hh, libcorpsgtk/map_widget.cc:
+	map widget is now resizable
+
+	* gcorps/Makefile.am: use threads library
+
+	* configure.in: check for threads-library
+
+1999-02-12  Sebastian Rittau  <srittau@moby>
+
+	* NEWS: various news
+
+	* gcorps/gui_playfield.hh, gcorps/gui_playfield.cc, gcorps/gui_gamewindow.hh, gcorps/gui_gamewindow.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-gui.hh, gcorps/client-gui.cc:
+	fixed various gui locking errors
+
+	revamped playfield handling (class GUI_Playfield is now an immediate child of
+	class Client_GUI)
+
+	We've got the first completely operational client!
+
+	* gcorps/gui.cc: commented GUI::lock()
+
+	* gcorps/gui.cc: fixed GUI::lock() (arg...)
+
+	* gcorps/gui.cc: fixed GUI::relock() again
+
+	* gcorps/gui.cc:
+	on GUI::relock() check if there actually was a lock by us
+
+	* gcorps/gui.cc: fixed GUI::freelock()/GUI::relock() handling
+
+	* gcorps/gui_playfield.hh, gcorps/gui_playfield.cc, gcorps/gui_gamewindow.hh, gcorps/gui_gamewindow.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-gui.hh, gcorps/client-gui.cc:
+	use GUI::freelock()/GUI::relock()
+
+	print()'ing on games does now partly work
+
+	* gcorps/gui.hh, gcorps/gui.cc: GUI::freelock()/GUI::relock()
+
+	* gcorps/gui.cc: GUI::lock() now protects the gui itself
+
+	* libcorpsgtk/gui_inputreqs.hh, libcorpsgtk/gui_inputreqs.cc:
+	GUI_StringRequester: automatically close requester, if Return is pressed
+	in entry-widget
+
+	* gcorps/game-wrapper.hh, gcorps/game-wrapper.cc, gcorps/client-gui.hh, gcorps/client-gui.cc:
+	You can now conect to a game without using a game list
+
+	* gcorps/gui_playfield.hh, gcorps/gui_playfield.cc:
+	Text is now displayed in the textfield widget
+
+	* gcorps/communication.cc: Removed obsolete code
+
+1999-02-08  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsgtk/gui_inputreqs.hh, libcorpsgtk/gui_inputreqs.cc:
+	GUI_TextRequester::get_contents() works now
+
+	* gcorps/gui_serverconnector.hh, gcorps/gui_serverconnector.cc, gcorps/gui_playfield.cc, gcorps/gui_gamewindow.cc, gcorps/gui_gamelist.hh, gcorps/gui_gamechooser.cc, gcorps/gui_gamechooser.hh, gcorps/gui_gamelist.cc, gcorps/gamelist-wrapper.hh, gcorps/gamelist-wrapper.cc, gcorps/game-wrapper.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-impl.hh, gcorps/client-impl.cc, gcorps/client-gui.hh, gcorps/client-gui.cc, gcorps/Makefile.am, NEWS:
+	GCorps: Cleaned up connection handling, minor GUI improvements
+
+	* TODO:
+	TODO: problems with maptool, GCorps: RolePlaying::MIMEHandlerText::print()
+
+	* libcorpsgtk/gui_msgreqs.cc:
+	GUI_MessageRequester: "Ok" button grabs default, use frame type GTK_SHADOW_IN
+
+	* libcorpsgtk/gui_msgreqs.hh, libcorpsgtk/gui_msgreqs.cc:
+	GUI_MessageRequester: now allows to leave out header, works now correctly
+
+	* libcorpsgtk/gui_inputreqs.cc:
+	GUI_StringRequester: set maximum length of string
+
+	* libcorpsgtk/gui_requester.cc: Minor changes to button layout
+
+	* libcorpsgtk/gui_requester.cc:
+	Do not show() window on wait_for_action()
+
+	* gcorps/gui.hh, gcorps/gui.cc: GUI::lock() is now recusively callable
+
+	* gcorps/playfield_widget.hh, gcorps/playfield_widget.cc, gcorps/playfield_manager.hh, gcorps/playfield_manager.cc, gcorps/gui_playfield.hh, gcorps/gui_playfield.cc, gcorps/gui_gamewindow.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamelist.cc, gcorps/gamemanager.hh, gcorps/gamemanager.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-impl.cc, gcorps/client-gui.hh, gcorps/client-gui.cc, gcorps/Makefile.am:
+	RolePlaying::Client::kick() works now properly
+
+	Cleaned up some crud
+
+1999-02-07  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsgtk/gui_msgreqs.cc, libcorpsgtk/gui_msgreqs.hh, libcorpsgtk/Makefile.am:
+	New class: GUI_MessageRequester
+
+	* libcorpsgtk/gui_requester.hh, libcorpsgtk/gui_requester.cc:
+	New function: GUI_Requester::handle_self_destruction()
+
+	* gcorps/gui_gamelist.hh, gcorps/gui_gamelist.cc, gcorps/clienttext-impl.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-gui.cc:
+	Make MIMEHandlerText::request_{string,text}() work (partly)
+
+	* libcorpsgtk/gui_inputreqs.cc, libcorpsgtk/gui_inputreqs.hh, libcorpsgtk/gui_requester.cc, libcorpsgtk/gui_requester.hh, libcorpsgtk/gui_about.hh, libcorpsgtk/gui_about.cc, libcorpsgtk/Makefile.am:
+	New classes GUI_Requester, GUI_StringRequester and GUI_TextRequester
+
+	* TODO, NEWS: Fixed bugs during connecting game
+
+	* NEWS, README, configure.in: Dumped version to 0.1.1
+
+	* ChangeLog, .cvsignore: Fix ChangeLog handling
+
+	* README: Minor improvement
+
+	* gcorps/gui.hh, gcorps/gui.cc, gcorps/clienttext-impl.hh, gcorps/clienttext-impl.cc, gcorps/client.cc, gcorps/client-gui.hh, gcorps/client-gui.cc, NEWS:
+	GCorps: made thread-safe and fixed bugs that caused crashing
+
+1999-02-06  Sebastian Rittau  <srittau@moby>
+
+	* gcorps/client-gui.hh, gcorps/client-gui.cc:
+	Made GCorps tread-safe (at least partially)
+
+	* gcorps/utils.hh, gcorps/utils.cc, gcorps/gui_playfield.cc, gcorps/gamelist-wrapper.cc, gcorps/gamelist-wrapper.hh, gcorps/gui_gamelist.cc, gcorps/game-wrapper.hh, gcorps/game-wrapper.cc, gcorps/communication.hh, gcorps/communication.cc, gcorps/clienttext-impl.hh, gcorps/clienttext-impl.cc, gcorps/clientmap-impl.hh, gcorps/clientmap-impl.cc, gcorps/clientimage-impl.hh, gcorps/clientimage-impl.cc, gcorps/client.hh, gcorps/client.cc, gcorps/client-impl.hh, gcorps/client-impl.cc, gcorps/client-gui.hh, gcorps/client-gui.cc, gcorps/Makefile.am, configure.in, NEWS, Makefile.am:
+	Use omniORB2 instead of ORBit
+
+	Include macros dir in distribution
+
+	* configure.in, README, NEWS: Skipping version 0.0.7, now using 0.1.0
+
+	* autogen.sh: Use gettextize with option -f
+
+1999-01-29  Sebastian Rittau  <srittau@moby>
+
+	* maptool/gui_mapwindow.cc: Small changes in appearance of map window
+
+	* NEWS, maptool/gui.cc, maptool/gui.hh, maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh, maptool/main.cc:
+	MapTool starts now with an empty map if called without file arguments
+
+	MapTool aborted, if there was an error while loading the image. Fixed
+
+	Small changes to MapTool map window: use scrolled window for map, menu
+	bar isn't resizable anymore, use a default size for window
+
+	* ChangeLog, configure.in, README:
+	Made 0.0.6 release, dumped version to 0.0.7
+
+	* po/de.po: New translations
+
+	* libcorpsgtk/map_widget.cc, NEWS:
+	Fix: MapTool aborted, if an image couldn't be loaded
+
+	* ChangeLog, .cvsignore: No, we need empty ChangeLog to satify automake
+
+	* ChangeLog, .cvsignore, Makefile.am, NEWS:
+	Create MANIFEST and ChangeLog, when making distribution
+
+	* maptool/gui_mapwindow.cc, NEWS:
+	Fixed a crash, if a window was closed, whose requester has been opened
+	before
+
+	* po/corps-gtk.pot, po/.cvsignore:
+	Removed automatically generated file corps-gtk.pot
+
+	* po/de.po: New strings
+
+	* gcorps/.cvsignore, libcorpsgtk/.cvsignore, maptool/.cvsignore, pixmaps/.cvsignore, po/corps-gtk.pot, po/.cvsignore, .cvsignore, libcorpsgtk/gui_about.cc, libcorpsgtk/gui_about.hh, libcorpsgtk/gui_exception.cc, libcorpsgtk/gui_exception.hh:
+	Initial CVS version
+
+	* libcorpsgtk/gui_about.cc, libcorpsgtk/gui_about.hh, libcorpsgtk/gui_exception.cc, libcorpsgtk/gui_exception.hh:
+	New file.
+
+	* gcorps/arghandler.cc, gcorps/arghandler.hh, gcorps/client.cc, gcorps/client-gui.cc, gcorps/client-gui.hh, gcorps/client.hh, gcorps/clientimage-impl.cc, gcorps/clientimage-impl.hh, gcorps/client-impl.cc, gcorps/client-impl.hh, gcorps/clientmap-impl.cc, gcorps/clientmap-impl.hh, gcorps/clienttext-impl.cc, gcorps/clienttext-impl.hh, gcorps/communication.cc, gcorps/communication.hh, gcorps/gamemanager.cc, gcorps/gamemanager.hh, gcorps/game-wrapper.cc, gcorps/game-wrapper.hh, gcorps/gui.cc, gcorps/gui_gamelist.cc, gcorps/gui_gamelist.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamewindow.hh, gcorps/gui.hh, gcorps/gui_playfield.cc, gcorps/gui_playfield.hh, gcorps/gui_serverconnector.cc, gcorps/gui_serverconnector.hh, gcorps/main.cc, gcorps/Makefile.am, gcorps/playfield_manager.cc, gcorps/playfield_manager.hh, gcorps/playfield_widget.cc, gcorps/playfield_widget.hh, gcorps/utils.cc, gcorps/utils.hh, libcorpsgtk/Makefile.am, libcorpsgtk/map_widget.cc, libcorpsgtk/map_widget.hh, libcorpsgtk/trashcan.cc, libcorpsgtk/trashcan.hh, pixmaps/corps_lamp.xpm, pixmaps/corps_multic.xpm, pixmaps/corps_multip.xpm, pixmaps/Makefile.am, po/ChangeLog, po/corps-gtk.pot, po/de.po:
+	Initial CVS version
+
+	* gcorps/arghandler.cc, gcorps/arghandler.hh, gcorps/client.cc, gcorps/client-gui.cc, gcorps/client-gui.hh, gcorps/client.hh, gcorps/clientimage-impl.cc, gcorps/clientimage-impl.hh, gcorps/client-impl.cc, gcorps/client-impl.hh, gcorps/clientmap-impl.cc, gcorps/clientmap-impl.hh, gcorps/clienttext-impl.cc, gcorps/clienttext-impl.hh, gcorps/communication.cc, gcorps/communication.hh, gcorps/gamemanager.cc, gcorps/gamemanager.hh, gcorps/game-wrapper.cc, gcorps/game-wrapper.hh, gcorps/gui.cc, gcorps/gui_gamelist.cc, gcorps/gui_gamelist.hh, gcorps/gui_gamewindow.cc, gcorps/gui_gamewindow.hh, gcorps/gui.hh, gcorps/gui_playfield.cc, gcorps/gui_playfield.hh, gcorps/gui_serverconnector.cc, gcorps/gui_serverconnector.hh, gcorps/main.cc, gcorps/Makefile.am, gcorps/playfield_manager.cc, gcorps/playfield_manager.hh, gcorps/playfield_widget.cc, gcorps/playfield_widget.hh, gcorps/utils.cc, gcorps/utils.hh, libcorpsgtk/Makefile.am, libcorpsgtk/map_widget.cc, libcorpsgtk/map_widget.hh, libcorpsgtk/trashcan.cc, libcorpsgtk/trashcan.hh, pixmaps/corps_lamp.xpm, pixmaps/corps_multic.xpm, pixmaps/corps_multip.xpm, pixmaps/Makefile.am, po/ChangeLog, po/corps-gtk.pot, po/de.po:
+	New file.
+
+	* about.h, acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, Makefile.am, maptool/arghandler.cc, maptool/arghandler.hh, maptool/gui.cc, maptool/gui.hh, maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh, maptool/main.cc, maptool/Makefile.am, NEWS, README, TODO:
+	Initial CVS version
+
+	* about.h, acconfig.h, AUTHORS, autogen.sh, ChangeLog, configure.in, Makefile.am, maptool/arghandler.cc, maptool/arghandler.hh, maptool/gui.cc, maptool/gui.hh, maptool/gui_mapwindow.cc, maptool/gui_mapwindow.hh, maptool/main.cc, maptool/Makefile.am, NEWS, README, TODO:
+	New file.
+

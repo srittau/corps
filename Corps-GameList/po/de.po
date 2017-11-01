@@ -1,0 +1,61 @@
+# German po file for corps-servers
+# Copyright (C) 1998-99 Sebastian Rittau
+# Sebastian Rittau <srittau@jroger.in-berlin.de>, 1998-99
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: corps-gamelist 0.3.0\n"
+"POT-Creation-Date: 1999-12-23 23:35+0100\n"
+"PO-Revision-Date: 1999-12-23 23:38+0100\n"
+"Last-Translator: Sebastian Rittau <srittau@jroger.in-berlin.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/arghandler.cc:48
+msgid ""
+"Option summary:\n"
+"\n"
+" -h --help          - print this text and exit\n"
+" -v --version       - print version information and exit\n"
+"\n"
+"Report bugs to srittau@jroger.in-berlin.de\n"
+msgstr ""
+"Optionsüberblick:\n"
+"\n"
+" -h --help          gibt diesen Text aus und beendet\n"
+" -v --version       gibt die Version aus und beendet\n"
+"\n"
+"Bitte melden Sie Fehler an srittau@jroger.in-berlin.de\n"
+
+#: src/arghandler.cc:64
+msgid "invalid number of arguments"
+msgstr "falsche Anzahl an Argumenten"
+
+#: src/gamelist.cc:52
+msgid "=== start database dump ==="
+msgstr "=== Beginn der Datenbank-Ausgabe ==="
+
+#: src/gamelist.cc:59
+msgid "<error>"
+msgstr "<Fehler>"
+
+#: src/gamelist.cc:64
+msgid "=== end database dump ==="
+msgstr "=== Ende der Datenbank-Ausgabe ==="
+
+#: src/gamelist.cc:110
+#, c-format
+msgid "registered game: %s\n"
+msgstr "Spiel registriert: %s\n"
+
+#: src/gamelist.cc:136
+#, c-format
+msgid "unregistered game: %s\n"
+msgstr "Spiel entfernt: %s\n"
+
+#: src/gamelist.cc:150
+#, c-format
+msgid "WARNING: invalid id: %s\n"
+msgstr "WARNUNG: ungültige ID: %s\n"

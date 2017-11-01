@@ -1,0 +1,45 @@
+<!--
+    CORPS - DTD for mapsets
+    Copyright (C) 1999 Sebastian Rittau
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+<!ENTITY % uri 'uri CDATA #REQUIRED'>
+
+<!ELEMENT Name (#PCDATA)>
+<!ELEMENT Version EMPTY>
+<!ATTLIST Version version CDATA #REQUIRED>   <!-- default is 1.0 -->
+<!ELEMENT Meta (Name, (Version)?)>
+
+<!ELEMENT Id EMPTY>
+<!ATTLIST Id id ID #REQUIRED>
+<!ELEMENT IdList (Id*)>
+<!-- Each language may exist at most once. -->
+<!ELEMENT FieldName (#PCDATA)>
+<!ATTLIST FieldName id ID #IMPLIED>
+<!ELEMENT FieldList (FieldName*)>
+<!ATTLIST FieldList xml:lang NMTOKEN #IMPLIED>
+
+<!ELEMENT Pixmap (IdList?,FieldList*)>
+<!ATTLIST Pixmap %uri; specials CDATA #REQUIRED>
+<!ELEMENT ModifierPixmap (IdList?,FieldList*)>
+<!ATTLIST ModifierPixmap %uri;>
+
+<!ELEMENT Images (Pixmap, (Pixmap | ModifierPixmap)*)>
+<!ATTLIST Images width  CDATA #REQUIRED
+                 height CDATA #REQUIRED>
+
+<!ELEMENT MapSet (Meta, Images)>

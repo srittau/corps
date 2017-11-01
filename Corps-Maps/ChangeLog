@@ -1,0 +1,231 @@
+1999-12-23  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsmap/mapsetfile.cc: More sophisticated error messages.
+
+	* libcorpsmap/mapfile.cc:
+	Improved error message if mapset file couldn´t be loaded.
+
+	* libcorpsmap/mapfile.hh:
+	Do not #include <corps/exception.hh>, just declare "class Exception" and
+	"class File_Exception".
+
+1999-12-18  Sebastian Rittau  <srittau@moby>
+
+	* po/de.po: Adjusted project version.
+
+	* Makefile.am: Fixed rule dist-debian again.
+
+	* debian/changelog, Makefile.am:
+	Fixed rule dist-debian: No empty files in source package.
+
+1999-12-04  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, debian/control:
+	Dumped standards version to 3.1.1 and added build dependencies.
+
+	Added Suggests header.
+
+1999-10-10  Sebastian Rittau  <srittau@moby>
+
+	* images/street1.xcf, images/street-patterns.xcf:
+	Images that may be used for maps.
+
+	* autogen.sh: Create ChangeLog
+
+	* Makefile.am:
+	Issue a warning if ChangeLog can't be created, but don't stop
+
+1999-09-25  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, NEWS, README:
+	Dumped version to 0.3.0.
+
+	* Makefile.am: Added ChangeLog to MANIFEST.
+
+	* debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/rules, Makefile.am:
+	Removed debian/files and debian/dirs.
+
+	Cleaned up debian/rules.
+
+	Dumped standards version to 3.0.1.
+
+	* po/de.po: Changed comments.
+
+	* TODO: Localizing Field and Modifier names does not work, yet.
+
+1999-08-14  Sebastian Rittau  <srittau@moby>
+
+	* mapsets/generic.png: Improved look of unknown and unseen images.
+
+	* libcorpsmap/mapsetfile.cc:
+	Names were applied in a wrong way to fields and modifiers. Fixed.
+
+	* debian/dirs: Removed directory /usr/games.
+
+	* po/de.po: New and modified translations.
+
+	* libcorpsmap/map.cc, libcorpsmap/mapset.cc, libcorpsmap/mapsetfile.cc, libcorpsmap/mapset.hh, NEWS:
+	Use Gdk_Imlib::Image instead of GdkImlibImage.
+
+1999-06-20  Sebastian Rittau  <srittau@moby>
+
+	* configure.in: Reset default language to C after AM_PATH_GTKMM.
+
+	* NEWS: Fixed bug in map resize method.
+
+	* libcorpsmap/map.cc:
+	Fixed bug that could cause crashes when map was resized.
+
+	* configure.in: Also removed AM_ACLOCAL_INCLUDE directive.
+
+	* autogen.sh: Removed macros directory.
+
+	* TODO: Moved to XML format.
+
+	* libcorpsmap/map.cc, libcorpsmap/mapset.cc, libcorpsmap/mapsetfile.cc, libcorpsmap/mapset.hh:
+	Field and Modifier names are now processed.
+
+	* mapsets/generic.xml: Corrected language tags.
+
+	* configure.in, Makefile.am: Driectory macros removed.
+
+	* Makefile.am: Distribute macros directory.
+
+1999-06-19  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsmap/mapfile.cc:
+	Limited range of Modifier::depth attribute to -9999 to 9999.
+
+	* libcorpsmap/map.cc, libcorpsmap/map.hh:
+	Added handling for different modifier depth.
+
+	* NEWS: Added "depth" attribute to modifiers.
+
+	* libcorpsmap/mapfile.cc:
+	Added ability to process "depth" attribute of "Modifier" elements.
+
+	* libcorpsmap/mapmodifier.cc, libcorpsmap/mapmodifier.hh:
+	Added "depth" attribute.
+
+	* test/map.xml: Added "depth" attribute to two modifiers.
+
+	* maps/corps-map.dtd: Added "depth" attribute to element "Modifier".
+
+	* configure.in: Added new directory maps.
+
+	Removed check for omniORB.
+
+	* maps/.cvsignore: Ignore generated files.
+
+	* libcorpsmap/map.dtd, maps/corps-map.dtd, maps/Makefile.am, Makefile.am:
+	Moved maps.dtd into new directory maps.
+
+	* mapsets/generic.png: Improved look.
+
+	* test/map.xml: Corrected modifiers of field (2,2).
+
+1999-06-18  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsmap/Makefile.am:
+	Use CORPS_FILE_CXXFLAGS instead of CORPS_FILE_CFLAGS.
+
+	* test/Makefile.am: Distribute map.xml, not test.map.
+
+	* test/map.xml: Small adjustments.
+
+	* test/map.xml, test/test.map: Replaced test.map by new-style map.xml.
+
+	* test/Makefile.am: Fixed CXXFLAGS and LDADD.
+
+	* libcorpsmap/Makefile.am: Readded CORPS_FILE_CFLAGS to CXXFLAGS.
+
+	* Makefile.am: Readded test to SUBDIRS.
+
+	* libcorpsmap/Makefile.am: Reverted last change.
+
+	* libcorpsmap/Makefile.am: Include CORPS_FILE_CFLAGS in CXXFLAGS.
+
+	* configure.in: Check for AM_CORPS_FILE.
+
+	Do not check for CORPS_THREADS.
+
+	Fixed error messages: We depend on versions >= x, not on versions = x.
+
+1999-06-14  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsmap/mapsetfile.cc: Give special fields standard ids.
+
+	* libcorpsmap/mapsetfile.cc, libcorpsmap/mapsetfile.hh:
+	Added MapSetFile::load_default().
+
+	* NEWS: New XML map(set) format.
+
+	* libcorpsmap/mapsetfile.cc, libcorpsmap/mapsetfile.hh:
+	First version, handling new XML file format.
+
+	* libcorpsmap/mapfile.cc: Corrected error message.
+
+	* libcorpsmap/mapfile.cc:
+	If loading the specified MapSet file fails, print error message, returned
+	by MapSetFile::load_named().
+
+	Removed debug information.
+
+	* mapsets/Generic.mapset, mapsets/generic_mod.png, mapsets/Generic_mod.png, mapsets/generic.png, mapsets/Generic.png, mapsets/generic.xml, mapsets/Generic.xml, mapsets/Makefile.am:
+	Replaced mapset files by lowercase counterparts.
+
+	Removed obsolete Generic.mapset file.
+
+	* mapsets/corps-mapset.dtd:
+	Removed "size" attribute from Pixmap and ModifierPixmap.
+
+	* libcorpsmap/mapfile.cc, libcorpsmap/mapfile.hh:
+	First version using XML files.
+
+	* test/Makefile.am: Do not install corps-testmap.
+
+1999-06-13  Sebastian Rittau  <srittau@moby>
+
+	* libcorpsmap/mapset.hh: Added comment to MapSet::resolve_* functions.
+
+	* libcorpsmap/map.cc, libcorpsmap/map.hh: Made Map::Field into a class.
+
+	* debian/dirs: Put stylesheet in system-wide stylesheet directory.
+
+	* debian/changelog, debian/control: Placed package at priority "extra".
+
+	* mapsets/Makefile.am:
+	Install stylesheet in standard system stylesheet directory.
+
+1999-06-12  Sebastian Rittau  <srittau@moby>
+
+	* debian/changelog, configure.in, NEWS, README:
+	Preparations for next release.
+
+	* debian/changelog: This is package corps-maps, not corps-core.
+
+	* po/de.po: This is a translations-file for corps-maps, not corps-core.
+
+	* po/de.po: Removed translations from corps-core.
+
+	* i18n.hh: Use package corps-maps not corps-core.
+
+	* po/ChangeLog: Empty ChangeLog, needed by automake.
+
+	* Makefile.am: debian rules
+
+	* autogen.sh:
+	also include files which include <i18n.hh> into POTFILES.in
+
+	* debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, po/.cvsignore, po/de.po, test/.cvsignore:
+	Initial release.
+
+	* debian/changelog, debian/control, debian/copyright, debian/.cvsignore, debian/dirs, debian/docs, debian/rules, po/.cvsignore, po/de.po, test/.cvsignore:
+	New file.
+
+	* acconfig.h, AUTHORS, autogen.sh, configure.in, .cvsignore, i18n.hh, libcorpsmap/.cvsignore, libcorpsmap/Makefile.am, libcorpsmap/map.cc, libcorpsmap/map.dtd, libcorpsmap/mapfile.cc, libcorpsmap/mapfile.hh, libcorpsmap/map.hh, libcorpsmap/mapmodifier.cc, libcorpsmap/mapmodifier.hh, libcorpsmap/mapset.cc, libcorpsmap/mapsetfile.cc, libcorpsmap/mapsetfile.hh, libcorpsmap/mapset.hh, Makefile.am, mapsets/corps-mapset.css, mapsets/corps-mapset.dtd, mapsets/.cvsignore, mapsets/Generic.mapset, mapsets/Generic_mod.png, mapsets/Generic.png, mapsets/Generic.xml, mapsets/Makefile.am, NEWS, README, test/corps-testmap.cc, test/Makefile.am, test/test.map, TODO:
+	Initial release.
+
+	* acconfig.h, AUTHORS, autogen.sh, configure.in, .cvsignore, i18n.hh, libcorpsmap/.cvsignore, libcorpsmap/Makefile.am, libcorpsmap/map.cc, libcorpsmap/map.dtd, libcorpsmap/mapfile.cc, libcorpsmap/mapfile.hh, libcorpsmap/map.hh, libcorpsmap/mapmodifier.cc, libcorpsmap/mapmodifier.hh, libcorpsmap/mapset.cc, libcorpsmap/mapsetfile.cc, libcorpsmap/mapsetfile.hh, libcorpsmap/mapset.hh, Makefile.am, mapsets/corps-mapset.css, mapsets/corps-mapset.dtd, mapsets/.cvsignore, mapsets/Generic.mapset, mapsets/Generic_mod.png, mapsets/Generic.png, mapsets/Generic.xml, mapsets/Makefile.am, NEWS, README, test/corps-testmap.cc, test/Makefile.am, test/test.map, TODO:
+	New file.
+

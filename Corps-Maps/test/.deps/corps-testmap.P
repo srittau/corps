@@ -1,0 +1,172 @@
+corps-testmap.o: corps-testmap.cc \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iostream \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iostream.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/streambuf.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/bits/types.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/stddef.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/stdarg.h \
+ /usr/include/gdk_imlib.h /usr/include/gdk_imlib_types.h \
+ /usr/include/gdk/gdk.h /usr/include/gdk/gdktypes.h \
+ /usr/include/glib.h /usr/lib/glib/include/glibconfig.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/limits.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/float.h \
+ /usr/include/gdk/gdkcursors.h /usr/include/gdk/gdkrgb.h \
+ /usr/include/corps/exception.hh \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/string \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/bastring.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cstddef \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/straits.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cctype \
+ /usr/include/ctype.h /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cstring \
+ /usr/include/string.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/alloc.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_config.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_alloc.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/new \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/exception \
+ /usr/include/stdlib.h /usr/include/sys/types.h /usr/include/time.h \
+ /usr/include/sys/select.h /usr/include/bits/select.h \
+ /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h \
+ /usr/include/alloca.h /usr/include/assert.h /usr/include/pthread.h \
+ /usr/include/sched.h /usr/include/bits/sched.h \
+ /usr/include/bits/time.h /usr/include/signal.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/bits/sigthread.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iterator \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_relops.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_iterator.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/bastring.cc \
+ ../libcorpsmap/mapfile.hh /usr/include/corps/xml.hh \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/vector \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_algobase.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_pair.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/type_traits.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/include/new.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_construct.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_uninitialized.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_vector.h \
+ /usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_bvector.h \
+ /usr/include/gnome-xml/parser.h /usr/include/gnome-xml/tree.h \
+ /usr/include/stdio.h /usr/include/bits/stdio_lim.h \
+ /usr/include/bits/stdio.h /usr/include/gnome-xml/valid.h \
+ /usr/include/gnome-xml/xmlIO.h /usr/include/gnome-xml/encoding.h \
+ /usr/include/gnome-xml/entities.h /usr/include/gnome-xml/xml-error.h \
+ ../libcorpsmap/map.hh /usr/include/gdk--/drawable.h \
+ /usr/include/gdk--/types.h /usr/lib/Gtk--/include/gdk--config.h \
+ /usr/include/gtk/gtkfeatures.h /usr/include/gdk--/color.h \
+ ../libcorpsmap/mapmodifier.hh ../libcorpsmap/mapset.hh \
+ /usr/include/gdk--/extra/imlib.h /usr/include/gdk--.h \
+ /usr/include/gdk--/main.h /usr/include/gdk--/colormap.h \
+ /usr/include/gdk--/visual.h /usr/include/gdk--/gc.h \
+ /usr/include/gdk--/font.h /usr/include/gdk--/window.h \
+ /usr/include/gdk--/list.h /usr/include/gdk--/pixmap.h \
+ /usr/include/gdk--/bitmap.h /usr/include/gdk--/image.h
+corps-testmap.cc :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iostream :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iostream.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/streambuf.h :
+/usr/include/libio.h :
+/usr/include/_G_config.h :
+/usr/include/bits/types.h :
+/usr/include/features.h :
+/usr/include/sys/cdefs.h :
+/usr/include/gnu/stubs.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/stddef.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/stdarg.h :
+/usr/include/gdk_imlib.h :
+/usr/include/gdk_imlib_types.h :
+/usr/include/gdk/gdk.h :
+/usr/include/gdk/gdktypes.h :
+/usr/include/glib.h :
+/usr/lib/glib/include/glibconfig.h :
+/usr/include/limits.h :
+/usr/include/bits/posix1_lim.h :
+/usr/include/bits/local_lim.h :
+/usr/include/linux/limits.h :
+/usr/include/bits/posix2_lim.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/limits.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/float.h :
+/usr/include/gdk/gdkcursors.h :
+/usr/include/gdk/gdkrgb.h :
+/usr/include/corps/exception.hh :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/string :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/bastring.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cstddef :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/straits.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cctype :
+/usr/include/ctype.h :
+/usr/include/endian.h :
+/usr/include/bits/endian.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/cstring :
+/usr/include/string.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/alloc.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_config.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_alloc.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/new :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/exception :
+/usr/include/stdlib.h :
+/usr/include/sys/types.h :
+/usr/include/time.h :
+/usr/include/sys/select.h :
+/usr/include/bits/select.h :
+/usr/include/bits/sigset.h :
+/usr/include/sys/sysmacros.h :
+/usr/include/alloca.h :
+/usr/include/assert.h :
+/usr/include/pthread.h :
+/usr/include/sched.h :
+/usr/include/bits/sched.h :
+/usr/include/bits/time.h :
+/usr/include/signal.h :
+/usr/include/bits/pthreadtypes.h :
+/usr/include/bits/sigthread.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/iterator :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_relops.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_iterator.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/std/bastring.cc :
+../libcorpsmap/mapfile.hh :
+/usr/include/corps/xml.hh :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/vector :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_algobase.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_pair.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/type_traits.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/include/new.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_construct.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_uninitialized.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_vector.h :
+/usr/lib/gcc-lib/i386-linux/2.95.1/../../../../include/g++-3/stl_bvector.h :
+/usr/include/gnome-xml/parser.h :
+/usr/include/gnome-xml/tree.h :
+/usr/include/stdio.h :
+/usr/include/bits/stdio_lim.h :
+/usr/include/bits/stdio.h :
+/usr/include/gnome-xml/valid.h :
+/usr/include/gnome-xml/xmlIO.h :
+/usr/include/gnome-xml/encoding.h :
+/usr/include/gnome-xml/entities.h :
+/usr/include/gnome-xml/xml-error.h :
+../libcorpsmap/map.hh :
+/usr/include/gdk--/drawable.h :
+/usr/include/gdk--/types.h :
+/usr/lib/Gtk--/include/gdk--config.h :
+/usr/include/gtk/gtkfeatures.h :
+/usr/include/gdk--/color.h :
+../libcorpsmap/mapmodifier.hh :
+../libcorpsmap/mapset.hh :
+/usr/include/gdk--/extra/imlib.h :
+/usr/include/gdk--.h :
+/usr/include/gdk--/main.h :
+/usr/include/gdk--/colormap.h :
+/usr/include/gdk--/visual.h :
+/usr/include/gdk--/gc.h :
+/usr/include/gdk--/font.h :
+/usr/include/gdk--/window.h :
+/usr/include/gdk--/list.h :
+/usr/include/gdk--/pixmap.h :
+/usr/include/gdk--/bitmap.h :
+/usr/include/gdk--/image.h :

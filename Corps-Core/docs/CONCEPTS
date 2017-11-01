@@ -1,0 +1,62 @@
+There are four examples:
+
+o A simple text server (as in package corps-servers or corps-infocom)
+o A MUD server, enhanced by pictures etc.
+o A world-server (as in package corps-cyber)
+o The Mech server
+
+                           A Simple Text Server
+                           ====================
+
+This kind of server is IRC-like: You enter text and this text is
+transmitted to the game. Vice versa, the game sends back text.
+There are two variations: In the Infocom server, a text is send
+back as reaction to text input sent by the user. TextServ is
+always listening to text input and will occasionally send text
+to the client. (Not necessarily as reaction to input.)
+
+Both servers enable the client큦 History handler and use its
+append_text() method to send text to the user. To request
+information they use the InputLine handler. They enable()
+the handler immediatly after setup.
+
+The Infocom-Server could set auto_disable to true and reenable()
+the handler after sending a text. This would prevent buffering
+input.
+
+                      A Multimedia Enhanced MUD Server
+                      ================================
+
+This server generally works like the text-servers above. But it is
+enhanced by pictures and music. Certain places (rooms) hav pictures
+attached to them that are showed when the room is entered.
+Additionally, music is played in the background. Therefore the
+Display and Sound handlers are also activated. Whenever a
+picture is shown the Display큦 show() method is called. For
+playing music, the Sound handler큦 play() method is called. After
+leaving such a room, Display큦 clear method is called.
+
+Instead of using the Display handler, the Popup handler could be
+used. This would have the disadvantage that the popup window
+could be in the way and that the game server has no control, when
+the window is closed.
+
+                              A World Server
+                              ==============
+
+This is a rather complex server. When a new player enters the game,
+he is prompted to create a new character. This is performed by
+using the Request Form handler. If this is not available, the
+server may backfall to using the Input Line handler that most
+clients will implement. Alternatively, if the game server uses
+a well-known system (such as Cyber) it may ask the client for
+an object of its character type, using request_object(). This
+way, a more appropriate user interface could be used by the
+user.
+
+FIXME
+
+                             The Mech Server
+                             ===============
+
+The Mech Server is a server for a strategic kind of game. FIXME

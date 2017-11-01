@@ -1,0 +1,113 @@
+CyberChar {
+    color: black;
+    background-color: #ccccff;
+    font-family: sans-serif;
+    padding: 4px;
+}
+
+/* Paragraphs etc. */
+DIV, P { display: block }
+P { padding-top: 0.25em; padding-bottom: 0.25em; text-align: justify; }
+P:first-letter { font-size: 150%; }
+
+/* Boxed Attributes */
+Identity, Background, Attributes, SkillList,
+Karma, Health, Pools {
+    display: block;
+    border-style: ridge;
+    border-width: 5px;
+    margin-top: 4px; margin-bottom: 4px;
+    padding-left: 4px; padding-right: 4px;
+}
+Background:before, Attributes:before, SkillList:before,
+Karma:before, Health:before, Pools:before {
+    display: block;
+    text-align: center;
+    font-size: x-large;
+    border-bottom-style: ridge; border-left-style: ridge; border-right-style: ridge;
+    border-width: 2px;
+    margin-left: 10%; margin-right: 10%;
+    margin-bottom: 4px;
+}
+
+/* Identity */
+Identity {
+    background-color: #ffff00;
+    border-color: #ffff00;
+    text-align: center;
+    font-size: xx-large;
+}
+FirstName, LastName, StreetName { margin-left: 0.5ex; margin-right: 0.5ex; }
+FirstName, LastName { font-variant: small-caps; }
+StreetName:before { content: "'"; }
+StreetName:after { content: "'"; }
+Sex { font-size: medium; text-align: left; display: block; }
+Sex:before { font-weight: bold; content: "Sex: "; }
+Sex:after { content: attr(sex); }
+
+/* Background */
+Background { background-color: #ccffcc; border-color: #ccffcc; }
+Background:before { content: "Background"; background-color: #00ff00; }
+Birthday, Height { display: block; }
+Birthday:before { font-weight: bold; content: "Birthday: "; }
+Birthday:after { content: attr(year) "-" attr(month) "-" attr(day); }
+Height:before { font-weight: bold; content: "Height: "; }
+Height:after { content: attr(cm) "cm"; }
+
+Look, History, Traits {
+    display: block;
+    margin-top: 4px; margin-bottom: 4px;
+}
+Look:before, History:before, Traits:before {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: underline;
+    padding-top: 4px; padding-bottom: 4px;
+    border-top-style: ridge;
+    border-top-width: 2px;
+}
+Look:before { content: "Look"; }
+History:before { content: "History"; }
+Traits:before { content: "Character Traits"; }
+
+/* Attributes and Skills */
+Attributes, SkillList { background-color: #ffcccc; border-color: #ffcccc; }
+Attributes:before, SkillList:before { background-color: #ff3333; }
+Attributes:before { content: "Attributes"; }
+SkillList:before { content: "Skills"; }
+
+Constitution, Quickness, Strength,
+Charisma, Intelligence, Willpower,
+Essence, Magic,
+Skill { display: block; }
+
+Constitution:before, Quickness:before, Strength:before,
+Charisma:before, Intelligence:before, Willpower:before,
+Essence:before, Magic:before, Skill:before { font-weight: bold; }
+
+Constitution:before { content: "Constitution: "; }
+Quickness:before { content: "Quickness: "; }
+Strength:before { content: "Strength: "; }
+Charisma:before { content: "Charisma: "; }
+Intelligence:before { content: "Intelligence: "; }
+Willpower:before { content: "Willpower: "; }
+Essence:before { content: "Essence: "; }
+Magic:before { content: "Magic: "; }
+Skill:before { content: attr(name) ": "; }
+
+Constitution:after, Quickness:after, Strength:after,
+Charisma:after, Intelligence:after, Willpower:after,
+Essence:after, Magic:after {
+    content: attr(natural) "(" attr(modified) ")"
+}
+Skill:after { content: attr(level); }
+
+/* etc. */
+Health:after { content: "psychical: "  attr(psychical)
+                        ", physical: " attr(physical)
+                        ", superfluous: " attr(super)
+}
+Karma:before { content: "Karma: " }
+Health:before { content: "Health: " }
+Pools:before { content: "Pools: " }

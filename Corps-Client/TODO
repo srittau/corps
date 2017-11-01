@@ -1,0 +1,3 @@
+o client should ask for a game list or game if called without arguments
+o reading from stdin does not work from sub-threads
+o man-pages

@@ -1,0 +1,5 @@
+SGML_FILES = corba.sgml
+
+EXTRA_DIST = $(SGML_FILES) \
+	CONCEPTS \
+	HACKING

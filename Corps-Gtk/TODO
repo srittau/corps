@@ -1,0 +1,5 @@
+o MapTool: Busy-Requester when file is loaded or size is changed
+o MapTool: scrolling window for map area
+o GCorps: shutdown opened games, when window is closed
+o GCorps: left-align game- and system-name
+o Documentation & man-pages

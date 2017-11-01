@@ -1,0 +1,80 @@
+News in corps-gtk 0.3.0
+=======================
+
+News in corps-gtk 0.2.0
+=======================
+
+o MapTool: Available field types are now displayed as icons
+o MapTool: Size set in size-requester is now checked for validity
+o MapTool: Scrollbar policy of map-window is now set to "automatic"
+o MapTool: Maps are now loaded in their own thread; busy-requester shows
+  that there is something going on
+o libcorpsgtk: Reworked MapWidget - it has now its own gdk window
+o libcorpsgtk: Ok button in about-requester grab_default()s now
+o Adoptions for new map handling stuff
+
+News in corps-gtk 0.1.3
+=======================
+
+o GCorps: Added "Leave Game" menu entry
+o GCorps: Text entry-widget is disabled if game doesn't support text
+  submissions
+o MapTool: Put tile-list and map-window into pane-group
+o "Help"-menus are now right-justified
+o Removed directory "debian" from source-distribution, added dist-debian
+  target to main Makefile
+
+News in corps-gtk 0.1.2
+=======================
+
+o GCorps: Opening local game-files does now work
+o GCorps: Fixed segfaults, when closing a game-window with open requesters
+o GCorps: it is now possible to connect to games without text-handler
+o libcorpsgtk: Added busy-requester
+o Requesters have now default buttons
+o Binaries are now installed in $(prefix)/games
+o Added debian-specific files
+
+News in corps-gtk 0.1.1
+=======================
+
+o MapWidget is now resizable, added hooks for resizing to corps-maptool
+o New requesters in libcorpsgtk.a
+o Fixed bugs, which prevented GCorps from connecting to games: client
+  implementation was never announced to the BOA, dead-lock in GUI locking
+  code
+o GCorps: Cleaned up GameManager cruft
+o GCorps: Cleaned up GUI handling (use requesters in libcorpsgtk.a)
+o GCorps: text-handlers do now work, we've got the first completely
+  operational client!
+o GCorps: You can now connect to a game directly (without a game list)
+o GCorps: Minor GUI improvements
+o MapTool: Added list of available tiles to edit window
+
+News in corps-gtk 0.1.0
+=======================
+
+o We are using omniORB2 instead of ORBit now
+o GCorps is now multi-threaded
+o MapTool starts now with an empty map if called without file arguments
+o MapTool aborted, if there was an error while loading the image. Fixed
+o Small changes to MapTool map window: use scrolled window for map, menu
+  bar isn't resizable anymore, use a default size for window
+
+News in corps-gtk 0.0.6
+=======================
+
+o Added MANIFEST
+o MapTool: "Open new..." menu
+o MapTool crashed, if a window was closed, which had already its file-requester
+  open. Fixed
+
+News in corps-gtk 0.0.5
+=======================
+
+o gcorps: Modified Game_Wrapper class to use CORBA_Wrapper class and to allow
+  easy reuse.
+o Moved trashcan.{cc,hh}, gui_exception.{cc,hh} and gui_about.{cc,hh}
+  to libcorpsgtk. Added about-window to maptool.
+o Changes to comply with various changes in corps-core: split-up of libcorps.a,
+  slight API change in CORBA_Servant, modified roleplaying.idl

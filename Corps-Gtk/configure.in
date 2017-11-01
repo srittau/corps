@@ -1,0 +1,41 @@
+dnl Configuration file for corps-gtk
+dnl Process this file with autoconf to produce a configure script.
+dnl Copyright (C) 1998-99 Sebastian Rittau
+
+AC_INIT(gcorps/main.cc)
+AM_CONFIG_HEADER(config.h)
+
+AM_INIT_AUTOMAKE(corps-gtk, 0.3.0)
+
+dnl Checks for standard programs.
+AC_ISC_POSIX
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_STDC_HEADERS
+
+dnl Check for corps stuff
+AM_PATH_CORPS(0.2.0, , AC_MSG_ERROR(CORPS base libraries not found.))
+AM_CORPS_CORBA(, AC_MSG_ERROR(CORPS CORBA libraries not found.))
+AM_CORPS_FILE(, AC_MSG_ERROR(CORPS file libraries not found.))
+
+dnl Check for ImLib, gtk+ and gtk--
+AM_PATH_GLIB(1.2.0,, AC_MSG_ERROR(glib >= 1.2.0 not found. You need glib 1.2.0 or better to compile corps-gtk.))
+AM_PATH_GTK(1.2.0,, AC_MSG_ERROR(gtk+ >= 1.2.0 not found. You need gtk+ 1.2.0 or better to compile corps-gtk.))
+AM_PATH_GDK_IMLIB(1.9.0,, AC_MSG_ERROR(ImLib >= 1.9.0 not found. You need ImLib 1.9.0 or better to compule corps-gtk.))
+AM_PATH_GTKMM(1.0.0,, AC_MSG_ERROR(gtk-- >= 1.0.0 not found. You need gtk-- 1.0.0 or better to compile corps-gtk.))
+AC_LANG_C
+
+dnl Internationalization
+ALL_LINGUAS="de"
+AM_GNU_GETTEXT
+
+AC_OUTPUT([
+	Makefile
+	pixmaps/Makefile
+	libcorpsgtk/Makefile
+	gcorps/Makefile
+	maptool/Makefile
+	intl/Makefile
+	po/Makefile.in
+])

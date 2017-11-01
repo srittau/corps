@@ -1,0 +1,171 @@
+<!--
+    CORPS - DTD for characters of the "cyber" roleplaying-system
+    Copyright (C) 1999 Sebastian Rittau
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+-->
+
+<!--============================ Common Entities ========================-->
+
+<!ENTITY % i18n 'xml:lang NMTOKEN "en"'>
+
+<!ENTITY % text '((P|DIV)+)'>
+
+<!--=============================== Attributes ==========================-->
+
+<!ENTITY % race '(Human|Ork|Troll|Elf|Dwarf|Critter)'>
+
+<!ENTITY % day '(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31)'>
+<!ENTITY % month '(1|2|3|4|5|6|7|8|9|10|11|12)'>
+<!ENTITY % year 'CDATA'>
+<!ENTITY % dow '(Mo|Tu|We|Th|Fr|Sa|Su)'>
+
+<!--============================ Text Formatting ========================-->
+
+<!-- Like in HTML. -->
+<!ELEMENT SPAN (#PCDATA)>
+<!ATTLIST SPAN %i18n;>
+
+<!-- Paragraph. -->
+<!ELEMENT P (#PCDATA|SPAN)*>
+<!ATTLIST P %i18n;>
+
+<!-- Like in HTML. -->
+<!ELEMENT DIV ((P|DIV)+)>
+<!ATTLIST DIV %i18n;>
+
+<!--=============================== Identity ============================-->
+
+<!ELEMENT FirstName (#PCDATA)>
+<!ATTLIST FirstName %i18n;>
+<!ELEMENT LastName (#PCDATA)>
+<!ATTLIST LastName %i18n;>
+<!ELEMENT StreetName (#PCDATA)>
+<!ATTLIST StreetName %i18n;>
+
+<!-- If kind="Critter" element-contents specifies type of critter. -->
+<!ELEMENT Race (#PCDATA)>
+<!ATTLIST Race race %race; "Critter">
+<!ELEMENT Sex EMPTY>
+<!ATTLIST Sex sex (Male|Female|Neuter) #REQUIRED>
+
+<!-- Default race is human -->
+<!ELEMENT Identity ((FirstName)*, (LastName)?, (StreetName)?,
+                    (Race)?, Sex)>
+<!ATTLIST Identity %i18n;>
+
+<!--============================== Background ===========================-->
+
+<!ELEMENT Birthday EMPTY>
+<!ATTLIST Birthday day   %day;   #REQUIRED
+                   month %month; #REQUIRED
+                   year  %year;  #REQUIRED>
+
+<!ELEMENT Height EMPTY>
+<!ATTLIST Height cm CDATA #REQUIRED>
+<!ELEMENT Measures (Height)?>
+
+<!ELEMENT Body %text;>
+<!ATTLIST Body %i18n;>
+<!ELEMENT Face %text;>
+<!ATTLIST Face %i18n;>
+<!ELEMENT Hair %text;>
+<!ATTLIST Hair %i18n;>
+<!ELEMENT Eyes %text;>
+<!ATTLIST Eyes %i18n;>
+
+<!ELEMENT Look ((Body)?,(Face)?,(Hair)?,(Eyes)?)>
+<!ATTLIST Look %i18n;>
+
+<!ELEMENT History %text;>
+<!ATTLIST History %i18n;>
+<!ELEMENT Traits %text;>
+<!ATTLIST Traits %i18n;>
+
+<!ELEMENT Background ((Birthday)?, (Measures)?, (Look)?,
+                      (History)?, (Traits)?)>
+<!ATTLIST Background %i18n;>
+
+<!--============================== Attributes ===========================-->
+
+<!ENTITY % attribute_values '(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20)'>
+<!ENTITY % attribute_attrs 'natural %attribute_values; #REQUIRED
+                            modified %attribute_values; #IMPLIED'>
+<!-- Attribute values, including zero. (Needed for magic and essence.) -->
+<!ENTITY % attribute_values0 '(0|1|2|3|4|5|6|7|8|9|10)'>
+<!ENTITY % attribute_attrs0 'natural %attribute_values0; #REQUIRED
+                             modified %attribute_values0; #IMPLIED'>
+
+<!ELEMENT Constitution EMPTY>
+<!ATTLIST Constitution %attribute_attrs;>
+<!ELEMENT Quickness EMPTY>
+<!ATTLIST Quickness %attribute_attrs;>
+<!ELEMENT Strength EMPTY>
+<!ATTLIST Strength %attribute_attrs;>
+<!ELEMENT Charisma EMPTY>
+<!ATTLIST Charisma %attribute_attrs;>
+<!ELEMENT Intelligence EMPTY>
+<!ATTLIST Intelligence %attribute_attrs;>
+<!ELEMENT Willpower EMPTY>
+<!ATTLIST Willpower %attribute_attrs;>
+<!-- Natural reaction is calculated so this attribute is missing. -->
+<!ELEMENT Reaction EMPTY>
+<!ATTLIST Reaction modified %attribute_values; #IMPLIED>
+<!ELEMENT Essence EMPTY>
+<!ATTLIST Essence %attribute_attrs0;>
+<!ELEMENT Magic EMPTY>
+<!ATTLIST Magic %attribute_attrs0;>
+<!ELEMENT Initiative EMPTY>
+<!ATTLIST Initiative natural (1|2|3|4) "1"
+                     modified (1|2|3|4) #IMPLIED>
+
+<!-- Reaction: s.a. -->
+<!ELEMENT Attributes (Constitution, Quickness, Strength,
+                      Charisma, Intelligence, Willpower,
+                      (Reaction)?, Essence, Magic,
+                      (Initiative)?)>
+
+<!--=============================== Skills ==============================-->
+
+<!ELEMENT Skill EMPTY>
+<!ATTLIST Skill name CDATA #REQUIRED
+                level %attribute_values; #REQUIRED>
+
+<!ELEMENT SkillList (Skill)*>
+
+<!--================================ Karma ==============================-->
+
+<!ELEMENT Karma EMPTY>
+
+<!--================================ Health =============================-->
+
+<!ENTITY % wound_level '(0|1|2|3|4|5|6|7|8|9|10)'>
+
+<!ELEMENT Health EMPTY>
+<!ATTLIST Health psychical %wound_level; "0"
+                 physical  %wound_level; "0"
+                 super (0|1|2|3|4|5|6|7|8|9|10|11|12) "0">
+
+<!--================================ Pools ==============================-->
+
+<!ELEMENT Pools EMPTY>
+
+<!--============================== Top Level ============================-->
+
+<!-- If Health is not specified, the character isn't wounded. -->
+<!ELEMENT CyberChar (Identity, (Background)?, Attributes, SkillList,
+                     (Karma)?, (Health)?, (Pools)?)>
+<!ATTLIST CyberChar %i18n;
+                    id ID #IMPLIED>

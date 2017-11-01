@@ -1,0 +1,36 @@
+                          CORPS Game List Server 0.3.0
+                          ============================
+
+This package contains a game list server for CORPS - The CORBA
+Roleplaying System. It provides the means for game implementations
+to register themselves into a publically accessible list and for client
+implementation to read this list to find out about available games.
+
+Requirements
+------------
+
+The latest version of corps-core and its dependencies.
+
+Installing
+----------
+
+See the file INSTALL for information about compiling and installing the
+package.
+
+License and Copyright
+---------------------
+
+This package is Copyright (C) 1998-99 by Sebastian Rittau.
+
+This package is distributed under the GPL. See the file COPYING for more
+information.
+
+More Information
+----------------
+
+http://www.in-berlin.de/user/jroger/corps/
+
+
+Sebastian Rittau
+srittau@jroger.in-berlin.de
+http://home.pages.de/~jroger/
