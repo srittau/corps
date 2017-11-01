@@ -20,6 +20,6 @@ BTW: It’s spelled C-O-R-P-S, but it’s pronounced “corpse”. (I know, I kn
 ## Additional Information
 
 * [List of registered Map Sets](https://github.com/srittau/corps/wiki/Map-Sets)
-* The CORBA IDL for CORPS
+* [The CORBA IDL for CORPS](https://github.com/srittau/corps/blob/master/roleplaying.idl)
 
 You will find documentation (well at least first tries of something like a documentation) in the package [corps-core](https://github.com/srittau/corps/wiki/corps-core).
