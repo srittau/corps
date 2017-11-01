@@ -1,0 +1,303 @@
+/*  modules RolePlaying (from CORPS)
+    Copyright (C) 1998-99 Sebastian Rittau <srittau@jroger.in-berlin.de>
+    $Id: roleplaying.idl,v 1.1.1.1 2000/08/21 03:34:27 srittau Exp $
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+// FIXME: Note well that the following interfaces are work-in-progress.
+// Especially the strings will be replaces by wstrings.
+
+module RolePlaying
+{
+
+  typedef string Cookie;
+  exception WrongCookie {};
+
+  /*********************************** MIME *********************************/
+
+  typedef string MIMEType;
+
+  // A list of MIME capabilities. CORPS defines some special MIME types:
+  //   x-rpg/map              - CORPS maps
+  //   x-rpg/hexmap           - CORPS maps with hex-fields
+  //   x-rpg/dungeon          - A 3D environment
+  interface MIMEList
+    {
+      typedef sequence<MIMEType> List;
+
+      readonly attribute List MList;
+
+      // check, if a certain MIME type exists
+      boolean has_mime_type(in MIMEType type);
+    };
+
+  // A proporty is a special kind of information attached to some
+  // object or scene.
+  interface Property
+    {
+      readonly attribute MIMEType Medium; // what type of information is this?
+      readonly attribute string id; // what kind of information is this?
+                                    // some types will be defined
+      readonly attribute Object Data; // the object data
+    };
+  typedef sequence<Property> PropertyList;
+
+  /********************************* Objects ********************************/
+
+  // Generic object interface. Specific objects are derived from this
+  // interface.
+  interface Thing
+    {
+      readonly attribute string Name; // identification
+      readonly attribute PropertyList Properties;
+    };
+  typedef sequence<Thing> ThingList;
+
+  // A special object: a container.
+  interface Container : Thing
+    {
+      readonly attribute ThingList containing;
+    };
+
+  /******************************** Character *******************************/
+
+  // This is a generic interface for roleplaying characters. System-specific
+  // interfaces should be derived from this class. All characters are
+  // a special kind of "Thing". (Yes, I know ...)
+
+  // The "Name" attribute is the character's generic name. Many systems
+  // may want to implement a more sophisticated naming scheme (containing
+  // first names, last names, etc.). In this case, name contains a generic
+  // form, built of the other attributes. (E.g. first and last name
+  // concatenated together.)
+
+  interface Character : Thing
+    {
+      // list of objects, the character is carrying, of course, this
+      // may be empty (and in many kinds of games will be)
+      readonly attribute ThingList Inventory;
+    };
+
+  /*********************************** Map **********************************/
+
+  typedef string MapSet;
+
+  interface Map
+    {
+      struct Position_s { short xpos, ypos; };
+      typedef Position_s Position;
+
+      typedef unsigned short FieldType;
+      // special field types:
+      const FieldType FT_Unknown = 0; // unknown field
+      const FieldType FT_Nothing = 1; // used, eg to create invisible fields
+      const FieldType FT_Unseen  = 2; // a field, the client hasn't seen, yet
+      const FieldType FT_User    = 256; // first field type, a MapSet may use
+
+      typedef unsigned short FieldFlags;
+      // field flags:
+      const FieldFlags FF_Invisible = 1; // the client doesn't know the 
+                                         // current state of the field
+
+      // modifiers
+      //
+      // Modifiers modify fields. Such a modifier may be a character,
+      // furniture, plants, things that are lying around etc. Modifiers
+      // may have objects attached to them. E. g. a character modifier
+      // will have the characters object connected to it.
+
+      typedef unsigned short ModifierType;
+      // special modifier types:
+      const ModifierType MT_Unknown = 0;   // unknown modifier
+      const ModifierType MT_User    = 256; // first modifier type, a MapSet
+                                           // may use
+
+      typedef unsigned short ModifierFlags;
+      // modifier flags
+      const ModifierFlags MF_HasObject = 1; // an object is connected to
+                                            // this modifier
+
+      struct Modifier
+      {
+	ModifierType  type;
+	ModifierFlags flags;
+	Object        o;
+      };
+      typedef sequence<Modifier> Modifiers;
+
+      // fields
+
+      struct Field
+      {
+	Position   pos;
+	FieldType  type;
+	FieldFlags flags;
+	Modifiers  ModifierList;
+      };
+      typedef sequence<Field> Fields;
+
+      // This is the short form of a field. It is used, if a complete map
+      // has to be set.
+      struct PackedField
+      {
+	FieldType  type;
+	FieldFlags flags;
+	Modifiers  ModifierList;
+      };
+
+      typedef sequence<PackedField> PackedFields;
+    };
+
+  /***************************** MIME Handlers ******************************/
+
+  interface MIMEHandlerBase
+    {
+      readonly attribute MIMEType Type;
+
+      // this exception is raised, if an output method was invoked on an
+      // input-only object or vice versa
+      exception OperationNotSupported {};
+    };
+
+  interface MIMEHandlerText : MIMEHandlerBase
+    {
+      // input operations
+      void print(in string text)
+	raises(OperationNotSupported, WrongCookie); // FIXME:  context("cookie");
+
+      // output operations
+      exception NoAnswer {};
+      // return a single-line text
+      void request_string(in string what, out string str)
+	raises(OperationNotSupported, WrongCookie, NoAnswer); //FIXME: context("cookie");
+      // return a multi-line text
+      void request_text(in string what, out string text)
+	raises(OperationNotSupported, WrongCookie, NoAnswer); //FIXME: context("cookie");
+    };
+
+  interface MIMEHandlerImage : MIMEHandlerBase
+    {
+      // input operations
+      typedef sequence<octet> Image;
+      void display(in Image img)
+	raises(OperationNotSupported, WrongCookie); //FIXME: context("cookie");
+    };
+
+  interface MIMEHandlerSound : MIMEHandlerBase
+    {
+    };
+
+  interface MIMEHandlerMap : MIMEHandlerBase
+    {
+      // input operations
+      // use this, whenever you initialize a completely new map
+      void newMap(in Map::Position size, in Map::PackedFields f, in MapSet ms)
+	; //FIXME: context("cookie");
+      void modifyFields(in Map::Fields f, in MapSet ms)
+	; //FIXME: context("cookie");
+      // resize and/or move map
+      void moveMap(in Map::Position lefttop, in Map::Position rightbottom)
+	; //FIXME: context("cookie");
+    };
+
+  interface MIMEHandlerHexMap : MIMEHandlerBase
+    {
+    };
+
+  interface MIMEHandlerDungeon : MIMEHandlerBase
+    {
+    };
+
+  /********************************** Client ********************************/
+
+  interface Client
+    {
+      // MIME types the client can display
+      readonly attribute MIMEList InputMIME;
+      // MIME types the client can produce
+      readonly attribute MIMEList OutputMIME;
+
+      // get a specific MIME object
+      exception MIMETypeNotSupported {};
+      MIMEHandlerBase get_MIMEObject(in MIMEType which)
+	raises(MIMETypeNotSupported);
+
+      // Client gets kicked out by server
+      oneway void kick(in string reason); //FIXME: context("cookie");
+    };
+
+  /************************************ System ******************************/
+
+  interface SystemInfo
+    {
+      readonly attribute string name;
+      readonly attribute string description;
+    };
+
+  interface System
+    {
+      readonly attribute SystemInfo info;
+    };
+
+  /************************************ Game ********************************/
+
+  interface GameInfo
+    {
+      typedef unsigned long GameType;
+      const unsigned long GTMastered = 1;
+      const unsigned long GTMultiPlayer = 2;
+      const unsigned long GTMultiCharacter = 4;
+
+      readonly attribute string name;
+      readonly attribute string description;
+      readonly attribute System system_o;
+      readonly attribute GameType type;
+    };
+
+  interface Game
+    {
+      readonly attribute GameInfo info;
+
+      exception AlreadyJoined {};
+      exception MissingMIME { MIMEType type; };
+      exception GameFull {};
+      exception NoAuthorization {};
+      void join(in Client cl, inout Cookie my_cookie)
+	raises(AlreadyJoined, MissingMIME, GameFull, NoAuthorization);
+      oneway void leave(in Client cl, in Cookie my_cookie);
+
+      // get a specific MIME object
+      exception MIMETypeNotSupported {};
+      MIMEHandlerBase get_MIMEObject(in MIMEType which)
+	raises(MIMETypeNotSupported);
+  };
+
+  /********************************** GameList ******************************/
+
+  // A GameList object is provided by each GameList server
+  interface GameList {
+    typedef sequence<Game> GList;
+
+    // GameList contains a list of RPGGame object references
+    readonly attribute GList list;
+
+    // Register a new game in this game List
+    exception AlreadyRegistered {};
+    void registerGame(in Game g, in Cookie cook) raises(AlreadyRegistered);
+    oneway void unregisterGame(in Game g, in Cookie cook);
+  };
+
+};
